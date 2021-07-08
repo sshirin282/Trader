@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Intraday"
+        android:id="@+id/intra"
+        android:icon="@drawable/ic_baseline_business_center_24"/>
+
+    <item
+        android:title="Short Term"
+        android:id="@+id/sterm"
+        android:icon="@drawable/ic_baseline_timer_24"/>
+
+    <item
+        android:title="Long Term"
+        android:id="@+id/lterm"
+        android:icon="@drawable/ic_baseline_bar_chart_24"/>
+
+    <item
+        android:title="Details"
+        android:id="@+id/detail"
+        android:icon="@drawable/ic_baseline_details_24"/>
+
+    <item
+        android:title="contest"
+        android:id="@+id/contest"
+        android:icon="@drawable/ic_baseline_category_24"/>
+
+</menu>
