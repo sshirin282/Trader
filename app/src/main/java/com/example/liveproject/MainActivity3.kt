@@ -3,6 +3,8 @@ package com.example.liveproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -28,6 +30,43 @@ class MainActivity3 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled=true
 
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.home2 -> {
+                    val intent=Intent(this,MainActivity2::class.java)
+                    startActivity(intent)
+                }
+                R.id.intra2 -> {
+                }
+                R.id.sterm2 -> {
+                }
+                R.id.lterm2 ->{
+                }
+                R.id.detail2 ->{
+                }
+                R.id.contest2 ->{
+                }
+                R.id.share2 ->{
+                }
+                R.id.prize2 ->{
+                }
+                R.id.disclaimer2 ->{
+                }
+            }
+            menuItem.isChecked = true
+            drawerLayout.closeDrawers()
+            true
+        }
 
+
+        bottomNavigationView.setOnNavigationItemReselectedListener {
+            when(it.itemId){
+                R.id.intra->{
+                    Toast.makeText(this,"Intraday",Toast.LENGTH_LONG).show()
+                    val intent=Intent(this,MainActivity2::class.java)
+                    startActivity(intent)
+                }
+            }
+        }
     }
 }

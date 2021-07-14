@@ -2,47 +2,47 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="Home"
-        android:id="@+id/home"
+        android:id="@+id/home2"
         android:icon="@drawable/ic_baseline_home_24"/>
 
     <item
         android:title="Intraday"
-        android:id="@+id/intra"
+        android:id="@+id/intra2"
         android:icon="@drawable/ic_baseline_business_center_24"/>
 
     <item
         android:title="Short Term"
-        android:id="@+id/sterm"
+        android:id="@+id/sterm2"
         android:icon="@drawable/ic_baseline_timer_24"/>
 
     <item
         android:title="Long Term"
-        android:id="@+id/lterm"
+        android:id="@+id/lterm2"
         android:icon="@drawable/ic_baseline_bar_chart_24"/>
 
     <item
         android:title="Details"
-        android:id="@+id/detail"
+        android:id="@+id/detail2"
         android:icon="@drawable/ic_baseline_details_24"/>
 
     <item
         android:title="contest"
-        android:id="@+id/contest"
+        android:id="@+id/contest2"
         android:icon="@drawable/ic_baseline_category_24"/>
 
     <item
         android:title="Share"
-        android:id="@+id/share"
+        android:id="@+id/share2"
         android:icon="@drawable/ic_baseline_share_24"/>
 
     <item
         android:title="Prizes &amp; Rules"
-        android:id="@+id/prize"
+        android:id="@+id/prize2"
         android:icon="@drawable/ic_baseline_card_giftcard_24"/>
 
     <item
         android:title="Disclaimer"
-        android:id="@+id/disclaimer"
+        android:id="@+id/disclaimer2"
         android:icon="@drawable/ic_baseline_info_24"/>
 
 
