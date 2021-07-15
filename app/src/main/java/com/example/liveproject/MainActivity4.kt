@@ -18,6 +18,8 @@ class MainActivity4 : AppCompatActivity() {
     lateinit var textView4: TextView
     lateinit var imageView5: ImageView
     lateinit var textView5: TextView
+    lateinit var imageView6: ImageView
+    lateinit var textView6: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
@@ -33,6 +35,8 @@ class MainActivity4 : AppCompatActivity() {
         textView4=findViewById(R.id.textview4)
         imageView5=findViewById(R.id.imageview5)
         textView5=findViewById(R.id.textview5)
+        imageView6=findViewById(R.id.imageview6)
+        textView6=findViewById(R.id.textview6)
 
     }
 }

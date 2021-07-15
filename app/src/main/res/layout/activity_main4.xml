@@ -38,7 +38,7 @@
     <TextView
         android:id="@+id/textview2"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textview1"
@@ -62,7 +62,7 @@
         android:textSize="15dp"
         android:text="Winners can submit and re-submit unlimited times of prediction during contest is live."
         android:layout_below="@id/textview2"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="4dp"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:textStyle="bold"
         android:text="Our team will contact the winners for prizes."
         android:id="@+id/textview4"
@@ -97,6 +97,24 @@
         android:layout_below="@id/textview4"
         android:layout_toRightOf="@+id/imageview5"
         android:text="Everyone can see people's prediction until thursday NIFTY expiry and winners will be declared based on prediction. It is fullytransparent system."/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageview6"
+        android:layout_marginTop="55dp"
+        android:layout_below="@id/imageview4"
+        android:src="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview6"
+        android:layout_toRightOf="@id/imageview5"
+        android:layout_below="@id/textview5"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:text="Top 3 weekly winners (+ - 10 range or close to...) will get technical analysis book."/>
+
 
 
 
