@@ -49,6 +49,8 @@ class MainActivity3 : AppCompatActivity() {
                 R.id.share2 ->{
                 }
                 R.id.prize2 ->{
+                    val intent=Intent(this,MainActivity4::class.java)
+                    startActivity(intent)
                 }
                 R.id.disclaimer2 ->{
                 }
