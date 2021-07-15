@@ -94,6 +94,8 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.disclaimer2 ->{
+                    val intent=Intent(this,MainActivity5::class.java)
+                    startActivity(intent)
                 }
             }
             menuItem.isChecked = true

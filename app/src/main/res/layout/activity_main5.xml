@@ -4,22 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity4">
+    tools:context=".MainActivity5">
 
     <include
-        android:id="@+id/tollb"
+        android:id="@+id/toolb2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/tool"/>
 
     <ListView
-        android:layout_below="@+id/tollb"
+        android:layout_below="@id/toolb2"
+        android:id="@+id/textview5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listview"/>
-
-
-
-
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
