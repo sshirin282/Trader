@@ -1,8 +1,10 @@
 package com.example.liveproject
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ListView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class MainActivity5 : AppCompatActivity() {
@@ -23,10 +25,19 @@ class MainActivity5 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main5)
         toolbar=findViewById(R.id.tool2)
+        toolbar.setTitle("Disclaimer")
         setSupportActionBar(toolbar)
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
         listView=findViewById(R.id.textview5)
         custemAdapter=custemAdapter(this,name,image)
         listView.adapter=custemAdapter
+        toolbar.setNavigationOnClickListener(View.OnClickListener {
+            val intent=Intent(this,MainActivity2::class.java)
+            startActivity(intent)
+            finish()
+        })
+
 
     }
+
 }

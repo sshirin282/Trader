@@ -1,7 +1,9 @@
 package com.example.liveproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 
 class MainActivity4 : AppCompatActivity() {
@@ -22,9 +24,16 @@ class MainActivity4 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
         toolbar1= findViewById(R.id.tool1)
+        toolbar1.setTitle("Prizes and Rules")
         setSupportActionBar(toolbar1)
+        toolbar1.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
     listView=findViewById(R.id.listview)
     custemAdapter=custemAdapter(this,name,image)
     listView.adapter=custemAdapter
+        toolbar1.setNavigationOnClickListener(View.OnClickListener {
+            val intent= Intent(this,MainActivity2::class.java)
+            startActivity(intent)
+            finish()
+        })
     }
 }

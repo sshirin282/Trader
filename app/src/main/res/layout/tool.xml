@@ -8,27 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tool1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Prizes and Rules"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tool2">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Disclaimer"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
-    </androidx.appcompat.widget.Toolbar>
 
 
 </RelativeLayout>
