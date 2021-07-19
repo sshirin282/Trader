@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
@@ -27,6 +29,7 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var cardView6: CardView
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -38,7 +41,19 @@ class MainActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled = true
-
+        val navigationView: NavigationView =  findViewById(R.id.navigationview)
+        val header: View = navigationView.getHeaderView(0)
+        val tv: TextView = header.findViewById(R.id.login)
+//        tv.text = "Login"
+        tv.setOnClickListener {
+            val intent=Intent(this,MainActivity6::class.java)
+            startActivity(intent)
+        }
+        val tv1: TextView = header.findViewById(R.id.sign)
+        tv1.setOnClickListener {
+            val intent=Intent(this,MainActivity6::class.java)
+            startActivity(intent)
+        }
         cardView1 = findViewById(R.id.card1)
         cardView2 = findViewById(R.id.card2)
         cardView3 = findViewById(R.id.card3)
