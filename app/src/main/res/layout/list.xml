@@ -11,6 +11,7 @@
         android:layout_height="21dp"
         android:src="@drawable/d" />
     <TextView
+        android:textColor="#004D40"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -26,8 +26,8 @@ class MainActivity5 : AppCompatActivity() {
         setContentView(R.layout.activity_main5)
         toolbar=findViewById(R.id.tool2)
         toolbar.setTitle("Disclaimer")
-        setSupportActionBar(toolbar)
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+        setSupportActionBar(toolbar)
         listView=findViewById(R.id.textview5)
         custemAdapter=custemAdapter(this,name,image)
         listView.adapter=custemAdapter

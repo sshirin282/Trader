@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:textColor="@color/purple_500"
+        android:textColor="#004D40"
         android:id="@+id/guest"
+        android:layout_marginTop="10dp"
         android:text="Guest User"
         android:textSize="30dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
+        android:layout_marginTop="5dp"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="15dp"
@@ -23,7 +26,8 @@
         android:layout_height="wrap_content"
         android:text="Login"/>
     <TextView
-        android:textColor="@color/white"
+        android:layout_marginTop="5dp"
+        android:textColor="#004D40"
         android:textStyle="bold"
         android:id="@+id/lash"
         android:textSize="15dp"
@@ -34,6 +38,7 @@
         android:layout_height="wrap_content"
         android:text="|"/>
     <TextView
+        android:layout_marginTop="5dp"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="15dp"

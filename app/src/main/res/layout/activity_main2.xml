@@ -32,7 +32,7 @@
         <androidx.cardview.widget.CardView
                android:id="@+id/card1"
                app:cardElevation="8dp"
-               app:cardBackgroundColor="#2196F3"
+               app:cardBackgroundColor="#004D40"
                android:layout_marginLeft="50dp"
                android:layout_marginTop="50dp"
                app:cardCornerRadius="8dp"
@@ -70,7 +70,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="275dp"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#2196F3"
+            app:cardBackgroundColor="#004D40"
             android:layout_width="125dp"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -100,7 +100,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card3"
-            app:cardBackgroundColor="#2196F3"
+            app:cardBackgroundColor="#004D40"
             android:layout_toRightOf="@+id/card6"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="500dp"
@@ -139,7 +139,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="60dp"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#2196F3"
+            app:cardBackgroundColor="#004D40"
             android:layout_width="125dp"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -171,7 +171,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card5"
             app:cardElevation="8dp"
-            app:cardBackgroundColor="#2196F3"
+            app:cardBackgroundColor="#004D40"
             android:layout_marginTop="275dp"
             android:layout_toRightOf="@+id/card2"
             android:layout_marginLeft="60dp"
@@ -208,7 +208,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="500dp"
             android:id="@+id/card6"
-            app:cardBackgroundColor="#2196F3"
+            app:cardBackgroundColor="#004D40"
             app:cardCornerRadius="8dp"
             android:layout_width="125dp"
             android:layout_height="wrap_content">
@@ -242,6 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/black"
         app:itemIconTint="@drawable/tab_color"
         app:itemTextColor="@drawable/tab_color"
         app:headerLayout="@layout/header"

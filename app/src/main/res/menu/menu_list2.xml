@@ -27,7 +27,7 @@
         android:icon="@drawable/ic_baseline_details_24"/>
 
     <item
-        android:title="contest"
+        android:title="Contest"
         android:id="@+id/contest2"
         android:icon="@drawable/ic_baseline_category_24"/>
 
