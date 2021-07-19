@@ -23,13 +23,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:alignmentMode="alignMargins"
+            android:background="@color/black"
             android:columnCount="2"
             android:columnOrderPreserved="false"
             android:padding="14dp"
             android:rowCount="3" />
+
         <androidx.cardview.widget.CardView
                android:id="@+id/card1"
                app:cardElevation="8dp"
+               app:cardBackgroundColor="#2196F3"
                android:layout_marginLeft="50dp"
                android:layout_marginTop="50dp"
                app:cardCornerRadius="8dp"
@@ -67,6 +70,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="275dp"
             app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#2196F3"
             android:layout_width="125dp"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -96,6 +100,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card3"
+            app:cardBackgroundColor="#2196F3"
             android:layout_toRightOf="@+id/card6"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="500dp"
@@ -134,6 +139,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="60dp"
             app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#2196F3"
             android:layout_width="125dp"
             android:layout_height="wrap_content">
             <LinearLayout
@@ -165,6 +171,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card5"
             app:cardElevation="8dp"
+            app:cardBackgroundColor="#2196F3"
             android:layout_marginTop="275dp"
             android:layout_toRightOf="@+id/card2"
             android:layout_marginLeft="60dp"
@@ -201,6 +208,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginTop="500dp"
             android:id="@+id/card6"
+            app:cardBackgroundColor="#2196F3"
             app:cardCornerRadius="8dp"
             android:layout_width="125dp"
             android:layout_height="wrap_content">
@@ -234,6 +242,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemIconTint="@drawable/tab_color"
+        app:itemTextColor="@drawable/tab_color"
         app:headerLayout="@layout/header"
         app:menu="@menu/menu_list2" />
 </androidx.drawerlayout.widget.DrawerLayout>
