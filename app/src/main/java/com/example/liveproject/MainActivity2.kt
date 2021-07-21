@@ -28,8 +28,6 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var cardView5: CardView
     lateinit var cardView6: CardView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -45,7 +43,6 @@ class MainActivity2 : AppCompatActivity() {
         val navigationView: NavigationView =  findViewById(R.id.navigationview)
         val header: View = navigationView.getHeaderView(0)
         val tv: TextView = header.findViewById(R.id.login)
-//        tv.text = "Login"
         tv.setOnClickListener {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
@@ -85,8 +82,6 @@ class MainActivity2 : AppCompatActivity() {
             val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
         }
-
-
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home2 -> {
@@ -94,12 +89,24 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.intra2 -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                 }
                 R.id.sterm2 -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                 }
                 R.id.lterm2 ->{
+                    toolbar.setTitle("Long term")
+                    val fragment= BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
                 }
                 R.id.detail2 ->{
+                    toolbar.setTitle("Details")
+                    val fragment= BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
                 }
                 R.id.contest2 ->{
                 }

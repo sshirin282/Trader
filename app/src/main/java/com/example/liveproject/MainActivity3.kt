@@ -3,13 +3,11 @@ package com.example.liveproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -27,15 +25,19 @@ class MainActivity3 : AppCompatActivity() {
         navigationView=findViewById(R.id.navigationview)
         drawerLayout=findViewById(R.id.dra)
         toolbar=findViewById(R.id.tool)
+        toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
+        toolbar.setTitle("Intraday")
         setSupportActionBar(toolbar)
+
         toggle= ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled=true
-        val fragment = FirstFragment()
+
+
+        val fragment= BlankFragment()
         supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
         true
-
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -45,33 +47,29 @@ class MainActivity3 : AppCompatActivity() {
                 }
                 R.id.intra2 -> {
                     toolbar.setTitle("Intraday")
-                    val fragment = FirstFragment()
+                    val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.sterm2 -> {
                     toolbar.setTitle("Short term")
-                    val fragment = FirstFragment()
+                    val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.lterm2 ->{
                     toolbar.setTitle("Long term")
-                    val fragment = FirstFragment()
+                    val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.detail2 ->{
                     toolbar.setTitle("Details")
-                    val fragment = FirstFragment()
+                    val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.contest2 ->{
-                    toolbar.setTitle("Contest")
-                    val fragment = FirstFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
                 }
                 R.id.share2 ->{
                 }
@@ -89,20 +87,37 @@ class MainActivity3 : AppCompatActivity() {
             true
         }
 
+
         bottomNavigationView.setOnNavigationItemReselectedListener {
             when(it.itemId){
                 R.id.intra->{
                     toolbar.setTitle("Intraday")
-                    val fragment = FirstFragment()
+                    val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
-                    Toast.makeText(this,"Intraday",Toast.LENGTH_LONG).show()
-                    val intent=Intent(this,MainActivity2::class.java)
-                    startActivity(intent)
+//                    Toast.makeText(this,"Intraday",Toast.LENGTH_LONG).show()
+//                    val intent=Intent(this,MainActivity2::class.java)
+//                    startActivity(intent)
                 }
                 R.id.sterm->{
+                    toolbar.setTitle("Short term")
+                    val fragment= BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
                 }
                 R.id.lterm->{
+                    toolbar.setTitle("Long term")
+                    val fragment= BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                }
+                R.id.detail->{
+                    toolbar.setTitle("Details")
+                    val fragment= BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                }
+                R.id.contest->{
                 }
 
             }
