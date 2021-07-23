@@ -3,6 +3,7 @@ package com.example.liveproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -34,6 +35,9 @@ class MainActivity3 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled=true
 
+        
+        val screen: String? =intent.getStringExtra("fragment")
+        Log.e("screnn>>>>",screen+"")
 
         val fragment= BlankFragment()
         supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()

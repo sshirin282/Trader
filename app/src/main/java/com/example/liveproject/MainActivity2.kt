@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 
 
@@ -90,23 +91,27 @@ class MainActivity2 : AppCompatActivity() {
                 }
                 R.id.intra2 -> {
                     val intent=Intent(this,MainActivity3::class.java)
+                    intent.putExtra("fragment","Intraday")
                     startActivity(intent)
                 }
                 R.id.sterm2 -> {
                     val intent=Intent(this,MainActivity3::class.java)
+                    intent.putExtra("fragment","Short term")
                     startActivity(intent)
                 }
                 R.id.lterm2 ->{
-                    toolbar.setTitle("Long term")
-                    val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
+                    val intent=Intent(this,MainActivity3::class.java)
+                    intent.putExtra("fragment","Long term")
+                    startActivity(intent)
+//                    val fragment= BlankFragment()
+//                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+//                    true
                 }
                 R.id.detail2 ->{
                     toolbar.setTitle("Details")
-                    val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
+//                    val fragment= BlankFragment()
+//                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+//                    true
                 }
                 R.id.contest2 ->{
                 }

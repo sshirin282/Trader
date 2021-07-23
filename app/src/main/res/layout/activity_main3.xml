@@ -13,15 +13,19 @@
         android:layout_height="match_parent"
         android:gravity="start"
         android:id="@+id/relative">
+
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar"/>
+            layout="@layout/toolbar">
+        </include>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/toolbar"
             android:layout_above="@id/navigation"
-            android:id="@+id/frame"/>
+            android:id="@+id/frame">
+        </FrameLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"
@@ -34,8 +38,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/menu_list" />
-
+            app:menu="@menu/menu_list">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </RelativeLayout>
 
 
@@ -48,6 +52,7 @@
         app:itemTextColor="@drawable/tab_color"
         app:headerLayout="@layout/header"
         app:menu="@menu/menu_list2"
-        android:background="@color/black"/>
+        android:background="@color/black">
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
