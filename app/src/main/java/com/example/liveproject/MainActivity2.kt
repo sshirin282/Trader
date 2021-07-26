@@ -60,29 +60,42 @@ class MainActivity2 : AppCompatActivity() {
         cardView5 = findViewById(R.id.card5)
         cardView6 = findViewById(R.id.card6)
         cardView1.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Intraday")
             startActivity(intent)
+//            val intent = Intent(this, MainActivity3::class.java)
+//            startActivity(intent)
         }
         cardView2.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Long term")
             startActivity(intent)
+//            val intent = Intent(this, MainActivity3::class.java)
+//            startActivity(intent)
         }
         cardView3.setOnClickListener {
             val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
         }
         cardView4.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Short term")
             startActivity(intent)
+//            val intent = Intent(this, MainActivity3::class.java)
+//            startActivity(intent)
         }
         cardView5.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Details")
             startActivity(intent)
+//            val intent = Intent(this, MainActivity3::class.java)
+//            startActivity(intent)
         }
         cardView6.setOnClickListener {
             val intent = Intent(this, MainActivity3::class.java)
             startActivity(intent)
         }
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home2 -> {
@@ -103,15 +116,11 @@ class MainActivity2 : AppCompatActivity() {
                     val intent=Intent(this,MainActivity3::class.java)
                     intent.putExtra("fragment","Long term")
                     startActivity(intent)
-//                    val fragment= BlankFragment()
-//                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-//                    true
                 }
                 R.id.detail2 ->{
-                    toolbar.setTitle("Details")
-//                    val fragment= BlankFragment()
-//                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-//                    true
+                    val intent=Intent(this,MainActivity3::class.java)
+                    intent.putExtra("fragment","Details")
+                    startActivity(intent)
                 }
                 R.id.contest2 ->{
                 }

@@ -10,6 +10,9 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
@@ -18,6 +21,7 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
+    lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var bottomNavigationView: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +43,35 @@ class MainActivity3 : AppCompatActivity() {
         val screen: String? =intent.getStringExtra("fragment")
         Log.e("screnn>>>>",screen+"")
 
-        val fragment= BlankFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-        true
+        if(screen.equals("Intraday")){
+            toolbar.setTitle("Intraday")
+            val fragment= BlankFragment()
+            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+            true
+
+        }else if (screen.equals("Short term")){
+            toolbar.setTitle("Short term")
+            val fragment= BlankFragment2()
+            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+            true
+        }else if (screen.equals("Long term")){
+            toolbar.setTitle("Long term")
+            val fragment= BlankFragment3()
+            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+            true
+        }else if (screen.equals("Details")){
+            toolbar.setTitle("Details")
+            val fragment= BlankFragment4()
+            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+            true
+        }
+//      else {
+//      val fragment= BlankFragment()
+//      supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+//      true
+//      }
+
+
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -57,19 +87,19 @@ class MainActivity3 : AppCompatActivity() {
                 }
                 R.id.sterm2 -> {
                     toolbar.setTitle("Short term")
-                    val fragment= BlankFragment()
+                    val fragment= BlankFragment2()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.lterm2 ->{
                     toolbar.setTitle("Long term")
-                    val fragment= BlankFragment()
+                    val fragment= BlankFragment3()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.detail2 ->{
                     toolbar.setTitle("Details")
-                    val fragment= BlankFragment()
+                    val fragment= BlankFragment4()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
@@ -92,33 +122,34 @@ class MainActivity3 : AppCompatActivity() {
         }
 
 
+
+
+
         bottomNavigationView.setOnNavigationItemReselectedListener {
             when(it.itemId){
                 R.id.intra->{
+                    navigationView.setupWithNavController(bottomNavigationView,)
                     toolbar.setTitle("Intraday")
                     val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
                     true
-//                    Toast.makeText(this,"Intraday",Toast.LENGTH_LONG).show()
-//                    val intent=Intent(this,MainActivity2::class.java)
-//                    startActivity(intent)
                 }
                 R.id.sterm->{
                     toolbar.setTitle("Short term")
-                    val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    val fragment= BlankFragment2()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
                     true
                 }
                 R.id.lterm->{
                     toolbar.setTitle("Long term")
-                    val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    val fragment= BlankFragment3()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
                     true
                 }
                 R.id.detail->{
                     toolbar.setTitle("Details")
-                    val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    val fragment= BlankFragment4()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
                     true
                 }
                 R.id.contest->{
