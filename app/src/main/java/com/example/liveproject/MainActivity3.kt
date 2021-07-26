@@ -11,7 +11,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -120,6 +122,14 @@ class MainActivity3 : AppCompatActivity() {
             drawerLayout.closeDrawers()
             true
         }
+        val navController = findNavController(R.id.frame)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.intra, R.id.sterm, R.id.lterm, R.id.detail, R.id.contest
+            ), drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navigationView.setupWithNavController(navController)
 
 
 
@@ -128,7 +138,7 @@ class MainActivity3 : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemReselectedListener {
             when(it.itemId){
                 R.id.intra->{
-                    navigationView.setupWithNavController(bottomNavigationView,)
+                    navigationView.setupWithNavController(navController)
                     toolbar.setTitle("Intraday")
                     val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
@@ -136,6 +146,7 @@ class MainActivity3 : AppCompatActivity() {
                 }
                 R.id.sterm->{
                     toolbar.setTitle("Short term")
+                    navigationView.setupWithNavController(navController)
                     val fragment= BlankFragment2()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
                     true
