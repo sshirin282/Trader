@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -82,30 +83,35 @@ class MainActivity3 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.intra2 -> {
+                    bottomNavigationView.setSelectedItemId(R.id.intra)
                     toolbar.setTitle("Intraday")
                     val fragment= BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.sterm2 -> {
+                    bottomNavigationView.setSelectedItemId(R.id.sterm)
                     toolbar.setTitle("Short term")
                     val fragment= BlankFragment2()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.lterm2 ->{
+                    bottomNavigationView.setSelectedItemId(R.id.lterm)
                     toolbar.setTitle("Long term")
                     val fragment= BlankFragment3()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.detail2 ->{
+                    bottomNavigationView.setSelectedItemId(R.id.detail)
                     toolbar.setTitle("Details")
                     val fragment= BlankFragment4()
                     supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.contest2 ->{
+                    bottomNavigationView.setSelectedItemId(R.id.contest)
                 }
                 R.id.share2 ->{
                 }
@@ -122,45 +128,35 @@ class MainActivity3 : AppCompatActivity() {
             drawerLayout.closeDrawers()
             true
         }
-        val navController = findNavController(R.id.frame)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.intra, R.id.sterm, R.id.lterm, R.id.detail, R.id.contest
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navigationView.setupWithNavController(navController)
-
-
-
-
 
         bottomNavigationView.setOnNavigationItemReselectedListener {
             when(it.itemId){
                 R.id.intra->{
-                    navigationView.setupWithNavController(navController)
+                    navigationView.setCheckedItem(R.id.intra2)
                     toolbar.setTitle("Intraday")
                     val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.sterm->{
+                    navigationView.setCheckedItem(R.id.sterm2)
                     toolbar.setTitle("Short term")
-                    navigationView.setupWithNavController(navController)
                     val fragment= BlankFragment2()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.lterm->{
+                    navigationView.setCheckedItem(R.id.lterm2)
                     toolbar.setTitle("Long term")
                     val fragment= BlankFragment3()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.detail->{
+                    navigationView.setCheckedItem(R.id.detail2)
                     toolbar.setTitle("Details")
                     val fragment= BlankFragment4()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment,fragment.javaClass.getSimpleName()).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
                     true
                 }
                 R.id.contest->{
