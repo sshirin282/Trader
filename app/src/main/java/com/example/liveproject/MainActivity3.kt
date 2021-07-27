@@ -48,23 +48,37 @@ class MainActivity3 : AppCompatActivity() {
 
         if(screen.equals("Intraday")){
             toolbar.setTitle("Intraday")
+            navigationView.setCheckedItem(R.id.intra2)
+            bottomNavigationView.setSelectedItemId(R.id.intra)
             val fragment= BlankFragment()
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
-
         }else if (screen.equals("Short term")){
+            navigationView.setCheckedItem(R.id.sterm2)
+            bottomNavigationView.setSelectedItemId(R.id.sterm)
             toolbar.setTitle("Short term")
             val fragment= BlankFragment2()
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
         }else if (screen.equals("Long term")){
             toolbar.setTitle("Long term")
+            navigationView.setCheckedItem(R.id.lterm2)
+            bottomNavigationView.setSelectedItemId(R.id.lterm)
             val fragment= BlankFragment3()
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
         }else if (screen.equals("Details")){
             toolbar.setTitle("Details")
+            navigationView.setCheckedItem(R.id.detail2)
             val fragment= BlankFragment4()
+            bottomNavigationView.setSelectedItemId(R.id.detail)
+            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+            true
+        } else if (screen.equals("Contest")) {
+            toolbar.setTitle("Context")
+            navigationView.setCheckedItem(R.id.contest2)
+            val fragment = BlankFragment5()
+            bottomNavigationView.setSelectedItemId(R.id.contest)
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
         }

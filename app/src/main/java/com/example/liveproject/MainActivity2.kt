@@ -63,37 +63,28 @@ class MainActivity2 : AppCompatActivity() {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Intraday")
             startActivity(intent)
-//            val intent = Intent(this, MainActivity3::class.java)
-//            startActivity(intent)
         }
         cardView2.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Long term")
             startActivity(intent)
-//            val intent = Intent(this, MainActivity3::class.java)
-//            startActivity(intent)
         }
         cardView3.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Contest")
             startActivity(intent)
         }
         cardView4.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Short term")
             startActivity(intent)
-//            val intent = Intent(this, MainActivity3::class.java)
-//            startActivity(intent)
         }
         cardView5.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Details")
             startActivity(intent)
-//            val intent = Intent(this, MainActivity3::class.java)
-//            startActivity(intent)
         }
         cardView6.setOnClickListener {
-            val intent = Intent(this, MainActivity3::class.java)
-            startActivity(intent)
         }
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -123,6 +114,9 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.contest2 ->{
+                    val intent=Intent(this,MainActivity3::class.java)
+                    intent.putExtra("fragment","Contest")
+                    startActivity(intent)
                 }
                 R.id.share2 ->{
                 }
