@@ -74,8 +74,41 @@ class MainActivity3 : AppCompatActivity() {
 //      true
 //      }
 
+        bottomNavigationView.setOnNavigationItemReselectedListener {
+            when(it.itemId){
+                R.id.intra->{
+                    navigationView.setCheckedItem(R.id.intra2)
+                    toolbar.setTitle("Intraday")
+                    val fragment= BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                }
+                R.id.sterm->{
+                    navigationView.setCheckedItem(R.id.sterm2)
+                    toolbar.setTitle("Short term")
+                    val fragment= BlankFragment2()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                }
+                R.id.lterm->{
+                    navigationView.setCheckedItem(R.id.lterm2)
+                    toolbar.setTitle("Long term")
+                    val fragment= BlankFragment3()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                }
+                R.id.detail->{
+                    navigationView.setCheckedItem(R.id.detail2)
+                    toolbar.setTitle("Details")
+                    val fragment= BlankFragment4()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                }
+                R.id.contest->{
+                }
 
-
+            }
+        }
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home2 -> {
@@ -127,42 +160,6 @@ class MainActivity3 : AppCompatActivity() {
             menuItem.isChecked = true
             drawerLayout.closeDrawers()
             true
-        }
-
-        bottomNavigationView.setOnNavigationItemReselectedListener {
-            when(it.itemId){
-                R.id.intra->{
-                    navigationView.setCheckedItem(R.id.intra2)
-                    toolbar.setTitle("Intraday")
-                    val fragment= BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                }
-                R.id.sterm->{
-                    navigationView.setCheckedItem(R.id.sterm2)
-                    toolbar.setTitle("Short term")
-                    val fragment= BlankFragment2()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                }
-                R.id.lterm->{
-                    navigationView.setCheckedItem(R.id.lterm2)
-                    toolbar.setTitle("Long term")
-                    val fragment= BlankFragment3()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                }
-                R.id.detail->{
-                    navigationView.setCheckedItem(R.id.detail2)
-                    toolbar.setTitle("Details")
-                    val fragment= BlankFragment4()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                }
-                R.id.contest->{
-                }
-
-            }
         }
     }
 }
