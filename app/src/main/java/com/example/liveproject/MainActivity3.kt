@@ -4,18 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.EditText
+import android.widget.Spinner
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
@@ -24,8 +19,11 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
+    lateinit var edittext: EditText
+    lateinit var spinner: Spinner
     lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var bottomNavigationView: BottomNavigationView
+    val name:Array<String> = arrayOf("ALL","Search Stock","Active","Achieved","SL Hit")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
@@ -33,6 +31,10 @@ class MainActivity3 : AppCompatActivity() {
         navigationView=findViewById(R.id.navigationview)
         drawerLayout=findViewById(R.id.dra)
         toolbar=findViewById(R.id.tool)
+        edittext=findViewById(R.id.edit3)
+        spinner=findViewById(R.id.spinner)
+        val arrayAdapter=ArrayAdapter(this, android.R.layout.simple_list_item_1,name)
+        spinner.adapter=arrayAdapter
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
         toolbar.setTitle("Intraday")
         setSupportActionBar(toolbar)
@@ -75,7 +77,7 @@ class MainActivity3 : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
         } else if (screen.equals("Contest")) {
-            toolbar.setTitle("Context")
+            toolbar.setTitle("Contest")
             navigationView.setCheckedItem(R.id.contest2)
             val fragment = BlankFragment5()
             bottomNavigationView.setSelectedItemId(R.id.contest)
@@ -123,6 +125,7 @@ class MainActivity3 : AppCompatActivity() {
 
             }
         }
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home2 -> {
