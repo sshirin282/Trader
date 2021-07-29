@@ -34,13 +34,63 @@
             android:layout_height="@dimen/_40sdp"
             android:layout_toRightOf="@id/edit3" />
 
+        <TableLayout
+            android:id="@+id/tablelayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@id/spinner"
+            android:layout_marginTop="@dimen/_3sdp">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_column="1"
+                    android:background="#004D40"
+                    android:gravity="center"
+                    android:text="Stock"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_column="2"
+                    android:background="#004D40"
+                    android:gravity="center"
+                    android:text="Target"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_column="3"
+                    android:background="#004D40"
+                    android:gravity="center"
+                    android:text="SL"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_column="4"
+                    android:background="#004D40"
+                    android:gravity="center"
+                    android:text="Remark"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </TableRow>
+
+
+        </TableLayout>
+
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar">
         </include>
 
         <FrameLayout
-            android:layout_below="@id/edit3"
+            android:layout_below="@id/tablelayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/navigation"
