@@ -43,5 +43,19 @@ class MainActivity4 : AppCompatActivity() {
             finish()
         })
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.homecontext,menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.conthome ->{
+                val intent=Intent(this,MainActivity2::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
 }
 

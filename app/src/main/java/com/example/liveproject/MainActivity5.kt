@@ -2,6 +2,8 @@ package com.example.liveproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
@@ -13,7 +15,6 @@ class MainActivity5 : AppCompatActivity() {
     lateinit var listView: ListView
     lateinit var custemAdapter: custemAdapter
     lateinit var toolbar:Toolbar
-//    lateinit var home:ImageView
     val image= arrayOf<Int>(R.drawable.d,R.drawable.d,R.drawable.d,R.drawable.d,
         R.drawable.d,R.drawable.d,R.drawable.d)
     val name= arrayOf<String>("The information on Stock Market APP is for the education puurpose only.",
@@ -28,26 +29,31 @@ class MainActivity5 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main5)
         toolbar=findViewById(R.id.tool2)
-//        home=findViewById(R.id.tollimage)
         toolbar.setTitle("Disclaimer")
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
         setSupportActionBar(toolbar)
         listView=findViewById(R.id.textview5)
         custemAdapter=custemAdapter(this,name,image)
-//        home.setOnClickListener {
-//            val intent=Intent(this,MainActivity2::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
         listView.adapter=custemAdapter
         toolbar.setNavigationOnClickListener(View.OnClickListener {
             val intent=Intent(this,MainActivity2::class.java)
             startActivity(intent)
             finish()
         })
-
-
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.homecontext,menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.conthome ->{
+                val intent=Intent(this,MainActivity2::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
 }
 

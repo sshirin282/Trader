@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
@@ -21,7 +23,6 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
     lateinit var edittext: EditText
     lateinit var spinner: Spinner
-    lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var bottomNavigationView: BottomNavigationView
     val name:Array<String> = arrayOf("ALL","Search Stock","Active","Achieved","SL Hit")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -178,5 +179,18 @@ class MainActivity3 : AppCompatActivity() {
             drawerLayout.closeDrawers()
             true
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.homecontext,menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.conthome ->{
+                val intent=Intent(this,MainActivity2::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
     }
 }

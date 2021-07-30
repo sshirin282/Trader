@@ -50,7 +50,7 @@ class MainActivity2 : AppCompatActivity() {
         }
         val tv1: TextView = header.findViewById(R.id.sign)
         tv1.setOnClickListener {
-            val intent=Intent(this,MainActivity6::class.java)
+            val intent=Intent(this,MainActivity7::class.java)
             startActivity(intent)
         }
         cardView1 = findViewById(R.id.card1)

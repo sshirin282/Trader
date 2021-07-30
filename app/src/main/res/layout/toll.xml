@@ -9,11 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleTextColor="#004D40">
-        <ImageView
-            android:id="@+id/tollimage"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
-            android:src="@drawable/ic_baseline_home_24"
-            android:layout_marginLeft="@dimen/_275sdp"/>
     </androidx.appcompat.widget.Toolbar>
+
+
 </RelativeLayout>

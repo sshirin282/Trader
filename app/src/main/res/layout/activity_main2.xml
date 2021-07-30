@@ -230,5 +230,7 @@
         app:itemIconTint="@drawable/tab_color"
         app:itemTextColor="@drawable/tab_color"
         app:headerLayout="@layout/header"
-        app:menu="@menu/menu_list2" />
+        app:menu="@menu/menu_list2">
+    </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>
