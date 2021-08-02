@@ -26,6 +26,7 @@ class MainActivity6 : AppCompatActivity() {
         editText1=findViewById(R.id.edittext)
         editText2=findViewById(R.id.edittext1)
         textView=findViewById(R.id.textforget)
+
         textView.setOnClickListener {
             val intent=Intent(this,MainActivity8::class.java)
             startActivity(intent)
