@@ -9,6 +9,10 @@ import android.view.ViewGroup
 import android.widget.Adapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,23 +45,21 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var recyclerAdapter: recyclerAdapter
+        var recyclerAdapter: Adapter
         var list:ArrayList<DataModel> = ArrayList<DataModel>()
         var i: Int = 0
         val url:String="https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView =view.findViewById(R.id.recyclerintraday)
 
         list=ArrayList<DataModel>()
-
         val request: StringRequest = StringRequest(Request.Method.GET,url, Response.Listener {
                 response ->
             Log.e("response>>>", response)
         },
             Response.ErrorListener {
-
-
+//                Log.e("response>>>", "ghf")
         })
-        val  requestQueue = Volley.newRequestQueue(this)
+        val  requestQueue = Volley.newRequestQueue(context)
         requestQueue?.add(request)
     }
 
