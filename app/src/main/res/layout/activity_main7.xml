@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity7">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/tool7"
+        layout="@layout/toolbar7"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"/>
+
+
+    <EditText
+        android:layout_below="@id/tool7"
+        android:id="@+id/edit2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:hint="Email"
+        android:background="@drawable/shape" />
+
+    <TextView
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_15sdp"
+        android:id="@+id/textview7"
+        android:layout_below="@id/edit2"
+        android:text="Enter register email in order to get Reset Password OTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/bnt7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeWidth="3dp"
+        android:text="REQUEST OTP"
+        android:layout_below="@id/textview7"
+        app:strokeColor="#004D40"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="#004D40"
+        android:gravity="center"/>
+
+</RelativeLayout>

@@ -1,10 +1,12 @@
 package com.example.liveproject
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -39,8 +41,24 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var recyclerAdapter: recyclerAdapter
+        var list:ArrayList<DataModel> = ArrayList<DataModel>()
+        var i: Int = 0
         val url:String="https://maxgenitsolutions.in/stock/apistockview?category=intraday"
-        val recyclerView: RecyclerView =view.findViewById(R.id.recyclerintraday)
+        var recyclerView: RecyclerView =view.findViewById(R.id.recyclerintraday)
+
+        list=ArrayList<DataModel>()
+
+        val request: StringRequest = StringRequest(Request.Method.GET,url, Response.Listener {
+                response ->
+            Log.e("response>>>", response)
+        },
+            Response.ErrorListener {
+
+
+        })
+        val  requestQueue = Volley.newRequestQueue(this)
+        requestQueue?.add(request)
     }
 
     companion object {

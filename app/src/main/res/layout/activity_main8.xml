@@ -1,47 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".MainActivity8">
 
-    <include
-        android:id="@+id/toreset"
-        layout="@layout/toolbarreset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_below="@id/toreset"
-        android:id="@+id/ereset"
-        android:layout_width="match_parent"
-        android:background="@drawable/shape"
-        android:hint="Email"
-        android:layout_height="@dimen/_40sdp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter Register email in order to get Reset Password OTP."
-        android:textColor="#64DD17"
-        android:id="@+id/textreset"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_below="@id/ereset"/>
-
-    <Button
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/resetbutton"
-        android:layout_below="@id/textreset"
-        android:text="REQUEST OTP"
-        app:strokeWidth="@dimen/_3sdp"
-        app:strokeColor="#004D40"
-        android:textColor="#76FF03"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:gravity="center"/>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
