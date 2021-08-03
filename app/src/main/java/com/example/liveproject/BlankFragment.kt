@@ -60,31 +60,31 @@ class BlankFragment : Fragment() {
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
 
 
-        fun getApiClass() {
-            val retrofitBuilder = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .build()
-                .create(intradayInterface::class.java)
+//        fun getApiClass() {
+//            val retrofitBuilder = Retrofit.Builder()
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .baseUrl(BASE_URL)
+//                .build()
+//                .create(intradayInterface::class.java)
+//
+//            val retrofitData = retrofitBuilder.getData("intraday")
 
-            val retrofitData = retrofitBuilder.getData("intraday")
-
-            retrofitData.enqueue(object : Callback<List<DataModel>> {
-                fun onResponse(call: Call<List<DataModel>>?, response: Response<List<DataModel>>?) {
-
-                    val responseBody = response?.body()!!
-                    Log.e("response>>>>", response?.body().toString())
-                    list = ArrayList<DataModel>()
-
+//            retrofitData.enqueue(object : Callback<List<DataModel>> {
+//                fun onResponse(call: Call<List<DataModel>>?, response: Response<List<DataModel>>?) {
+//
+//                    val responseBody = response?.body()!!
+//                    Log.e("response>>>>", response?.body().toString())
+//                    list = ArrayList<DataModel>()
+//
 //                val i:Int=0
 //                val ja: JSONArray = JSONArray(response.body())
 //                for (i in 0 until ja.length()){
 //                    val jb: JSONObject =ja.getJSONObject(i)
-//                    val userId:String=jb.getString("userId")
-//                    val id:String=jb.getString("userId")
-//                    val title:String=jb.getString("userId")
-//                    val body:String=jb.getString("userId")
-//
+////                    val userId:String=jb.getString("userId")
+////                    val id:String=jb.getString("userId")
+////                    val title:String=jb.getString("userId")
+////                    val body:String=jb.getString("userId")
+////
 //                    val dataModel=DataModel()
 
 
@@ -124,10 +124,19 @@ class BlankFragment : Fragment() {
 
                 }
 
-                override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
-                    Log.d("MainActivity","onFailure: "+t?.message)
-                }
-            })
+//                override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
+//                    Log.d("MainActivity","onFailure: "+t.message)
+//                }
+//
+//                override fun onResponse(
+//                    call: Call<List<DataModel>>,
+//                    response: retrofit2.Response<List<DataModel>>
+//                ) {
+//                    TODO("Not yet implemented")
+//                }
+//            })
         }
-    }
-}
+
+
+//    }
+//}

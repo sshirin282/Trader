@@ -16,209 +16,366 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp">
-
-        <GridLayout
-            android:columnCount="2"
-            android:rowCount="3"
-            android:background="@color/black"
-            android:alignmentMode="alignMargins"
-            android:columnOrderPreserved="false"
+        <androidx.cardview.widget.CardView
+            android:id="@id/card1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="14dp"/>
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="100dp"
-            app:cardBackgroundColor="#004D40"
-            android:id="@+id/card1"
-            android:layout_marginLeft="50dp"
-            app:cardElevation="20dp"
-            app:cardCornerRadius="20dp"
-            android:layout_width="150dp"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:layout_gravity="center_horizontal">
-                <ImageView
-                    android:src="@drawable/ic_baseline_business_center_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Intraday"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
+         <LinearLayout
+             android:id="@+id/card1"
+                    android:weightSum="100"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_100sdp">
+                <LinearLayout
+                    android:id="@+id/card11"
+                    android:padding="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:background="@color/white"
+                    android:layout_height="@dimen/_100sdp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_business_center_24" />
+                    <TextView
+                        android:background="@color/white"
+                        android:layout_width="wrap_content"
+                        android:text="Intraday"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/card12"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="50"
+                    android:background="@color/white"
+                    android:layout_height="@dimen/_100sdp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_timer_24" />
+                    <TextView
+                        android:background="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Short Term"/>
+                </LinearLayout>
+         </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/card2"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="50dp"
-            app:cardBackgroundColor="#004D40"
-            app:cardElevation="20dp"
+            android:layout_below="@id/card1">
+        <LinearLayout
+            android:id="@+id/card"
             android:layout_below="@id/card1"
-            app:cardCornerRadius="20dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content">
+            android:weightSum="100"
+            android:padding="@dimen/_5sdp"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:layout_gravity="center_horizontal">
+                android:id="@+id/card21"
+                android:padding="@dimen/_15sdp"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="50"
+                android:background="@color/white"
+                android:layout_height="@dimen/_100sdp">
                 <ImageView
-                    android:src="@drawable/ic_baseline_bar_chart_24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/ic_baseline_business_center_24" />
                 <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Long Term"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:gravity="center_horizontal" />
+                    android:background="@color/white"
+                    android:layout_width="wrap_content"
+                    android:text="Intraday"
+                    android:layout_height="wrap_content">
+                </TextView>
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/card22"
+                android:padding="@dimen/_15sdp"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_weight="50"
+                android:background="@color/white"
+                android:layout_height="@dimen/_100sdp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_timer_24" />
+                <TextView
+                    android:background="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Short Term"/>
+            </LinearLayout>
+        </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="#004D40"
-            app:cardElevation="20dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="50dp"
-            android:layout_below="@+id/card2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/card3"
-            app:cardCornerRadius="20dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content">
+            android:layout_below="@id/card2">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:layout_gravity="center_horizontal">
-                <ImageView
-                    android:src="@drawable/ic_baseline_category_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Contest"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:gravity="center_horizontal" />
+                android:id="@+id/card33"
+                android:layout_below="@id/card1"
+                android:weightSum="100"
+                android:padding="@dimen/_5sdp"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp">
+                <LinearLayout
+                    android:id="@+id/card34"
+                    android:padding="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_weight="50"
+                    android:background="@color/white"
+                    android:layout_height="@dimen/_100sdp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_business_center_24" />
+                    <TextView
+                        android:background="@color/white"
+                        android:layout_width="wrap_content"
+                        android:text="Intraday"
+                        android:layout_height="wrap_content">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/card32"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="50"
+                    android:background="@color/white"
+                    android:layout_height="@dimen/_100sdp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_timer_24" />
+                    <TextView
+                        android:background="@color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Short Term"/>
+                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="100dp"
-            app:cardBackgroundColor="#004D40"
-            android:id="@+id/card4"
-            android:layout_marginLeft="225dp"
-            app:cardElevation="20dp"
-            app:cardCornerRadius="20dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:layout_gravity="center_horizontal">
-                <ImageView
-                    android:src="@drawable/ic_baseline_timer_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Short Term"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--        <GridLayout-->
+<!--            android:columnCount="2"-->
+<!--            android:rowCount="3"-->
+<!--            android:background="@color/black"-->
+<!--            android:alignmentMode="alignMargins"-->
+<!--            android:columnOrderPreserved="false"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="14dp"/>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            app:cardBackgroundColor="#004D40"-->
+<!--            android:id="@+id/card1"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            app:cardElevation="20dp"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--                <ImageView-->
+<!--                    android:src="@drawable/ic_baseline_business_center_24"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Intraday"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:gravity="center_horizontal" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
 
-        <androidx.cardview.widget.CardView
-            android:layout_marginTop="278dp"
-            app:cardBackgroundColor="#004D40"
-            android:id="@+id/card5"
-            android:layout_marginLeft="225dp"
-            app:cardElevation="20dp"
-            app:cardCornerRadius="20dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:layout_gravity="center_horizontal">
-                <ImageView
-                    android:src="@drawable/ic_baseline_info_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Details"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/card2"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            app:cardBackgroundColor="#004D40"-->
+<!--            app:cardElevation="20dp"-->
+<!--            android:layout_below="@id/card1"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--                <ImageView-->
+<!--                    android:src="@drawable/ic_baseline_bar_chart_24"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Long Term"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:gravity="center_horizontal" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
 
-        <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="#004D40"
-            android:layout_marginTop="460dp"
-            android:id="@+id/card6"
-            android:layout_marginLeft="225dp"
-            app:cardElevation="20dp"
-            app:cardCornerRadius="20dp"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="16dp"
-                android:layout_gravity="center_horizontal">
-                <ImageView
-                    android:src="@drawable/ic_baseline_share_24"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Share"
-                    android:textAlignment="center"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:gravity="center_horizontal" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+<!--        <androidx.cardview.widget.CardView-->
+<!--            app:cardBackgroundColor="#004D40"-->
+<!--            app:cardElevation="20dp"-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            android:layout_marginLeft="50dp"-->
+<!--            android:layout_below="@+id/card2"-->
+<!--            android:id="@+id/card3"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--                <ImageView-->
+<!--                    android:src="@drawable/ic_baseline_category_24"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Contest"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:gravity="center_horizontal" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_marginTop="100dp"-->
+<!--            app:cardBackgroundColor="#004D40"-->
+<!--            android:id="@+id/card4"-->
+<!--            android:layout_marginLeft="225dp"-->
+<!--            app:cardElevation="20dp"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--                <ImageView-->
+<!--                    android:src="@drawable/ic_baseline_timer_24"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Short Term"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:gravity="center_horizontal" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_marginTop="278dp"-->
+<!--            app:cardBackgroundColor="#004D40"-->
+<!--            android:id="@+id/card5"-->
+<!--            android:layout_marginLeft="225dp"-->
+<!--            app:cardElevation="20dp"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--                <ImageView-->
+<!--                    android:src="@drawable/ic_baseline_info_24"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Details"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:gravity="center_horizontal" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            app:cardBackgroundColor="#004D40"-->
+<!--            android:layout_marginTop="460dp"-->
+<!--            android:id="@+id/card6"-->
+<!--            android:layout_marginLeft="225dp"-->
+<!--            app:cardElevation="20dp"-->
+<!--            app:cardCornerRadius="20dp"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--                <ImageView-->
+<!--                    android:src="@drawable/ic_baseline_share_24"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center_horizontal"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Share"-->
+<!--                    android:textAlignment="center"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:gravity="center_horizontal" />-->
+<!--            </LinearLayout>-->
+<!--        </androidx.cardview.widget.CardView>-->
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -231,6 +388,31 @@
         app:itemTextColor="@drawable/tab_color"
         app:headerLayout="@layout/header"
         app:menu="@menu/menu_list2">
+
+        <LinearLayout
+            android:id="@+id/card31"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="50"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/_15sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_business_center_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:text="Intraday"></TextView>
+        </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>
