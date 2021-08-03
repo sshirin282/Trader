@@ -15,6 +15,10 @@ class Adapter(val context: Context, val  list:ArrayList<DataModel> )
     as LayoutInflater
 
     class ViewHolder(view:View):RecyclerView.ViewHolder(view) {
+        val textView1:TextView=view.findViewById(R.id.first)
+        val textView2:TextView=view.findViewById(R.id.second)
+        val textView3:TextView=view.findViewById(R.id.third)
+//        val textView4:TextView=view.findViewById(R.id.fourth)
 //        val textView:TextView=view.findViewById(R.id.textintraday)
 //        val textView1:TextView=view.findViewById(R.id.textintrday1)
     }
@@ -25,9 +29,9 @@ class Adapter(val context: Context, val  list:ArrayList<DataModel> )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.textView.text=list.get(position).ststock
-//        holder.textView.text=list.get(position).stcmp
-//        holder.textView.text=list.get(position).stdate
+        holder.textView1.text=list.get(position).ststock
+        holder.textView2.text=list.get(position).stcmp
+        holder.textView3.text=list.get(position).stdate
     }
 
     override fun getItemCount(): Int {
