@@ -48,20 +48,22 @@ class BlankFragment : Fragment() {
         var recyclerAdapter: Adapter
         var list:ArrayList<DataModel> = ArrayList<DataModel>()
         var i: Int = 0
-        val url:String="https://maxgenitsolutions.in/stock/apistockview?category=intraday"
+        val url:String="https://maxgenitsolutions.in/stock/"
         var recyclerView: RecyclerView =view.findViewById(R.id.recyclerintraday)
 
-        list=ArrayList<DataModel>()
-        val request: StringRequest = StringRequest(Request.Method.GET,url, Response.Listener {
-                response ->
-            Log.e("response>>>", response)
-        },
-            Response.ErrorListener {
+
+//        list=ArrayList<DataModel>()
+//        val request: StringRequest = StringRequest(Request.Method.GET,url+"?category=intraday", Response.Listener {
+//                response ->
+//            Log.e("response>>>", response)
+//        },
+//            Response.ErrorListener {
 //                Log.e("response>>>", "ghf")
-        })
-        val  requestQueue = Volley.newRequestQueue(context)
-        requestQueue?.add(request)
+//        })
+//        val  requestQueue = Volley.newRequestQueue(context)
+//        requestQueue?.add(request)
     }
+    
 
     companion object {
         /**
