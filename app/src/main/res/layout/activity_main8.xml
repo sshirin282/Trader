@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity8">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <include
+        android:id="@+id/too"
+        layout="@layout/tool8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="  Username"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/shape"
+        android:id="@+id/edit81"
+        android:layout_below="@id/too"
+        android:layout_marginTop="@dimen/_10sdp"/>
+    <EditText
+        android:hint="  Email Id/Phone No."
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/shape"
+        android:id="@+id/edit82"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/edit81"/>
+    <EditText
+        android:hint="  Password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/shape"
+        android:id="@+id/edit83"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/edit82"/>
+    <EditText
+        android:hint="  Email(optinal)"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/shape"
+        android:id="@+id/edit84"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/edit83"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text8"
+        android:layout_below="@id/edit84"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="*email required if you forgot password or want to change password in future."/>
+
+
+    <Button
+        android:id="@+id/bnt81"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeWidth="3dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="SIGNUP"
+        android:layout_below="@id/edit84"
+        app:strokeColor="#004D40"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="#004D40"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/bnt82"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeWidth="3dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="LOGIN"
+        android:layout_below="@id/bnt81"
+        app:strokeColor="#004D40"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:textColor="#004D40"
+        android:gravity="center"/>
+
+</RelativeLayout>

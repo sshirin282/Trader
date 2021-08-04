@@ -24,9 +24,9 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
     lateinit var textView: TextView
-    lateinit var linearLayout1: LinearLayout
+//    lateinit var linearLayout1: LinearLayout
     lateinit var linearLayout2: LinearLayout
-    lateinit var linearLayout3: LinearLayout
+//    lateinit var linearLayout3: LinearLayout
     lateinit var linearLayout4: LinearLayout
     lateinit var linearLayout5: LinearLayout
     lateinit var linearLayout6: LinearLayout
@@ -52,31 +52,32 @@ class MainActivity2 : AppCompatActivity() {
         }
         val tv1: TextView = header.findViewById(R.id.sign)
         tv1.setOnClickListener {
-            val intent=Intent(this,MainActivity6::class.java)
+            val intent=Intent(this,MainActivity8::class.java)
             startActivity(intent)
         }
-        linearLayout1 = findViewById(R.id.card11)
+
+//        linearLayout1 = findViewById(R.id.card11)
         linearLayout2 = findViewById(R.id.card12)
-        linearLayout3 = findViewById(R.id.card21)
+//        linearLayout3 = findViewById(R.id.card21)
         linearLayout4 = findViewById(R.id.card22)
         linearLayout5 = findViewById(R.id.card34)
         linearLayout6 = findViewById(R.id.card32)
 
-        linearLayout1.setOnClickListener {
-            val intent=Intent(this,MainActivity3::class.java)
-            intent.putExtra("fragment","Intraday")
-            startActivity(intent)
-        }
+//        linearLayout1.setOnClickListener {
+//            val intent=Intent(this,MainActivity3::class.java)
+//            intent.putExtra("fragment","Intraday")
+//            startActivity(intent)
+//        }
         linearLayout2.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Short term")
             startActivity(intent)
         }
-        linearLayout3.setOnClickListener {
-            val intent=Intent(this,MainActivity3::class.java)
-            intent.putExtra("fragment","Long term")
-            startActivity(intent)
-        }
+//        linearLayout3.setOnClickListener {
+//            val intent=Intent(this,MainActivity3::class.java)
+//            intent.putExtra("fragment","Long term")
+//            startActivity(intent)
+//        }
         linearLayout4.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Details")
@@ -123,6 +124,8 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.share2 ->{
+                    val intent=Intent(this,MainShare::class.java)
+                    startActivity(intent)
                 }
                 R.id.prize2 ->{
                     val intent=Intent(this,MainActivity4::class.java)

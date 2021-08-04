@@ -33,11 +33,21 @@
         android:background="@drawable/shape"
         android:id="@+id/edittext1"/>
 
+    <TextView
+        android:id="@+id/textforget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edittext1"
+        android:text="Forgot Password"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="#004D40"
+        android:layout_marginLeft="@dimen/_175sdp"/>
+
     <Button
         android:id="@+id/bnt1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edittext1"
+        android:layout_below="@id/textforget"
         android:layout_marginTop="10dp"
         app:strokeWidth="3dp"
         app:strokeColor="#004D40"
@@ -48,7 +58,6 @@
 
     <Button
         android:id="@+id/bnt2"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/bnt1"

@@ -4,21 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity7">
+    tools:context=".MainActivity7"
+    android:background="@color/black">
 
     <include
-        android:id="@+id/tool7"
+        android:id="@+id/t7"
         layout="@layout/toolbar7"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"/>
+        android:layout_height="wrap_content"/>
+
 
 
     <EditText
-        android:layout_below="@id/tool7"
+        android:layout_below="@id/t7"
         android:id="@+id/edit2"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
-        android:hint="Email"
+        android:layout_height="@dimen/_50sdp"
+        android:hint="  Email"
         android:background="@drawable/shape" />
 
     <TextView
@@ -26,7 +28,8 @@
         android:textSize="@dimen/_15sdp"
         android:id="@+id/textview7"
         android:layout_below="@id/edit2"
-        android:text="Enter register email in order to get Reset Password OTP"
+        android:textColor="@color/white"
+        android:text="  Enter register email in order to get Reset   Password OTP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

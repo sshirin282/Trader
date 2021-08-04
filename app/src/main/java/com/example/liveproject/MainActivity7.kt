@@ -1,7 +1,9 @@
 package com.example.liveproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -22,5 +24,12 @@ class MainActivity7 : AppCompatActivity() {
         editText=findViewById(R.id.edit2)
         textText=findViewById(R.id.textview7)
         button=findViewById(R.id.bnt7)
+        toolbar.setNavigationOnClickListener(View.OnClickListener {
+            val intent = Intent(this, MainActivity6::class.java)
+            startActivity(intent)
+            finish()
+        })
+
+
     }
 }

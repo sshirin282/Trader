@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Adapter
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
@@ -60,22 +61,22 @@ class BlankFragment : Fragment() {
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
 
 
-//        fun getApiClass() {
-//            val retrofitBuilder = Retrofit.Builder()
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .baseUrl(BASE_URL)
-//                .build()
-//                .create(intradayInterface::class.java)
-//
-//            val retrofitData = retrofitBuilder.getData("intraday")
+        fun getApiClass() {
+            val retrofitBuilder = Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(BASE_URL)
+                .build()
+                .create(intradayInterface::class.java)
 
-//            retrofitData.enqueue(object : Callback<List<DataModel>> {
-//                fun onResponse(call: Call<List<DataModel>>?, response: Response<List<DataModel>>?) {
-//
-//                    val responseBody = response?.body()!!
-//                    Log.e("response>>>>", response?.body().toString())
-//                    list = ArrayList<DataModel>()
-//
+            val retrofitData = retrofitBuilder.getData("intraday")
+
+            retrofitData.enqueue(object : Callback<List<DataModel>> {
+                fun onResponse(call: Call<List<DataModel>>?, response: Response<List<DataModel>>?) {
+
+                    val responseBody = response!!
+                    Log.e("response>>>>", response?.toString())
+                    list = ArrayList<DataModel>()
+
 //                val i:Int=0
 //                val ja: JSONArray = JSONArray(response.body())
 //                for (i in 0 until ja.length()){
@@ -85,7 +86,16 @@ class BlankFragment : Fragment() {
 ////                    val title:String=jb.getString("userId")
 ////                    val body:String=jb.getString("userId")
 ////
-//                    val dataModel=DataModel()
+                    val dataModel = DataModel()
+                }
+
+                override fun onResponse(call: Call<List<DataModel>>, response: retrofit2.Response<List<DataModel>>) {
+                    TODO("Not yet implemented")
+                }
+
+                override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
+                    Log.d("MainActivity", "onFailure: " + t.message)
+                }
 
 
 //        list=ArrayList<DataModel>()
@@ -121,21 +131,12 @@ class BlankFragment : Fragment() {
 //    }
 
 
-
-                }
-
-//                override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
-//                    Log.d("MainActivity","onFailure: "+t.message)
-//                }
-//
-//                override fun onResponse(
-//                    call: Call<List<DataModel>>,
-//                    response: retrofit2.Response<List<DataModel>>
-//                ) {
-//                    TODO("Not yet implemented")
-//                }
-//            })
+            })
         }
+    }
+}
+
+
 
 
 //    }

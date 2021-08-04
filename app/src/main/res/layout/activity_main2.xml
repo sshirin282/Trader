@@ -19,13 +19,14 @@
         <androidx.cardview.widget.CardView
             android:id="@id/card1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-         <LinearLayout
-             android:id="@+id/card1"
+            android:layout_height="@dimen/_150sdp">
+          <LinearLayout
+                    android:id="@+id/card1"
                     android:weightSum="100"
                     android:padding="@dimen/_5sdp"
                     android:background="@color/white"
                     android:layout_width="match_parent"
+                    android:layout_gravity="center"
                     android:layout_height="@dimen/_100sdp">
                 <LinearLayout
                     android:id="@+id/card11"
@@ -70,7 +71,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_150sdp"
             android:id="@+id/card2"
             android:layout_below="@id/card1">
         <LinearLayout
@@ -78,10 +79,11 @@
             android:layout_below="@id/card1"
             android:weightSum="100"
             android:padding="@dimen/_5sdp"
+            android:layout_gravity="center"
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_100sdp">
-            <LinearLayout
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card21"
                 android:padding="@dimen/_15sdp"
                 android:gravity="center"
@@ -89,17 +91,26 @@
                 android:layout_weight="50"
                 android:background="@color/white"
                 android:layout_height="@dimen/_100sdp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <ImageView
+                    android:id="@+id/image1"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginLeft="@dimen/_75sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_business_center_24" />
                 <TextView
+                    android:layout_below="@id/image1"
                     android:background="@color/white"
+                    android:layout_marginLeft="@dimen/_75sdp"
                     android:layout_width="wrap_content"
                     android:text="Intraday"
                     android:layout_height="wrap_content">
                 </TextView>
-            </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:id="@+id/card22"
                 android:padding="@dimen/_15sdp"
@@ -123,13 +134,14 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_150sdp"
             android:id="@+id/card3"
             android:layout_below="@id/card2">
             <LinearLayout
                 android:id="@+id/card33"
                 android:layout_below="@id/card1"
                 android:weightSum="100"
+                android:layout_gravity="center"
                 android:padding="@dimen/_5sdp"
                 android:background="@color/white"
                 android:layout_width="match_parent"

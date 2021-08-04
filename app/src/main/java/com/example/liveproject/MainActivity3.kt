@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -44,6 +46,19 @@ class MainActivity3 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled=true
+
+        val navigationView: NavigationView =  findViewById(R.id.navigationview)
+        val header: View = navigationView.getHeaderView(0)
+        val tv: TextView = header.findViewById(R.id.login)
+        tv.setOnClickListener {
+            val intent=Intent(this,MainActivity6::class.java)
+            startActivity(intent)
+        }
+        val tv1: TextView = header.findViewById(R.id.sign)
+        tv1.setOnClickListener {
+            val intent=Intent(this,MainActivity6::class.java)
+            startActivity(intent)
+        }
 
         
         val screen: String? =intent.getStringExtra("fragment")
