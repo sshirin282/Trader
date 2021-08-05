@@ -6,20 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
+import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,85 +49,80 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var recyclerAdapter: Adapter
+        var recyclerAdapter: readapter
         var list: ArrayList<DataModel> = ArrayList<DataModel>()
         var i: Int = 0
-        val BASE_URL: String = "https://maxgenitsolutions.in/stock/"
+        val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
 
 
-        fun getApiClass() {
-            val retrofitBuilder = Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
-                .build()
-                .create(intradayInterface::class.java)
 
-            val retrofitData = retrofitBuilder.getData("intraday")
+        val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
+            response->
+          Log.e("response>>>>",response+"")
 
-            retrofitData.enqueue(object : Callback<List<DataModel>> {
-                fun onResponse(call: Call<List<DataModel>>?, response: Response<List<DataModel>>?) {
+            val ja:JSONObject= JSONObject(response)
+            val jb:JSONArray=ja.getJSONArray("list")
+            for(i in 0 until jb.length()){
+                val jsonobject:JSONObject=jb.getJSONObject(i)
+                val ststock:String=jsonobject.getString("ststock")
+                val stcmp:String=jsonobject.getString("stcmp")
+                val stdate:String=jsonobject.getString("stdate")
+                val dataModel=DataModel()
+                dataModel.ststock=ststock
+                dataModel.stcmp=stcmp
+                dataModel.stdate=stdate
+            }
+            recyclerAdapter= readapter(context,list)
+            val layoutManager=LinearLayoutManager(context)
+            recyclerView.layoutManager=layoutManager
+            recyclerView.adapter=recyclerAdapter
 
-                    val responseBody = response!!
-                    Log.e("response>>>>", response?.toString())
-                    list = ArrayList<DataModel>()
 
+        },Response.ErrorListener {
+
+        })
+
+        val queque:RequestQueue=Volley.newRequestQueue(activity)
+        queque.add(request)
+
+
+//
 //                val i:Int=0
 //                val ja: JSONArray = JSONArray(response.body())
 //                for (i in 0 until ja.length()){
 //                    val jb: JSONObject =ja.getJSONObject(i)
-////                    val userId:String=jb.getString("userId")
-////                    val id:String=jb.getString("userId")
-////                    val title:String=jb.getString("userId")
-////                    val body:String=jb.getString("userId")
-////
-                    val dataModel = DataModel()
-                }
-
-                override fun onResponse(call: Call<List<DataModel>>, response: retrofit2.Response<List<DataModel>>) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
-                    Log.d("MainActivity", "onFailure: " + t.message)
-                }
-
-
-//        list=ArrayList<DataModel>()
-//        val request: StringRequest = StringRequest(Request.Method.GET,url+"?category=intraday", Response.Listener {
-//                response ->
-//            Log.e("response>>>", response)
-//        },
-//            Response.ErrorListener {
-//                Log.e("response>>>", "ghf")
-//        })
-//        val  requestQueue = Volley.newRequestQueue(context)
-//        requestQueue?.add(request)
-
-
-//    companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment BlankFragment.
-//         */
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            BlankFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
+//                    val userId:String=jb.getString("userId")
+//                    val id:String=jb.getString("userId")
+//                    val title:String=jb.getString("userId")
+//                    val body:String=jb.getString("userId")
+//
+//                    val dataModel = DataModel()
 //                }
-//            }
-//    }
 
-
-            })
-        }
+////    companion object {
+////        /**
+////         * Use this factory method to create a new instance of
+////         * this fragment using the provided parameters.
+////         *
+////         * @param param1 Parameter 1.
+////         * @param param2 Parameter 2.
+////         * @return A new instance of fragment BlankFragment.
+////         */
+////        // TODO: Rename and change types and number of parameters
+////        @JvmStatic
+////        fun newInstance(param1: String, param2: String) =
+////            BlankFragment().apply {
+////                arguments = Bundle().apply {
+////                    putString(ARG_PARAM1, param1)
+////                    putString(ARG_PARAM2, param2)
+////                }
+////            }
+////    }
+//
+//
+//            })
+//        }
     }
 }
 
