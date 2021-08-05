@@ -24,12 +24,12 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
     lateinit var textView: TextView
-//    lateinit var linearLayout1: LinearLayout
-    lateinit var linearLayout2: LinearLayout
-//    lateinit var linearLayout3: LinearLayout
-    lateinit var linearLayout4: LinearLayout
-    lateinit var linearLayout5: LinearLayout
-    lateinit var linearLayout6: LinearLayout
+    lateinit var cardView1: CardView
+    lateinit var cardView2: CardView
+    lateinit var cardView3: CardView
+    lateinit var cardView4: CardView
+    lateinit var cardView5: CardView
+    lateinit var cardView6: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,40 +56,39 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        linearLayout1 = findViewById(R.id.card11)
-        linearLayout2 = findViewById(R.id.card12)
-//        linearLayout3 = findViewById(R.id.card21)
-        linearLayout4 = findViewById(R.id.card22)
-        linearLayout5 = findViewById(R.id.card34)
-        linearLayout6 = findViewById(R.id.card32)
+        cardView1 = findViewById(R.id.card1)
+        cardView2 = findViewById(R.id.card2)
+        cardView3 = findViewById(R.id.card3)
+        cardView4 = findViewById(R.id.card4)
+        cardView5 = findViewById(R.id.card5)
+        cardView6 = findViewById(R.id.card6)
 
-//        linearLayout1.setOnClickListener {
-//            val intent=Intent(this,MainActivity3::class.java)
-//            intent.putExtra("fragment","Intraday")
-//            startActivity(intent)
-//        }
-        linearLayout2.setOnClickListener {
+        cardView1.setOnClickListener {
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Intraday")
+            startActivity(intent)
+        }
+        cardView2.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Short term")
             startActivity(intent)
         }
-//        linearLayout3.setOnClickListener {
-//            val intent=Intent(this,MainActivity3::class.java)
-//            intent.putExtra("fragment","Long term")
-//            startActivity(intent)
-//        }
-        linearLayout4.setOnClickListener {
+        cardView3.setOnClickListener {
+            val intent=Intent(this,MainActivity3::class.java)
+            intent.putExtra("fragment","Long term")
+            startActivity(intent)
+        }
+        cardView4.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Details")
             startActivity(intent)
         }
-        linearLayout5.setOnClickListener {
+        cardView5.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
             intent.putExtra("fragment","Contest")
             startActivity(intent)
         }
-        linearLayout6.setOnClickListener {
-
+        cardView6.setOnClickListener {
         }
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -140,9 +139,7 @@ class MainActivity2 : AppCompatActivity() {
             drawerLayout.closeDrawers()
             true
         }
-
     }
-
 }
 
 

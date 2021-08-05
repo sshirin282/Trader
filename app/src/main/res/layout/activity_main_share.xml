@@ -16,19 +16,38 @@
     <LinearLayout
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="@dimen/_300sdp"
         android:layout_below="@id/tool9"
         android:weightSum="50">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_225sdp"
+            android:layout_height="@dimen/_275sdp"
             android:layout_gravity="center"
             android:background="@drawable/shape">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
+                android:id="@+id/image1"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"/>
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_below="@id/image1"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"/>
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_below="@id/image2"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"/>
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_below="@id/image3"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"/>
+            </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
 

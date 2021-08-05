@@ -60,7 +60,6 @@ class BlankFragment : Fragment() {
         val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
             response->
           Log.e("response>>>>",response+"")
-
             val ja:JSONObject= JSONObject(response)
             val jb:JSONArray=ja.getJSONArray("list")
             for(i in 0 until jb.length()){
@@ -77,8 +76,6 @@ class BlankFragment : Fragment() {
             val layoutManager=LinearLayoutManager(context)
             recyclerView.layoutManager=layoutManager
             recyclerView.adapter=recyclerAdapter
-
-
         },Response.ErrorListener {
 
         })
