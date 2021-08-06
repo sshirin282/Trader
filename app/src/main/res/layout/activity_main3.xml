@@ -33,6 +33,18 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_toRightOf="@id/edit3" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar">
+        </include>
+
+        <FrameLayout
+            android:layout_below="@id/tablelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/navigation"
+            android:id="@+id/frame">
+        </FrameLayout>
 
 
         <TableLayout
@@ -85,18 +97,7 @@
 
         </TableLayout>
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar">
-        </include>
 
-        <FrameLayout
-            android:layout_below="@id/tablelayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/navigation"
-            android:id="@+id/frame">
-        </FrameLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation"

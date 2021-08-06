@@ -67,10 +67,22 @@ class BlankFragment : Fragment() {
                 val ststock:String=jsonobject.getString("ststock")
                 val stcmp:String=jsonobject.getString("stcmp")
                 val stdate:String=jsonobject.getString("stdate")
+                val sttarget:String=jsonobject.getString("sttarget")
+                val stsl:String=jsonobject.getString("stsl")
+                val ststatus:String=jsonobject.getString("ststatus")
+
+                Log.e("ststock>>>>>",ststock)
+                Log.e("stcmp>>>>>",stcmp)
+                Log.e("stdate>>>>>",stdate)
+
                 val dataModel=DataModel()
                 dataModel.ststock=ststock
                 dataModel.stcmp=stcmp
                 dataModel.stdate=stdate
+                dataModel.sttarget=sttarget
+                dataModel.stsl=stsl
+                dataModel.ststatus=ststatus
+                list.add(dataModel)
             }
             recyclerAdapter= readapter(context,list)
             val layoutManager=LinearLayoutManager(context)
@@ -84,18 +96,6 @@ class BlankFragment : Fragment() {
         queque.add(request)
 
 
-//
-//                val i:Int=0
-//                val ja: JSONArray = JSONArray(response.body())
-//                for (i in 0 until ja.length()){
-//                    val jb: JSONObject =ja.getJSONObject(i)
-//                    val userId:String=jb.getString("userId")
-//                    val id:String=jb.getString("userId")
-//                    val title:String=jb.getString("userId")
-//                    val body:String=jb.getString("userId")
-//
-//                    val dataModel = DataModel()
-//                }
 
 ////    companion object {
 ////        /**

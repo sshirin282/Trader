@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/card1"
-            app:cardBackgroundColor="@android:color/tertiary_text_dark"
+            app:cardBackgroundColor="#F9FBE7"
             android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="fill"
@@ -41,8 +41,8 @@
                 android:gravity="center"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_baseline_business_center_24"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -74,8 +74,8 @@
                 android:gravity="center"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_baseline_timer_24"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,8 +107,8 @@
                 android:gravity="center"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_baseline_bar_chart_24"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -140,8 +140,8 @@
                 android:gravity="center"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_baseline_details_24"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,8 +173,8 @@
                 android:gravity="center"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_baseline_category_24"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -206,8 +206,8 @@
                 android:gravity="center"
                 android:layout_gravity="center">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_baseline_share_24"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -219,9 +219,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </GridLayout>
-
-
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationview"
