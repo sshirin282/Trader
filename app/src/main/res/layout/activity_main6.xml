@@ -40,7 +40,7 @@
         android:layout_below="@id/edittext1"
         android:text="Forgot Password"
         android:textSize="@dimen/_15sdp"
-        android:textColor="#004D40"
+        android:textColor="@android:color/darker_gray"
         android:layout_marginLeft="@dimen/_175sdp"/>
 
     <Button
@@ -50,10 +50,10 @@
         android:layout_below="@id/textforget"
         android:layout_marginTop="10dp"
         app:strokeWidth="3dp"
-        app:strokeColor="#004D40"
+        app:strokeColor="@android:color/darker_gray"
         android:text="Login"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="#004D40"
+        android:textColor="@android:color/darker_gray"
         android:gravity="center"/>
 
     <Button
@@ -63,10 +63,10 @@
         android:layout_below="@id/bnt1"
         android:layout_marginTop="10dp"
         app:strokeWidth="3dp"
-        app:strokeColor="#004D40"
+        app:strokeColor="@android:color/darker_gray"
         android:text="Signup"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="#004D40"
+        android:textColor="@android:color/darker_gray"
         android:gravity="center"/>
 
 

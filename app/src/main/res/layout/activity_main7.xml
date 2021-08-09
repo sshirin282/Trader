@@ -40,9 +40,9 @@
         app:strokeWidth="3dp"
         android:text="REQUEST OTP"
         android:layout_below="@id/textview7"
-        app:strokeColor="#004D40"
+        app:strokeColor="@android:color/darker_gray"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="#004D40"
+        android:textColor="@android:color/darker_gray"
         android:gravity="center"/>
 
 </RelativeLayout>

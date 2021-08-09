@@ -63,9 +63,9 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:text="SIGNUP"
         android:layout_below="@id/edit84"
-        app:strokeColor="#004D40"
+        app:strokeColor="@android:color/darker_gray"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="#004D40"
+        android:textColor="@android:color/darker_gray"
         android:gravity="center"/>
     <Button
         android:id="@+id/bnt82"
@@ -75,9 +75,9 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:text="LOGIN"
         android:layout_below="@id/bnt81"
-        app:strokeColor="#004D40"
+        app:strokeColor="@android:color/darker_gray"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="#004D40"
+        android:textColor="@android:color/darker_gray"
         android:gravity="center"/>
 
 </RelativeLayout>

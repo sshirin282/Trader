@@ -40,20 +40,19 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
     }
 
     override fun onBindViewHolder(holder: readapter.ViewHolder, position: Int) {
-        holder.textView1.text=list.get(position).ststock
-        holder.textView2.text=list.get(position).stcmp
-        holder.textView3.text=list.get(position).stdate
-        holder.textView4.text=list.get(position).sttarget
-        holder.textView5.text=list.get(position).stsl
-        holder.textView6.text=list.get(position).ststatus
-        holder.textView7.text=list.get(position).stremark
+        holder.textView1.text = list.get(position).ststock
+        holder.textView2.text = list.get(position).stcmp
+        holder.textView3.text = list.get(position).stdate
+        holder.textView4.text = list.get(position).sttarget
+        holder.textView5.text = list.get(position).stsl
+        holder.textView6.text = list.get(position).ststatus
+        holder.textView7.text = list.get(position).stremark
 
-
-        if(list.get(position).ststatus.equals("SL Hit")){
+        if (list.get(position).ststatus.equals("SL Hit")) {
             holder.textView6.setTextColor(Color.RED)
-        }else if (list.get(position).ststatus.equals("Achieved")){
+        }else if(list.get(position).ststatus.equals("Active")){
             holder.textView6.setTextColor(Color.GREEN)
-        }else if (list.get(position).ststatus.equals("Active")) {
+        }else if(list.get(position).ststatus.equals("Achieved")) {
             holder.textView6.setTextColor(Color.GREEN)
         }
     }

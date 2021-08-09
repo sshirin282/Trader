@@ -8,6 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tool7"
-        app:titleTextColor="#004D40">
+        app:titleTextColor="@android:color/darker_gray">
     </androidx.appcompat.widget.Toolbar>
 </LinearLayout>

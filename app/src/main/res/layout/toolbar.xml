@@ -5,7 +5,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool"
-        android:background="#004D40"
+        android:background="@android:color/darker_gray"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </androidx.appcompat.widget.Toolbar>

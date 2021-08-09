@@ -4,18 +4,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 
 class MainActivity : AppCompatActivity() {
+    lateinit var imageView: ImageView
 
-    lateinit var appCompatImageView: AppCompatImageView
-    lateinit var textView: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        appCompatImageView=findViewById(R.id.image)
-        textView=findViewById(R.id.text)
+        imageView=findViewById(R.id.frontimage)
 
 
 

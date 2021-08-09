@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar2"
-        android:background="#004D40"/>
+        android:background="@android:color/darker_gray"/>
 
 
 </RelativeLayout>

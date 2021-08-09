@@ -8,6 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ttt"
-        app:titleTextColor="#004D40"/>
+        app:titleTextColor="@android:color/darker_gray"/>
 
 </RelativeLayout>

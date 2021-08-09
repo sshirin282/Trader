@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toolbar
@@ -12,14 +13,20 @@ class MainActivity6 : AppCompatActivity() {
     lateinit var editText1: EditText
     lateinit var editText2: EditText
     lateinit var textView: TextView
+    lateinit var button: Button
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
         toolbar=findViewById(R.id.toolbar2)
         textView=findViewById(R.id.textforget)
+        button=findViewById(R.id.bnt2)
         textView.setOnClickListener {
             val intent=Intent(this,MainActivity7::class.java)
+            startActivity(intent)
+        }
+        button.setOnClickListener {
+            val intent=Intent(this,MainActivity8::class.java)
             startActivity(intent)
         }
         toolbar.setTitle("Login")
