@@ -70,6 +70,7 @@ class BlankFragment : Fragment() {
                 val sttarget:String=jsonobject.getString("sttarget")
                 val stsl:String=jsonobject.getString("stsl")
                 val ststatus:String=jsonobject.getString("ststatus")
+                val stremark:String=jsonobject.getString("stremark")
 
                 Log.e("ststock>>>>>",ststock)
                 Log.e("stcmp>>>>>",stcmp)
@@ -82,6 +83,7 @@ class BlankFragment : Fragment() {
                 dataModel.sttarget=sttarget
                 dataModel.stsl=stsl
                 dataModel.ststatus=ststatus
+                dataModel.stremark=stremark
                 list.add(dataModel)
             }
             recyclerAdapter= readapter(context,list)

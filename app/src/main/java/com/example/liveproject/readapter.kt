@@ -53,8 +53,8 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
             holder.textView6.setTextColor(Color.RED)
         }else if (list.get(position).ststatus.equals("Achieved")){
             holder.textView6.setTextColor(Color.GREEN)
+        }else if (list.get(position).ststatus.equals("Active")) {
+            holder.textView6.setTextColor(Color.GREEN)
         }
-
-
     }
 }
