@@ -33,9 +33,11 @@ class MainActivity3 : AppCompatActivity() {
         toolbar = findViewById(R.id.tool)
         edittext = findViewById(R.id.edit3)
         spinner = findViewById(R.id.spinner)
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
 
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
+
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
         toolbar.setTitle("Intraday")
         setSupportActionBar(toolbar)
