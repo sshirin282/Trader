@@ -7,4 +7,5 @@ class DataModel {
    var sttarget:String=""
    var stsl:String=""
    var ststatus:String=""
+   var stremark:String=""
 }

@@ -1,6 +1,7 @@
 package com.example.liveproject
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
         val textView4: TextView =view.findViewById(R.id.second)
         val textView5: TextView =view.findViewById(R.id.third)
         val textView6: TextView =view.findViewById(R.id.fourth)
+        val textView7: TextView =view.findViewById(R.id.five)
 
     }
 
@@ -44,8 +46,15 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
         holder.textView4.text=list.get(position).sttarget
         holder.textView5.text=list.get(position).stsl
         holder.textView6.text=list.get(position).ststatus
+        holder.textView7.text=list.get(position).stremark
 
 
-        Log.e("textview1>>>>>>>",list.get(position).ststock+"")
+        if(list.get(position).ststatus.equals("SL Hit")){
+            holder.textView6.setTextColor(Color.RED)
+        }else if (list.get(position).ststatus.equals("Achieved")){
+            holder.textView6.setTextColor(Color.GREEN)
+        }
+
+
     }
 }
