@@ -2,15 +2,15 @@ package com.example.liveproject
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class readapter(val context: Context?, val list:ArrayList<DataModel> )
-    : RecyclerView.Adapter<readapter.ViewHolder>()  {
+class readapter(val context: Context?, val list: ArrayList<DataModel>)
+    : RecyclerView.Adapter<readapter.ViewHolder>()   {
 
 
 
@@ -30,7 +30,7 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val rowList=inflater.inflate(R.layout.list1,parent,false)
+        val rowList=inflater.inflate(R.layout.list1, parent, false)
         return ViewHolder(rowList)
     }
 
@@ -38,6 +38,32 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
     override fun getItemCount(): Int {
         return list.size
     }
+
+
+
+
+//    @Override
+//    public Filter getFilter() {
+//        return Searched_Filter
+//    }
+//    private Filter Searched_Filter = new Filter() {
+//        @Override
+//        protected FilterResults :performFiltering(CharSequence constraint) {
+//            ArrayList<DataModel>:filteredList = new ArrayList<>()
+//            if (constraint == null || constraint.length() == 0) {
+//                filteredList.addAll(FullList);
+//            } else {
+//                String filterPattern = constraint.toString().toLowerCase().trim();
+//                for (ItemDataModel item : FullList) {
+//                    if (item.getTxtname().toLowerCase().contains(filterPattern)) {
+//                        filteredList.add(item);
+//                    }
+//                }
+//            }
+//            FilterResults results = new FilterResults();
+//            results.values = filteredList;
+//            return results;
+//        }
 
     override fun onBindViewHolder(holder: readapter.ViewHolder, position: Int) {
         holder.textView1.text = list.get(position).ststock
@@ -56,4 +82,5 @@ class readapter(val context: Context?, val list:ArrayList<DataModel> )
             holder.textView6.setTextColor(Color.GREEN)
         }
     }
+
 }

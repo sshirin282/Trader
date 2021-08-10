@@ -23,7 +23,7 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var edittext: EditText
     lateinit var spinner: Spinner
     lateinit var bottomNavigationView: BottomNavigationView
-    val name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+    var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
@@ -34,8 +34,18 @@ class MainActivity3 : AppCompatActivity() {
         edittext = findViewById(R.id.edit3)
         spinner = findViewById(R.id.spinner)
 
+        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
 
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
