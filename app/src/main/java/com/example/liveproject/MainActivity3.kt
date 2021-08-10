@@ -3,6 +3,8 @@ package com.example.liveproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +12,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
+import androidx.core.widget.addTextChangedListener
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -17,6 +20,8 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity3 : AppCompatActivity() {
     lateinit var navigationView: NavigationView
+    lateinit var readapter: readapter
+    val list:ArrayList<DataModel> = ArrayList<DataModel>()
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
@@ -34,16 +39,35 @@ class MainActivity3 : AppCompatActivity() {
         edittext = findViewById(R.id.edit3)
         spinner = findViewById(R.id.spinner)
 
-        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
+//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//
+//            }
+//
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        }
+        readapter= readapter(this,list)
+        edittext.addTextChangedListener(object : TextWatcher {
 
+            override fun afterTextChanged(s: Editable) {
+                readapter.filter.filter(s)
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
             }
 
-        }
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+            }
+        })
+
+//        edittext.addTextChangedListener {
+//            readapter.filter.filter(it)
+//        }
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
 //        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
