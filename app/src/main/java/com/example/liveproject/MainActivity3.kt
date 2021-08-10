@@ -17,10 +17,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import java.util.Locale.filter
 
 class MainActivity3 : AppCompatActivity() {
     lateinit var navigationView: NavigationView
-    lateinit var readapter: readapter
+    lateinit var adapter: readapter
     val list:ArrayList<DataModel> = ArrayList<DataModel>()
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
@@ -49,11 +50,11 @@ class MainActivity3 : AppCompatActivity() {
 //            }
 //
 //        }
-        readapter= readapter(this,list)
+        adapter= readapter(this,list)
         edittext.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
-                readapter.filter.filter(s)
+                adapter.filter.filter(s)
             }
 
             override fun beforeTextChanged(s: CharSequence, start: Int,
