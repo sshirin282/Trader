@@ -26,8 +26,9 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
-    lateinit var edittext: EditText
+//    lateinit var edittext: EditText
     lateinit var spinner: Spinner
+    lateinit var searchView: SearchView
     lateinit var bottomNavigationView: BottomNavigationView
     var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
@@ -38,8 +39,9 @@ class MainActivity3 : AppCompatActivity() {
         navigationView = findViewById(R.id.navigationview)
         drawerLayout = findViewById(R.id.dra)
         toolbar = findViewById(R.id.tool)
-        edittext = findViewById(R.id.edit3)
+//        edittext = findViewById(R.id.edit3)
         spinner = findViewById(R.id.spinner)
+        searchView=findViewById(R.id.search)
 
 
 //        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
@@ -52,16 +54,31 @@ class MainActivity3 : AppCompatActivity() {
 //            }
 ////        }
         adapter= readapter(this,list)
-        edittext.addTextChangedListener(object : TextWatcher {
+//        edittext.addTextChangedListener(object : TextWatcher {
+//
+//            override fun afterTextChanged(s: Editable) {
+//                adapter.filter.filter(s)
+//            }
+//            override fun beforeTextChanged(s: CharSequence, start: Int,
+//                                           count: Int, after: Int) {
+//            }
+//            override fun onTextChanged(s: CharSequence, start: Int,
+//                                       before: Int, count: Int) {
+//            }
+//        })
 
-            override fun afterTextChanged(s: Editable) {
-                adapter.filter.filter(s)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (list.contains(query)) {
+                    adapter.filter.filter(query)
+                } else {
+//                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
+                }
+                return false
             }
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
-            }
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return false
             }
         })
 
