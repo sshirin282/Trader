@@ -50,29 +50,22 @@ class MainActivity3 : AppCompatActivity() {
 //            override fun onNothingSelected(parent: AdapterView<*>?) {
 //                TODO("Not yet implemented")
 //            }
-//
-//        }
+////        }
         adapter= readapter(this,list)
         edittext.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
                 adapter.filter.filter(s)
-                Log.e("filter>>>>","filters>>>>")
             }
-
             override fun beforeTextChanged(s: CharSequence, start: Int,
                                            count: Int, after: Int) {
             }
-
             override fun onTextChanged(s: CharSequence, start: Int,
                                        before: Int, count: Int) {
             }
         })
 
-
-
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
-//        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
 
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)

@@ -13,18 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 import kotlin.collections.ArrayList
 
-class readapter(val context: Context?, val list: ArrayList<DataModel>)
+class readapter(val context: Context?, var list: ArrayList<DataModel>)
     : RecyclerView.Adapter<readapter.ViewHolder>(), Filterable {
 
 
-    var countryFilterList = ArrayList<DataModel>()
-
-    init {
-        countryFilterList = list
-    }
-
-    private val inflater: LayoutInflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
-            as LayoutInflater
+    private val inflater: LayoutInflater =
+        context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
+                as LayoutInflater
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView1: TextView = view.findViewById(R.id.first)
@@ -48,28 +43,6 @@ class readapter(val context: Context?, val list: ArrayList<DataModel>)
     }
 
 
-//    @Override
-//    public Filter getFilter() {
-//        return Searched_Filter
-//    }
-//    private Filter Searched_Filter = new Filter() {
-//        @Override
-//        protected FilterResults :performFiltering(CharSequence constraint) {
-//            ArrayList<DataModel>:filteredList = new ArrayList<>()
-//            if (constraint == null || constraint.length() == 0) {
-//                filteredList.addAll(FullList);
-//            } else {
-//                String filterPattern = constraint.toString().toLowerCase().trim();
-//                for (ItemDataModel item : FullList) {
-//                    if (item.getTxtname().toLowerCase().contains(filterPattern)) {
-//                        filteredList.add(item);
-//                    }
-//                }
-//            }
-//            FilterResults results = new FilterResults();
-//            results.values = filteredList;
-//            return results;
-//        }
 
     override fun onBindViewHolder(holder: readapter.ViewHolder, position: Int) {
         holder.textView1.text = list.get(position).ststock
@@ -89,35 +62,38 @@ class readapter(val context: Context?, val list: ArrayList<DataModel>)
         }
     }
 
-
+    @ExperimentalStdlibApi
     override fun getFilter(): Filter {
-        return object : Filter() {
+        return object : Filter(){
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
-                    countryFilterList = list
+//                   list
                 } else {
                     val resultList = ArrayList<DataModel>()
-
-                    for (d in list) {
-                        if(countryFilterList.toString() in d.ststock.toString()){
-//                        if (row.ststock.toLowerCase().contains(charSearch.toLowerCase(Locale.ROOT))) {
-                            resultList.add(d)
+                    for (row in list) {
+                        if (row.ststock.lowercase(Locale.ROOT).contains(charSearch.lowercase(Locale.ROOT))) {
+                            resultList.add(row)
                         }
                     }
-                    countryFilterList = resultList
-                    Log.e("country>>>","result")
+                    list = resultList
+
                 }
                 val filterResults = FilterResults()
-                filterResults.values = countryFilterList
+                filterResults.values = list
                 return filterResults
             }
+
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                countryFilterList = results?.values as ArrayList<DataModel>
+                list = results?.values as ArrayList<DataModel>
                 notifyDataSetChanged()
-                Log.e("results>>>","ssss")
             }
+
         }
 
     }
 }
+
+
+
+
