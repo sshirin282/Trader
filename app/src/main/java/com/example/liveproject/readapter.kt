@@ -2,6 +2,7 @@ package com.example.liveproject
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import kotlin.collections.ArrayList
 
 class readapter(val context: Context?, val list: ArrayList<DataModel>)
     : RecyclerView.Adapter<readapter.ViewHolder>(), Filterable {
+
 
     var countryFilterList = ArrayList<DataModel>()
 
@@ -87,31 +89,33 @@ class readapter(val context: Context?, val list: ArrayList<DataModel>)
         }
     }
 
+
     override fun getFilter(): Filter {
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
-                    //countryFilterList = countryList
+                    countryFilterList = list
                 } else {
                     val resultList = ArrayList<DataModel>()
-                    for (row in countryFilterList) {
-                        if (row.toString().toLowerCase(Locale.ROOT)
-                                        .contains(charSearch.toLowerCase(Locale.ROOT))
-                        ) {
-                            resultList.add(row)
+
+                    for (d in list) {
+                        if(countryFilterList.toString() in d.ststock.toString()){
+//                        if (row.ststock.toLowerCase().contains(charSearch.toLowerCase(Locale.ROOT))) {
+                            resultList.add(d)
                         }
                     }
                     countryFilterList = resultList
+                    Log.e("country>>>","result")
                 }
                 val filterResults = FilterResults()
                 filterResults.values = countryFilterList
                 return filterResults
             }
-
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 countryFilterList = results?.values as ArrayList<DataModel>
                 notifyDataSetChanged()
+                Log.e("results>>>","ssss")
             }
         }
 

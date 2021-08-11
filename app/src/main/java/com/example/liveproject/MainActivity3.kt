@@ -30,6 +30,7 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var spinner: Spinner
     lateinit var bottomNavigationView: BottomNavigationView
     var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
@@ -39,6 +40,7 @@ class MainActivity3 : AppCompatActivity() {
         toolbar = findViewById(R.id.tool)
         edittext = findViewById(R.id.edit3)
         spinner = findViewById(R.id.spinner)
+
 
 //        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
 //            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -55,6 +57,7 @@ class MainActivity3 : AppCompatActivity() {
 
             override fun afterTextChanged(s: Editable) {
                 adapter.filter.filter(s)
+                Log.e("filter>>>>","filters>>>>")
             }
 
             override fun beforeTextChanged(s: CharSequence, start: Int,
@@ -66,9 +69,8 @@ class MainActivity3 : AppCompatActivity() {
             }
         })
 
-//        edittext.addTextChangedListener {
-//            readapter.filter.filter(it)
-//        }
+
+
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
 //        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = arrayAdapter
@@ -250,5 +252,6 @@ class MainActivity3 : AppCompatActivity() {
             }
             return true
         }
+
 
 }
