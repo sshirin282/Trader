@@ -14,12 +14,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class readapter(val context: Context?, var list: ArrayList<DataModel>)
-    : RecyclerView.Adapter<readapter.ViewHolder>(), Filterable {
+    : RecyclerView.Adapter<readapter.ViewHolder>(), Filterable{
 
 
-    private val inflater: LayoutInflater =
+    private val inflater =
         context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
-                as LayoutInflater
+                as? LayoutInflater
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView1: TextView = view.findViewById(R.id.first)
@@ -33,8 +33,8 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val rowList = inflater.inflate(R.layout.list1, parent, false)
-        return ViewHolder(rowList)
+        val rowList = inflater?.inflate(R.layout.list1, parent, false)
+        return ViewHolder(rowList!!)
     }
 
 
@@ -61,6 +61,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
             holder.textView6.setTextColor(Color.GREEN)
         }
     }
+
 
     @ExperimentalStdlibApi
     override fun getFilter(): Filter {

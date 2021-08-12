@@ -67,20 +67,35 @@ class MainActivity3 : AppCompatActivity() {
 //            }
 //        })
 
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String): Boolean {
+////                if (list.contains(query)) {
+////                    adapter.filter.filter(query)
+////                } else {
+//////                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
+////                }
+//                return false
+//            }
+//            override fun onQueryTextChange(newText: String): Boolean {
+//              adapter.filter.filter(newText)
+//                return false
+//            }
+//        })
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                if (list.contains(query)) {
-                    adapter.filter.filter(query)
-                } else {
-//                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
-                }
-                return false
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
             }
-            override fun onQueryTextChange(newText: String): Boolean {
-                adapter.filter.filter(newText)
-                return false
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+//                BlankFragment.co.adapter.getFilter().filter(newText)
+//                adapter.filter.filter(newText)
+                return true
             }
+
         })
+
 
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
         spinner.adapter = arrayAdapter
@@ -94,7 +109,7 @@ class MainActivity3 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled = true
 
-        val navigationView: NavigationView =  findViewById(R.id.navigationview)
+//        val navigationView: NavigationView =  findViewById(R.id.navigationview)
         val header: View = navigationView.getHeaderView(0)
         val tv: TextView = header.findViewById(R.id.login)
         tv.setOnClickListener {
@@ -105,6 +120,45 @@ class MainActivity3 : AppCompatActivity() {
         tv1.setOnClickListener {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
+        }
+        bottomNavigationView.setOnNavigationItemReselectedListener {
+            when (it.itemId) {
+                R.id.intra -> {
+                    val fragment = BlankFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                    navigationView.setCheckedItem(R.id.intra2)
+                    toolbar.setTitle("Intraday")
+
+                }
+                R.id.sterm -> {
+                    val fragment = BlankFragment2()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                    navigationView.setCheckedItem(R.id.sterm2)
+                    toolbar.setTitle("Short term")
+
+                }
+                R.id.lterm -> {
+                    val fragment = BlankFragment3()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                    navigationView.setCheckedItem(R.id.lterm2)
+                    toolbar.setTitle("Long term")
+
+                }
+                R.id.detail -> {
+                    val fragment = BlankFragment4()
+                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+                    true
+                    navigationView.setCheckedItem(R.id.detail2)
+                    toolbar.setTitle("Details")
+
+                }
+                R.id.contest -> {
+                }
+
+            }
         }
 
 
@@ -153,45 +207,7 @@ class MainActivity3 : AppCompatActivity() {
 //      true
 //      }
 
-        bottomNavigationView.setOnNavigationItemReselectedListener {
-            when (it.itemId) {
-                R.id.intra -> {
-                    val fragment = BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                    navigationView.setCheckedItem(R.id.intra2)
-                    toolbar.setTitle("Intraday")
 
-                }
-                R.id.sterm -> {
-                    val fragment = BlankFragment2()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                    navigationView.setCheckedItem(R.id.sterm2)
-                    toolbar.setTitle("Short term")
-
-                }
-                R.id.lterm -> {
-                    val fragment = BlankFragment3()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                    navigationView.setCheckedItem(R.id.lterm2)
-                    toolbar.setTitle("Long term")
-
-                }
-                R.id.detail -> {
-                    val fragment = BlankFragment4()
-                    supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-                    true
-                    navigationView.setCheckedItem(R.id.detail2)
-                    toolbar.setTitle("Details")
-
-                }
-                R.id.contest -> {
-                }
-
-            }
-        }
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {

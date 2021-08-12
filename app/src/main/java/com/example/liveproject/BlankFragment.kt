@@ -50,27 +50,27 @@ class BlankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var recyclerAdapter: readapter
-        var list: ArrayList<DataModel> = ArrayList<DataModel>()
+        val list: ArrayList<DataModel> = ArrayList<DataModel>()
         var i: Int = 0
         val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
-        var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
 
 
 
-        val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
-            response->
-          Log.e("response>>>>",response+"")
-            val ja:JSONObject= JSONObject(response)
-            val jb:JSONArray=ja.getJSONArray("list")
-            for(i in 0 until jb.length()){
-                val jsonobject:JSONObject=jb.getJSONObject(i)
-                val ststock:String=jsonobject.getString("ststock")
-                val stcmp:String=jsonobject.getString("stcmp")
-                val stdate:String=jsonobject.getString("stdate")
-                val sttarget:String=jsonobject.getString("sttarget")
-                val stsl:String=jsonobject.getString("stsl")
-                val ststatus:String=jsonobject.getString("ststatus")
-                val stremark:String=jsonobject.getString("stremark")
+        val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL, {
+            response ->
+            Log.e("response>>>>",response)
+            val js:JSONObject= JSONObject(response)
+            val jb:JSONArray=js.getJSONArray("list")
+            for (i in 0 until jb.length()){
+                val jsonObject:JSONObject=jb.getJSONObject(i)
+                val ststock:String=jsonObject.getString("ststock")
+                val stcmp:String=jsonObject.getString("stcmp")
+                val stdate:String=jsonObject.getString("stdate")
+                val sttarget:String=jsonObject.getString("sttarget")
+                val stsl:String=jsonObject.getString("stsl")
+                val ststatus:String=jsonObject.getString("ststatus")
+                val stremark:String=jsonObject.getString("stremark")
 
                 val dataModel=DataModel()
                 dataModel.ststock=ststock
@@ -87,10 +87,12 @@ class BlankFragment : Fragment() {
             val layoutManager=LinearLayoutManager(context)
             recyclerView.layoutManager=layoutManager
             recyclerView.adapter=recyclerAdapter
-        },Response.ErrorListener {
+
+        }, {
+
         })
-        val queque:RequestQueue=Volley.newRequestQueue(activity)
-        queque.add(request)
+        val queue:RequestQueue=Volley.newRequestQueue(context)
+        queue.add(request)
     }
 }
 
