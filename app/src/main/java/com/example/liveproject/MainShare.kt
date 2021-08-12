@@ -60,7 +60,7 @@ class MainShare : AppCompatActivity() {
         imageView3.setOnClickListener {
             val shareIntent= Intent()
             shareIntent.action = Intent.ACTION_VIEW
-            shareIntent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.stocktrends.mobileapp")
+//            shareIntent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.stocktrends.mobileapp")
             startActivity(Intent.createChooser(intent,"Open with"))
         }
     }
