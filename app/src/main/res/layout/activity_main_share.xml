@@ -18,45 +18,89 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_300sdp"
         android:layout_below="@id/tool9"
-        android:weightSum="50">
+        android:weightSum="50"
+        android:background="@android:color/darker_gray">
 
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="@dimen/_275sdp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:background="@drawable/shape">-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical"-->
-<!--                android:gravity="center">-->
-<!--            <ImageView-->
-<!--                android:id="@+id/image1"-->
-<!--                android:layout_width="@dimen/_50sdp"-->
-<!--                android:layout_height="@dimen/_50sdp"/>-->
-<!--                <TextView-->
-<!--                    android:layout_width="@dimen/_100sdp"-->
-<!--                    android:layout_height="wrap_content" />-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <ImageView
+                android:layout_marginTop="@dimen/_15sdp"
+                android:id="@+id/shareimage1"
+                android:layout_marginLeft="@dimen/_125sdp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/ic_baseline_share_24" />
+            <TextView
+                android:id="@+id/sharetext1"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_toRightOf="@id/shareimage1"
+                android:text="Share App"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
 
-<!--                <ImageView-->
-<!--                android:id="@+id/image2"-->
-<!--                android:layout_width="@dimen/_50sdp"-->
-<!--                android:layout_height="@dimen/_50sdp"/>-->
-<!--            <ImageView-->
-<!--                android:id="@+id/image3"-->
-<!--                android:layout_width="@dimen/_50sdp"-->
-<!--                android:layout_height="@dimen/_50sdp"/>-->
-<!--            <ImageView-->
-<!--                android:id="@+id/image4"-->
-<!--                android:layout_width="@dimen/_50sdp"-->
-<!--                android:layout_height="@dimen/_50sdp"/>-->
-<!--            </LinearLayout>-->
-<!--        </androidx.cardview.widget.CardView>-->
+            <ImageView
+                android:layout_below="@id/shareimage1"
+                android:id="@+id/shareimage2"
+                android:layout_marginLeft="@dimen/_125sdp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/ic_baseline_share_24" />
+            <TextView
+                android:id="@+id/sharetext2"
+                android:layout_below="@id/sharetext1"
+                android:layout_toRightOf="@id/shareimage2"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:text="Youtube"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_below="@id/shareimage2"
+                android:id="@+id/shareimage3"
+                android:layout_marginLeft="@dimen/_125sdp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/ic_baseline_star_24" />
+            <TextView
+                android:id="@+id/sharetext3"
+                android:layout_toRightOf="@id/shareimage3"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:text="Rate Us"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_below="@id/sharetext2"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:layout_below="@id/shareimage3"
+                android:id="@+id/shareimage4"
+                android:layout_marginLeft="@dimen/_125sdp"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:src="@drawable/ic_baseline_email_24" />
+            <TextView
+                android:id="@+id/sharetext4"
+                android:layout_toRightOf="@id/shareimage4"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_below="@id/sharetext3"
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

@@ -89,6 +89,8 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
         cardView6.setOnClickListener {
+            val intent=Intent(this,MainShare::class.java)
+            startActivity(intent)
         }
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
