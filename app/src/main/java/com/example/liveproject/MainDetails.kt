@@ -57,52 +57,66 @@ class MainDetails : AppCompatActivity() {
         navigationView.setCheckedItem(R.id.detail2)
         toolbar.setTitle("Details")
 
-        bottomNavigationView.setOnNavigationItemReselectedListener {
-            when (it.itemId) {
+         bottomNavigationView.setOnNavigationItemSelectedListener {
+             when (it.itemId) {
                 R.id.intra -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                     val fragment = BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.intra2)
                     toolbar.setTitle("Intraday")
-
+                    true
                 }
                 R.id.sterm -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                     val fragment = BlankFragment2()
                     supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.sterm2)
                     toolbar.setTitle("Short term")
-
+                    true
                 }
                 R.id.lterm -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                     val fragment = BlankFragment3()
                     supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.lterm2)
                     toolbar.setTitle("Long term")
-
+                    true
                 }
                 R.id.detail -> {
-                    val fragment = BlankFragment4()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
-                    true
+                    val intent=Intent(this,MainDetails::class.java)
+                    startActivity(intent)
+//                    val fragment = BlankFragment4()
+//                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+//                    true
                     navigationView.setCheckedItem(R.id.detail2)
                     toolbar.setTitle("Details")
-
+                    true
                 }
                 R.id.contest -> {
+                    true
                 }
+                 else -> false
+             }
+         }
 
-            }
-        }
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home2 -> {
                     val intent = Intent(this, MainActivity2::class.java)
                     startActivity(intent)
+                    true
                 }
                 R.id.intra2 -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                     bottomNavigationView.setSelectedItemId(R.id.intra)
                     toolbar.setTitle("Intraday")
                     val fragment = BlankFragment()
@@ -110,13 +124,17 @@ class MainDetails : AppCompatActivity() {
                     true
                 }
                 R.id.sterm2 -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                     bottomNavigationView.setSelectedItemId(R.id.sterm)
                     toolbar.setTitle("Short term")
-                    val fragment = BlankFragment2()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+//                    val fragment = BlankFragment2()
+//                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                 }
                 R.id.lterm2 -> {
+                    val intent=Intent(this,MainActivity3::class.java)
+                    startActivity(intent)
                     bottomNavigationView.setSelectedItemId(R.id.lterm)
                     toolbar.setTitle("Long term")
                     val fragment = BlankFragment3()
@@ -126,20 +144,25 @@ class MainDetails : AppCompatActivity() {
                 R.id.detail2 -> {
                     bottomNavigationView.setSelectedItemId(R.id.detail)
                     toolbar.setTitle("Details")
-                    val fragment = BlankFragment4()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    val intent=Intent(this,MainDetails::class.java)
+                    startActivity(intent)
+//                    val fragment = BlankFragment4()
+//                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                 }
                 R.id.contest2 -> {
                     bottomNavigationView.setSelectedItemId(R.id.contest)
+                        true
                 }
                 R.id.share2 -> {
                     val intent=Intent(this,MainShare::class.java)
                     startActivity(intent)
+                        true
                 }
                 R.id.prize2 -> {
                     val intent = Intent(this, MainActivity4::class.java)
                     startActivity(intent)
+                        true
                 }
                 R.id.disclaimer2 -> {
                     val intent = Intent(this, MainActivity5::class.java)
