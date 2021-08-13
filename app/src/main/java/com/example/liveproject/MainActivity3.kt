@@ -247,6 +247,8 @@ class MainActivity3 : AppCompatActivity() {
                     bottomNavigationView.setSelectedItemId(R.id.contest)
                 }
                 R.id.share2 -> {
+                    val intent=Intent(this,MainShare::class.java)
+                    startActivity(intent)
                 }
                 R.id.prize2 -> {
                     val intent = Intent(this, MainActivity4::class.java)

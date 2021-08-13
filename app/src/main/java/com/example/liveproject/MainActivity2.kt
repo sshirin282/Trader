@@ -23,7 +23,7 @@ class MainActivity2 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
-    lateinit var textView: TextView
+//    lateinit var textView: TextView
     lateinit var cardView1: CardView
     lateinit var cardView2: CardView
     lateinit var cardView3: CardView
@@ -43,7 +43,7 @@ class MainActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled = true
-        val navigationView: NavigationView =  findViewById(R.id.navigationview)
+//        val navigationView: NavigationView =  findViewById(R.id.navigationview)
         val header: View = navigationView.getHeaderView(0)
         val tv: TextView = header.findViewById(R.id.login)
         tv.setOnClickListener {
@@ -79,7 +79,7 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
         cardView4.setOnClickListener {
-            val intent=Intent(this,MainActivity3::class.java)
+            val intent=Intent(this,MainDetails::class.java)
             intent.putExtra("fragment","Details")
             startActivity(intent)
         }
@@ -115,7 +115,7 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.detail2 ->{
-                    val intent=Intent(this,MainActivity3::class.java)
+                    val intent=Intent(this,MainDetails::class.java)
                     intent.putExtra("fragment","Details")
                     startActivity(intent)
                 }
