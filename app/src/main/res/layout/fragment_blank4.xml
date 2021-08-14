@@ -5,10 +5,41 @@
     android:layout_height="match_parent"
     tools:context=".BlankFragment4">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerdetails">
-    </androidx.recyclerview.widget.RecyclerView>
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/relative">-->
+
+<!--    <RadioGroup-->
+<!--        android:layout_marginTop="@dimen/_10sdp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/radiogroup"-->
+<!--        android:background="@drawable/radio"-->
+<!--        android:orientation="horizontal">-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/radiobutton1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Current IPO"-->
+<!--            android:background="@drawable/radio"-->
+<!--            android:layout_marginLeft="@dimen/_100sdp"-->
+<!--            android:button="@android:color/transparent"/>-->
+<!--        <RadioButton-->
+<!--            android:id="@+id/radiobutton2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Upcoming IPO"-->
+<!--            android:button="@android:color/transparent"/>-->
+<!--    </RadioGroup>-->
+
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_below="@id/radiogroup"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/recyclerdetails">-->
+<!--    </androidx.recyclerview.widget.RecyclerView>-->
+<!--    </RelativeLayout>-->
 
 </FrameLayout>

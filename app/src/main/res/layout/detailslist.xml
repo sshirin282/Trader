@@ -3,6 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/scrolltext1"-->
+<!--            android:text="Name" />-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/scrolltext2"-->
+<!--            android:layout_toRightOf="@id/scrolltext1"-->
+<!--            android:text="Name"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/scrolltext3"-->
+<!--            android:layout_toRightOf="@id/scrolltext2"-->
+<!--            android:text="Name"/>-->
+
+
 
 
 </RelativeLayout>

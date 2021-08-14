@@ -198,9 +198,9 @@ class MainActivity3 : AppCompatActivity() {
             toolbar.setTitle("Details")
             bottomNavigationView.setSelectedItemId(R.id.detail)
             navigationView.setCheckedItem(R.id.detail2)
-            val fragment = BlankFragment4()
-            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-            true
+//            val fragment = BlankFragment4()
+//            supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
+//            true
         } else if (screen.equals("Contest")) {
             toolbar.setTitle("Contest")
             bottomNavigationView.setSelectedItemId(R.id.contest)

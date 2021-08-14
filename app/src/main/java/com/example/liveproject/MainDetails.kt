@@ -92,9 +92,9 @@ class MainDetails : AppCompatActivity() {
                 R.id.detail -> {
                     val intent=Intent(this,MainDetails::class.java)
                     startActivity(intent)
-//                    val fragment = BlankFragment4()
-//                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
-//                    true
+                    val fragment = BlankFragment4()
+                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    true
                     navigationView.setCheckedItem(R.id.detail2)
                     toolbar.setTitle("Details")
                     true
