@@ -195,7 +195,7 @@ class MainActivity3 : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
         } else if (screen.equals("Details")) {
-            toolbar.setTitle("Details"
+            toolbar.setTitle("Details")
             bottomNavigationView.setSelectedItemId(R.id.detail)
             navigationView.setCheckedItem(R.id.detail2)
 //            val fragment = BlankFragment4()
