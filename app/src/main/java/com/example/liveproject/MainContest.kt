@@ -10,27 +10,26 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
-class MainDetails : AppCompatActivity() {
+class MainContest : AppCompatActivity() {
+    lateinit var textView: TextView
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
-    lateinit var toggle:ActionBarDrawerToggle
-    //lateinit var recyclerView: RecyclerView
+    lateinit var navigationView:NavigationView
+    lateinit var toggle: ActionBarDrawerToggle
     lateinit var bottomNavigationView: BottomNavigationView
-    lateinit var navigationView: NavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_details)
-        drawerLayout=findViewById(R.id.detailsdraw)
-        toolbar=findViewById(R.id.tool)
-        //recyclerView=findViewById(R.id.recyclerdetails)
-        navigationView=findViewById(R.id.navigationviewdetailsside)
-        bottomNavigationView=findViewById(R.id.navigationdetails)
-        toolbar.setTitle("Details")
+        setContentView(R.layout.activity_main_contest)
+        toolbar=findViewById(R.id.contesttoll)
+        navigationView=findViewById(R.id.sidenavigationviewcontext)
+        bottomNavigationView=findViewById(R.id.bottomnavigationcontext)
+        drawerLayout=findViewById(R.id.dracontest)
+        textView=findViewById(R.id.contesttext)
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
+        toolbar.setTitle("Contest")
         setSupportActionBar(toolbar)
 
         toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
@@ -41,24 +40,24 @@ class MainDetails : AppCompatActivity() {
         val header: View = navigationView.getHeaderView(0)
         val tv: TextView = header.findViewById(R.id.login)
         tv.setOnClickListener {
-            val intent=Intent(this,MainActivity6::class.java)
+            val intent= Intent(this,MainActivity6::class.java)
             startActivity(intent)
         }
         val tv1: TextView = header.findViewById(R.id.sign)
         tv1.setOnClickListener {
-            val intent=Intent(this,MainActivity6::class.java)
+            val intent= Intent(this,MainActivity6::class.java)
             startActivity(intent)
         }
 
-        bottomNavigationView.setSelectedItemId(R.id.detail)
-        val fragment = BlankFragment4()
-        supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
-        true
-        navigationView.setCheckedItem(R.id.detail2)
-        toolbar.setTitle("Details")
+        bottomNavigationView.setSelectedItemId(R.id.contest)
+//        val fragment = BlankFragment4()
+//        supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+//        true
+        navigationView.setCheckedItem(R.id.contest2)
+        toolbar.setTitle("Contest")
 
-         bottomNavigationView.setOnNavigationItemSelectedListener {
-             when (it.itemId) {
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
                 R.id.intra -> {
                     val intent=Intent(this,MainActivity3::class.java)
                     startActivity(intent)
@@ -100,15 +99,11 @@ class MainDetails : AppCompatActivity() {
                     true
                 }
                 R.id.contest -> {
-                    val intent=Intent(this,MainContest::class.java)
-                    startActivity(intent)
-                    navigationView.setCheckedItem(R.id.contest2)
-                    toolbar.setTitle("Contest")
                     true
                 }
-                 else -> false
-             }
-         }
+                else -> false
+            }
+        }
 
 
         navigationView.setNavigationItemSelectedListener { menuItem ->
@@ -155,22 +150,18 @@ class MainDetails : AppCompatActivity() {
                     true
                 }
                 R.id.contest2 -> {
-                    val intent=Intent(this,MainContest::class.java)
-                    startActivity(intent)
                     bottomNavigationView.setSelectedItemId(R.id.contest)
-                    toolbar.setTitle("Contest")
-                    bottomNavigationView.setSelectedItemId(R.id.contest)
-                        true
+                    true
                 }
                 R.id.share2 -> {
                     val intent=Intent(this,MainShare::class.java)
                     startActivity(intent)
-                        true
+                    true
                 }
                 R.id.prize2 -> {
                     val intent = Intent(this, MainActivity4::class.java)
                     startActivity(intent)
-                        true
+                    true
                 }
                 R.id.disclaimer2 -> {
                     val intent = Intent(this, MainActivity5::class.java)
@@ -200,5 +191,3 @@ class MainDetails : AppCompatActivity() {
     }
 
 }
-
-

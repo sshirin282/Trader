@@ -84,7 +84,7 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
         cardView5.setOnClickListener {
-            val intent=Intent(this,MainActivity3::class.java)
+            val intent=Intent(this,MainContest::class.java)
             intent.putExtra("fragment","Contest")
             startActivity(intent)
         }
@@ -120,7 +120,7 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.contest2 ->{
-                    val intent=Intent(this,MainActivity3::class.java)
+                    val intent=Intent(this,MainContest::class.java)
                     intent.putExtra("fragment","Contest")
                     startActivity(intent)
                 }
