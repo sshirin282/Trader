@@ -37,6 +37,17 @@ class MainActivity6 : AppCompatActivity() {
 //                password.ifBlank { "password required" }
 //            }
 //        }
+        button1.setOnClickListener {
+            val name= username.text.toString().trim()
+            val pass= password.text.toString().trim()
+
+            if(username.length()==0){
+                username.setError("Please enter username ")
+            }else if(password.length()==0){
+                password.setError("Please enter password")
+            }
+
+        }
 
 
 //        button1.setOnClickListener {
