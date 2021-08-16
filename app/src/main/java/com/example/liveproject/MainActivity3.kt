@@ -26,10 +26,8 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
-
-
     lateinit var bottomNavigationView: BottomNavigationView
-    var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

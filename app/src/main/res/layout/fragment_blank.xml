@@ -20,6 +20,7 @@
 <!--        android:id="@+id/search"-->
 <!--        android:queryHint="Search"-->
 <!--        android:background="#595757"/>-->
+
         <EditText
             android:background="#595757"
             android:hint="Search"
@@ -36,7 +37,7 @@
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:layout_toRightOf="@id/search" />
+        android:layout_toRightOf="@id/edit3" />
 
 
 

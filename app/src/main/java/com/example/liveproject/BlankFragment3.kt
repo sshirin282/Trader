@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -53,6 +55,24 @@ class BlankFragment3 : Fragment() {
         val i:Int=0
         var recyclerAdapter:readapter
         val list:ArrayList<DataModel> = ArrayList<DataModel>()
+//        var spinner: Spinner =view.findViewById(R.id.spinner)
+        var searchView: SearchView =view.findViewById(R.id.search3)
+        recyclerAdapter= readapter(activity,list)
+        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (list.contains(query)) {
+                    recyclerAdapter.filter.filter(query)
+                }
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                recyclerAdapter.filter.filter(newText)
+                return false
+            }
+        })
+
         val request: StringRequest = StringRequest(Request.Method.GET,url, {
             response ->
             Log.e("response>>>>",response)

@@ -57,18 +57,38 @@ class BlankFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var recyclerAdapter: readapter
+        var adapter: readapter
         var list: ArrayList<DataModel> = ArrayList<DataModel>()
         var i: Int = 0
         val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
         var spinner: Spinner=view.findViewById(R.id.spinner)
         var edittext: EditText=view.findViewById(R.id.edit3)
-        recyclerAdapter= readapter(activity,list)
+//        var searchView:SearchView=view.findViewById(R.id.search)
+        adapter= readapter(activity,list)
+        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
 //        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
 //        spinner.adapter = arrayAdapter
 //        var arrayAdapter:ArrayAdapter<String> = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1,name)
+
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String): Boolean {
+//                if (list.contains(query)) {
+//                    recyclerAdapter.filter.filter(query)
+//                } else {
+////                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
+//                }
+//                return false
+//            }
+//            override fun onQueryTextChange(newText: String): Boolean {
+//                recyclerAdapter.filter.filter(newText)
+//                return false
+//            }
+//        })
+
+
+
 
 
 
@@ -100,10 +120,10 @@ class BlankFragment : Fragment() {
                 list.add(dataModel)
             }
 
-            recyclerAdapter= readapter(context,list)
+            adapter= readapter(context,list)
             val layoutManager=LinearLayoutManager(context)
             recyclerView.layoutManager=layoutManager
-            recyclerView.adapter=recyclerAdapter
+            recyclerView.adapter=adapter
         },Response.ErrorListener {
         })
         val queque:RequestQueue=Volley.newRequestQueue(activity)
@@ -112,7 +132,7 @@ class BlankFragment : Fragment() {
     edittext.addTextChangedListener(object : TextWatcher {
 
         override fun afterTextChanged(s: Editable) {
-//            readapter.filter.filter(s)
+            readapter.filter.filter(s)
         }
 
         override fun beforeTextChanged(s: CharSequence, start: Int,

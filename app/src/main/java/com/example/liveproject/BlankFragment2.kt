@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Spinner
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -16,6 +18,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.Locale.filter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,6 +56,26 @@ class BlankFragment2 : Fragment() {
         var recyclerAdapter:readapter
         var i:Int=0
         var list:ArrayList<DataModel> = ArrayList<DataModel>()
+//        var spinner: Spinner =view.findViewById(R.id.spinner)
+        var searchView:SearchView =view.findViewById(R.id.search2)
+        recyclerAdapter= readapter(activity,list)
+        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (list.contains(query)) {
+                    recyclerAdapter.filter.filter(query)
+                } else {
+//                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
+                }
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+              recyclerAdapter.filter.filter(newText)
+                return false
+            }
+        })
 
 
         val request:StringRequest= StringRequest(Request.Method.GET,url, {
@@ -91,6 +114,7 @@ class BlankFragment2 : Fragment() {
         val queue:RequestQueue=Volley.newRequestQueue(context)
         queue.add(request)
     }
+
 
     companion object {
         /**

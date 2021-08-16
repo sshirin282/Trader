@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".BlankFragment2"
     android:background="@color/black">
+
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -12,11 +13,10 @@
        android:id="@+id/relative">
 
    <SearchView
-
        android:layout_marginTop="@dimen/_3sdp"
        android:layout_width="@dimen/_170sdp"
        android:layout_height="@dimen/_40sdp"
-       android:id="@+id/search"
+       android:id="@+id/search2"
        android:queryHint="Search"
        android:background="#595757"/>
 
@@ -28,7 +28,7 @@
        android:layout_marginLeft="@dimen/_2sdp"
        android:layout_width="match_parent"
        android:layout_height="@dimen/_40sdp"
-       android:layout_toRightOf="@id/search" />
+       android:layout_toRightOf="@id/search2" />
 
 
 
