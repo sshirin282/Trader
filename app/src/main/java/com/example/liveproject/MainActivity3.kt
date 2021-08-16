@@ -26,9 +26,8 @@ class MainActivity3 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
-//    lateinit var edittext: EditText
-    lateinit var spinner: Spinner
-    lateinit var searchView: SearchView
+
+
     lateinit var bottomNavigationView: BottomNavigationView
     var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
@@ -39,9 +38,7 @@ class MainActivity3 : AppCompatActivity() {
         navigationView = findViewById(R.id.navigationview)
         drawerLayout = findViewById(R.id.dra)
         toolbar = findViewById(R.id.tool)
-//        edittext = findViewById(R.id.edit3)
-        spinner = findViewById(R.id.spinner)
-        searchView=findViewById(R.id.search)
+
 
 
 //        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
@@ -82,23 +79,22 @@ class MainActivity3 : AppCompatActivity() {
 //            }
 //        })
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
-            }
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//
+////                BlankFragment.co.adapter.getFilter().filter(newText)
+////                adapter.filter.filter(newText)
+//                return true
+//            }
+//
+//        })
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-
-//                BlankFragment.co.adapter.getFilter().filter(newText)
-//                adapter.filter.filter(newText)
-                return true
-            }
-
-        })
 
 
-        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
-        spinner.adapter = arrayAdapter
 
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
         toolbar.setTitle("Intraday")

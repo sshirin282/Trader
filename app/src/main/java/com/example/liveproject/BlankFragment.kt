@@ -1,11 +1,18 @@
 package com.example.liveproject
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.Layout
+import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.EditText
+import android.widget.SearchView
+import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -15,6 +22,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.Locale.filter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,6 +62,15 @@ class BlankFragment : Fragment() {
         var i: Int = 0
         val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
+        var spinner: Spinner=view.findViewById(R.id.spinner)
+        var edittext: EditText=view.findViewById(R.id.edit3)
+        recyclerAdapter= readapter(activity,list)
+
+//        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
+//        spinner.adapter = arrayAdapter
+//        var arrayAdapter:ArrayAdapter<String> = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1,name)
+
+
 
 
 
@@ -92,6 +109,20 @@ class BlankFragment : Fragment() {
         val queque:RequestQueue=Volley.newRequestQueue(activity)
         queque.add(request)
     }
+    edittext.addTextChangedListener(object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable) {
+//            readapter.filter.filter(s)
+        }
+
+        override fun beforeTextChanged(s: CharSequence, start: Int,
+                                       count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence, start: Int,
+                                   before: Int, count: Int) {
+        }
+    })
 }
 
 

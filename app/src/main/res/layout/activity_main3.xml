@@ -23,16 +23,8 @@
             android:queryHint="Search"
             android:layout_below="@id/toolbar"
             android:background="#595757"/>
-        
-<!--        <EditText-->
-<!--            android:background="#595757"-->
-<!--            android:hint="Search"-->
-<!--            android:layout_marginTop="@dimen/_3sdp"-->
-<!--            android:id="@+id/edit3"-->
-<!--            android:drawableLeft="@drawable/ic_baseline_search_24"-->
-<!--            android:layout_below="@id/toolbar"-->
-<!--            android:layout_width="@dimen/_170sdp"-->
-<!--            android:layout_height="@dimen/_40sdp" />-->
+
+
 
         <Spinner
             android:id="@+id/spinner"

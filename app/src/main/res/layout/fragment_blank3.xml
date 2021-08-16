@@ -3,11 +3,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BlankFragment3">
+    tools:context=".BlankFragment3"
+    android:background="@color/black">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start"
+        android:id="@+id/relative">
+
+    <SearchView
+
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_width="@dimen/_170sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:id="@+id/search"
+        android:queryHint="Search"
+        android:background="#595757"/>
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:background="#595757"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_toRightOf="@id/search" />
+
+
+
+    <TableLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/spinner"
+        android:layout_marginTop="@dimen/_3sdp">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_column="1"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="Stock"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_column="2"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="Target"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_column="3"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="SL"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="@dimen/_85sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_column="4"
+                android:background="@android:color/darker_gray"
+                android:gravity="center"
+                android:text="Remark"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </TableRow>
+    </TableLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerlongtem"/>
+        android:id="@+id/recyclerlongtem"
+        android:layout_below="@id/tablelayout"/>
+    </RelativeLayout>
 
 </FrameLayout>
