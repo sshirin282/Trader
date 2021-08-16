@@ -124,15 +124,19 @@ class BlankFragment : Fragment() {
             val layoutManager=LinearLayoutManager(context)
             recyclerView.layoutManager=layoutManager
             recyclerView.adapter=adapter
+
         },Response.ErrorListener {
         })
         val queque:RequestQueue=Volley.newRequestQueue(activity)
         queque.add(request)
     }
+
+
+
     edittext.addTextChangedListener(object : TextWatcher {
 
         override fun afterTextChanged(s: Editable) {
-            readapter.filter.filter(s)
+//            readapter.filter.filter(s)
         }
 
         override fun beforeTextChanged(s: CharSequence, start: Int,
