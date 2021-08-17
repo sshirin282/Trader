@@ -1,18 +1,16 @@
 package com.example.liveproject
 
-import android.os.Bundle
+import  android.os.Bundle
 import android.text.Editable
-import android.text.Layout
 import android.text.TextWatcher
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.SearchView
 import android.widget.Spinner
+import android.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
@@ -22,7 +20,9 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.*
 import java.util.Locale.filter
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,8 +63,8 @@ class BlankFragment : Fragment() {
         val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
         var spinner: Spinner=view.findViewById(R.id.spinner)
-        var edittext: EditText=view.findViewById(R.id.edit3)
-//        var searchView:SearchView=view.findViewById(R.id.search)
+//        var edittext: EditText=view.findViewById(R.id.edit3)
+        var searchView: SearchView =view.findViewById(R.id.search)
         adapter= readapter(activity,list)
         var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
@@ -72,20 +72,19 @@ class BlankFragment : Fragment() {
 //        spinner.adapter = arrayAdapter
 //        var arrayAdapter:ArrayAdapter<String> = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1,name)
 
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//                if (list.contains(query)) {
-//                    recyclerAdapter.filter.filter(query)
-//                } else {
-////                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
-//                }
-//                return false
-//            }
-//            override fun onQueryTextChange(newText: String): Boolean {
-//                recyclerAdapter.filter.filter(newText)
-//                return false
-//            }
-//        })
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (list.contains(query)) {
+                    adapter.filter.filter(query)
+                }
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+        })
+
 
 
 
@@ -133,20 +132,25 @@ class BlankFragment : Fragment() {
 
 
 
-    edittext.addTextChangedListener(object : TextWatcher {
-
-        override fun afterTextChanged(s: Editable) {
-//            readapter.filter.filter(s)
-        }
-
-        override fun beforeTextChanged(s: CharSequence, start: Int,
-                                       count: Int, after: Int) {
-        }
-
-        override fun onTextChanged(s: CharSequence, start: Int,
-                                   before: Int, count: Int) {
-        }
-    })
+//    edittext.addTextChangedListener(object : TextWatcher {
+//
+////        override fun afterTextChanged(s: Editable) {
+////
+//////            readapter.filter.filter(s)
+////        }
+////
+////        override fun beforeTextChanged(s: CharSequence, start: Int,
+////                                       count: Int, after: Int) {
+////        }
+////
+////        override fun onTextChanged(s: CharSequence, start: Int,
+////                                   before: Int, count: Int) {
+//////            MainActivity.this.adapter.getFilter().filter(s)
+////
+////        }
+////
+////        }
+////    })
 }
 
 

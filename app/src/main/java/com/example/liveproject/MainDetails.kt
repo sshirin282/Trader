@@ -60,8 +60,6 @@ class MainDetails : AppCompatActivity() {
          bottomNavigationView.setOnNavigationItemSelectedListener {
              when (it.itemId) {
                 R.id.intra -> {
-                    val intent=Intent(this,MainActivity3::class.java)
-                    startActivity(intent)
                     val fragment = BlankFragment()
                     supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
@@ -70,8 +68,8 @@ class MainDetails : AppCompatActivity() {
                     true
                 }
                 R.id.sterm -> {
-                    val intent=Intent(this,MainActivity3::class.java)
-                    startActivity(intent)
+//                    val intent=Intent(this,MainActivity3::class.java)
+//                    startActivity(intent)
                     val fragment = BlankFragment2()
                     supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
@@ -80,8 +78,8 @@ class MainDetails : AppCompatActivity() {
                     true
                 }
                 R.id.lterm -> {
-                    val intent=Intent(this,MainActivity3::class.java)
-                    startActivity(intent)
+//                    val intent=Intent(this,MainActivity3::class.java)
+//                    startActivity(intent)
                     val fragment = BlankFragment3()
                     supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
@@ -132,8 +130,8 @@ class MainDetails : AppCompatActivity() {
                     startActivity(intent)
                     bottomNavigationView.setSelectedItemId(R.id.sterm)
                     toolbar.setTitle("Short term")
-//                    val fragment = BlankFragment2()
-//                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    val fragment = BlankFragment2()
+                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                 }
                 R.id.lterm2 -> {

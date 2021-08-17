@@ -50,9 +50,9 @@ class MainContest : AppCompatActivity() {
         }
 
         bottomNavigationView.setSelectedItemId(R.id.contest)
-//        val fragment = BlankFragment4()
-//        supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
-//        true
+        val fragment = BlankFragment5()
+        supportFragmentManager.beginTransaction().replace(R.id.relativecontest, fragment).commit()
+        true
         navigationView.setCheckedItem(R.id.contest2)
         toolbar.setTitle("Contest")
 
@@ -62,7 +62,7 @@ class MainContest : AppCompatActivity() {
                     val intent=Intent(this,MainActivity3::class.java)
                     startActivity(intent)
                     val fragment = BlankFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.relativecontest, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.intra2)
                     toolbar.setTitle("Intraday")
@@ -72,7 +72,7 @@ class MainContest : AppCompatActivity() {
                     val intent=Intent(this,MainActivity3::class.java)
                     startActivity(intent)
                     val fragment = BlankFragment2()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.relativecontest, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.sterm2)
                     toolbar.setTitle("Short term")
@@ -82,7 +82,7 @@ class MainContest : AppCompatActivity() {
                     val intent=Intent(this,MainActivity3::class.java)
                     startActivity(intent)
                     val fragment = BlankFragment3()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.relativecontest, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.lterm2)
                     toolbar.setTitle("Long term")
@@ -92,7 +92,7 @@ class MainContest : AppCompatActivity() {
                     val intent=Intent(this,MainDetails::class.java)
                     startActivity(intent)
                     val fragment = BlankFragment4()
-                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.relativecontest, fragment).commit()
                     true
                     navigationView.setCheckedItem(R.id.detail2)
                     toolbar.setTitle("Details")
@@ -127,8 +127,8 @@ class MainContest : AppCompatActivity() {
                     startActivity(intent)
                     bottomNavigationView.setSelectedItemId(R.id.sterm)
                     toolbar.setTitle("Short term")
-//                    val fragment = BlankFragment2()
-//                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
+                    val fragment = BlankFragment2()
+                    supportFragmentManager.beginTransaction().replace(R.id.framedetails, fragment).commit()
                     true
                 }
                 R.id.lterm2 -> {

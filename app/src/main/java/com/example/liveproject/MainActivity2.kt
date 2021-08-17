@@ -100,6 +100,7 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.intra2 -> {
+
                     val intent=Intent(this,MainActivity3::class.java)
                     intent.putExtra("fragment","Intraday")
                     startActivity(intent)

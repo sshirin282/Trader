@@ -69,7 +69,9 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
-//                   list
+//                    charSearch.length
+                    list = list
+
                 } else {
                     val resultList = ArrayList<DataModel>()
                     for (row in list) {
