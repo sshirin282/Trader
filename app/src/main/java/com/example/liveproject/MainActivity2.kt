@@ -116,7 +116,7 @@ class MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.detail2 ->{
-                    val intent=Intent(this,MainDetails::class.java)
+                    val intent=Intent(this,MainActivity3::class.java)
                     intent.putExtra("fragment","Details")
                     startActivity(intent)
                 }

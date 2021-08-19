@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="925d0e5c-538d-4e7f-9c18-d5c65a731c2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/liveproject/BlankFragment5.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/liveproject/BlankFragment5.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/liveproject/MainActivity2.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/liveproject/MainActivity2.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/liveproject/MainContest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/liveproject/MainDetails.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main_contest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_main_details.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_blank5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_blank5.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1ww5Wbl8701CxAaBYt1PKIC2ZfK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="925d0e5c-538d-4e7f-9c18-d5c65a731c2e" name="Default Changelist" comment="" />
+      <created>1629356845814</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629356845814</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="238" y="60" key="FileChooserDialogImpl" timestamp="1629357996613">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="238" y="60" key="FileChooserDialogImpl/0.0.1024.728@0.0.1024.728" timestamp="1629357996613" />
+    <state x="288" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1629360396046">
+      <screen x="0" y="0" width="1024" height="728" />
+    </state>
+    <state x="288" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1024.728@0.0.1024.728" timestamp="1629360396046" />
+  </component>
+</project>
