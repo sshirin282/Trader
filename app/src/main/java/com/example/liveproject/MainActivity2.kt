@@ -18,7 +18,9 @@ import com.google.android.material.navigation.NavigationView
 
 
 
-class MainActivity2 : AppCompatActivity() {
+class
+
+MainActivity2 : AppCompatActivity() {
     lateinit var navigationView: NavigationView
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
@@ -43,7 +45,6 @@ class MainActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled = true
-//        val navigationView: NavigationView =  findViewById(R.id.navigationview)
         val header: View = navigationView.getHeaderView(0)
         val tv: TextView = header.findViewById(R.id.login)
         tv.setOnClickListener {

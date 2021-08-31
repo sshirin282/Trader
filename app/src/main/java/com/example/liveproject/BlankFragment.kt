@@ -63,8 +63,7 @@ class BlankFragment : Fragment() {
         val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
         var spinner: Spinner=view.findViewById(R.id.spinner)
-        var edittext: EditText=view.findViewById(R.id.edit3)
-//        var searchView: SearchView =view.findViewById(R.id.search)
+        var searchView: SearchView =view.findViewById(R.id.search)
         adapter= readapter(activity,list)
         var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
@@ -72,18 +71,18 @@ class BlankFragment : Fragment() {
 //        spinner.adapter = arrayAdapter
 //        var arrayAdapter:ArrayAdapter<String> = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1,name)
 
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-//                if (list.contains(query)) {
-//                    adapter.filter.filter(query)
-//                }
-//                return false
-//            }
-//            override fun onQueryTextChange(newText: String): Boolean {
-//                adapter.filter.filter(newText)
-//                return false
-//            }
-//        })
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                if (list.contains(query)) {
+                    adapter.filter.filter(query)
+                }
+                return false
+            }
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+        })
 
         val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
             response->

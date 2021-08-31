@@ -16,6 +16,11 @@ import kotlin.collections.ArrayList
 class readapter(val context: Context?, var list: ArrayList<DataModel>)
     : RecyclerView.Adapter<readapter.ViewHolder>(), Filterable{
 
+    var countryList=ArrayList<DataModel>()
+    init {
+        countryList=list
+    }
+
 
     private val inflater =
         context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE)
@@ -39,28 +44,30 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
 
     override fun getItemCount(): Int {
-        return list.size
+        return countryList.size
     }
 
 
 
     override fun onBindViewHolder(holder: readapter.ViewHolder, position: Int) {
-        holder.textView1.text = list.get(position).ststock
-        holder.textView2.text = list.get(position).stcmp
-        holder.textView3.text = list.get(position).stdate
-        holder.textView4.text = list.get(position).sttarget
-        holder.textView5.text = list.get(position).stsl
-        holder.textView6.text = list.get(position).ststatus
-        holder.textView7.text = list.get(position).stremark
+        holder.textView1.text = countryList.get(position).ststock
+        holder.textView2.text = countryList.get(position).stcmp
+        holder.textView3.text = countryList.get(position).stdate
+        holder.textView4.text = countryList.get(position).sttarget
+        holder.textView5.text = countryList.get(position).stsl
+        holder.textView6.text = countryList.get(position).ststatus
+        holder.textView7.text = countryList.get(position).stremark
 
-        if (list.get(position).ststatus.equals("SL Hit")) {
+        if (countryList.get(position).ststatus.equals("SL Hit")) {
             holder.textView6.setTextColor(Color.RED)
-        } else if (list.get(position).ststatus.equals("Active")) {
+        } else if (countryList.get(position).ststatus.equals("Active")) {
             holder.textView6.setTextColor(Color.GREEN)
-        } else if (list.get(position).ststatus.equals("Achieved")) {
+        } else if (countryList.get(position).ststatus.equals("Achieved")) {
             holder.textView6.setTextColor(Color.GREEN)
         }
     }
+
+    // Filter Method
 
 
     @ExperimentalStdlibApi
@@ -69,9 +76,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
-//                    charSearch.length
-                    list = list
-
+                    countryList=list
                 } else {
                     val resultList = ArrayList<DataModel>()
                     for (row in list) {
@@ -79,16 +84,14 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
                             resultList.add(row)
                         }
                     }
-                    list = resultList
-
+                    countryList = resultList
                 }
                 val filterResults = FilterResults()
-                filterResults.values = list
+                filterResults.values = countryList
                 return filterResults
             }
-
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                list = results?.values as ArrayList<DataModel>
+                countryList = results?.values as ArrayList<DataModel>
                 notifyDataSetChanged()
             }
 
