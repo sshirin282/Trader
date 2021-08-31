@@ -76,11 +76,17 @@ MainActivity2 : AppCompatActivity() {
         }
 
         cardView1 = findViewById(R.id.card1)
+        //cardView1.setBackgroundResource(R.drawable.shape1)
         cardView2 = findViewById(R.id.card2)
+        //cardView2.setBackgroundResource(R.drawable.shape1)
         cardView3 = findViewById(R.id.card3)
+       // cardView3.setBackgroundResource(R.drawable.shape1)
         cardView4 = findViewById(R.id.card4)
+      //  cardView4.setBackgroundResource(R.drawable.shape1)
         cardView5 = findViewById(R.id.card5)
+       // cardView5.setBackgroundResource(R.drawable.shape1)
         cardView6 = findViewById(R.id.card6)
+       // cardView6.setBackgroundResource(R.drawable.shape1)
 
         cardView1.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
