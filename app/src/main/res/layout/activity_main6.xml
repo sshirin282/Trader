@@ -22,22 +22,27 @@
         android:background="@drawable/shape"
         android:gravity="center"
         android:hint="Username" />
-
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eye"
+        app:passwordToggleEnabled="true"
+        android:layout_below="@+id/username">
     <EditText
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/username"
         android:hint="Password"
         android:gravity="center"
         android:background="@drawable/shape"
         android:id="@+id/password"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textforget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@id/eye"
         android:text="Forgot Password"
         android:textSize="@dimen/_15sdp"
         android:textColor="@android:color/darker_gray"

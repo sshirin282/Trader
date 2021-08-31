@@ -73,12 +73,14 @@ class MainActivity8 : AppCompatActivity() {
 
         val dp=FirebaseFirestore.getInstance()
         dp.collection("user").add(model).addOnSuccessListener {
+            dp.document("USER")
             Log.e(TAG,"Snapshot:${it.id}")
-            Toast.makeText(this,"snapshot",Toast.LENGTH_LONG).show()
+            Toast.makeText(this,"Suceessful",Toast.LENGTH_LONG).show()
         }
             .addOnFailureListener {
                 Log.e(TAG,"Error",it)
                 Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
             }
+
     }
 }

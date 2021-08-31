@@ -21,6 +21,7 @@
         android:id="@+id/username"
         android:layout_below="@id/too"
         android:layout_marginTop="@dimen/_10sdp"/>
+
     <EditText
         android:hint="  Email Id/Phone No."
         android:layout_width="match_parent"
@@ -29,14 +30,22 @@
         android:id="@+id/email"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_below="@id/username"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+        android:layout_below="@id/email"
+        android:id="@+id/eye">
     <EditText
         android:hint="  Password"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
         android:background="@drawable/shape"
         android:id="@+id/password"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_below="@id/email"/>
+        android:layout_marginTop="@dimen/_10sdp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <EditText
         android:hint="  Email(optinal)"
         android:layout_width="match_parent"
@@ -44,7 +53,7 @@
         android:background="@drawable/shape"
         android:id="@+id/emailoptional"
         android:layout_marginTop="@dimen/_10sdp"
-        android:layout_below="@id/password"/>
+        android:layout_below="@id/eye"/>
 
     <TextView
         android:layout_width="match_parent"
