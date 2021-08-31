@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.SearchView
@@ -67,9 +68,8 @@ class BlankFragment : Fragment() {
         adapter= readapter(activity,list)
         var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
-//        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, name)
-//        spinner.adapter = arrayAdapter
-//        var arrayAdapter:ArrayAdapter<String> = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1,name)
+        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
+        spinner.adapter = arrayAdapter
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -123,25 +123,8 @@ class BlankFragment : Fragment() {
 
 
 
-    edittext.addTextChangedListener(object : TextWatcher {
-
-        override fun afterTextChanged(s: Editable) {
-
-        }
-
-        override fun beforeTextChanged(s: CharSequence, start: Int,
-                                       count: Int, after: Int) {
-        }
-
-        override fun onTextChanged(s: CharSequence, start: Int,
-                                   before: Int, count: Int) {
-            readapter.filter.filter(s)
 
 
-        }
-
-        }
-    })
 }
 
 

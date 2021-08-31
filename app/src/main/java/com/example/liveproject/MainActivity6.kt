@@ -1,10 +1,15 @@
 package com.example.liveproject
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import com.android.volley.VolleyLog.TAG
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity6 : AppCompatActivity() {
     lateinit var username: EditText
@@ -20,6 +25,9 @@ class MainActivity6 : AppCompatActivity() {
         textView = findViewById(R.id.textforget)
         button = findViewById(R.id.bnt2)
         button1 = findViewById(R.id.bnt1)
+
+        val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+        val editor:SharedPreferences.Editor=sharedPreferences.edit()
         textView.setOnClickListener {
             val intent = Intent(this, MainActivity7::class.java)
             startActivity(intent)
@@ -28,24 +36,29 @@ class MainActivity6 : AppCompatActivity() {
             val intent = Intent(this, MainActivity8::class.java)
             startActivity(intent)
         }
-//        button1.setOnClickListener {
-//            val username = username.text.toString().trim()
-//            val password = password.text.toString().trim()
-//            if (username.isEmpty()){
-//                username.ifEmpty { "username required"}
-//            }else if(password.isEmpty()){
-//                password.ifBlank { "password required" }
-//            }
-//        }
-        button1.setOnClickListener {
-            val name= username.text.toString().trim()
-            val pass= password.text.toString().trim()
+        val auth=FirebaseAuth.getInstance()
 
-            if(username.length()==0){
+        button1.setOnClickListener {
+            if(username.text.toString().isEmpty() && password.text.toString().isEmpty()){
                 username.setError("Please enter username ")
-            }else if(password.length()==0){
                 password.setError("Please enter password")
-            }
+            }else
+                auth.signInWithEmailAndPassword(username.text.toString(),password.text.toString())
+                    .addOnCompleteListener { task->
+                        if (task.isSuccessful){
+                            Log.e(TAG,"Successfully signed in with email link")
+                            val result=task.result
+                            editor.putString("email",username.text.toString())
+                            editor.putString("password",password.text.toString())
+                            editor.apply()
+                            editor.commit()
+                            Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
+                        }else{
+                            Log.e(TAG,"Error signing in with email link", task.exception)
+                            Toast.makeText(this,"Please Enter Valid Username And Password",Toast.LENGTH_LONG).show()
+
+                        }
+                    }
 
         }
 

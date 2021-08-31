@@ -68,8 +68,6 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
     }
 
     // Filter Method
-
-
     @ExperimentalStdlibApi
     override fun getFilter(): Filter {
         return object : Filter(){

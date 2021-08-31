@@ -3,17 +3,22 @@ package com.example.liveproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import com.android.volley.VolleyLog.TAG
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity8 : AppCompatActivity() {
-    lateinit var editText81: EditText
-    lateinit var editText82: EditText
-    lateinit var editText83: EditText
-    lateinit var editText84: EditText
+    lateinit var username: EditText
+    lateinit var email: EditText
+    lateinit var password: EditText
+    lateinit var emailoptional: EditText
     lateinit var textView81: TextView
     lateinit var button81: Button
     lateinit var button82: Button
@@ -25,10 +30,10 @@ class MainActivity8 : AppCompatActivity() {
         toolbar.setTitle("Register")
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
         setSupportActionBar(toolbar)
-        editText81=findViewById(R.id.edit81)
-        editText82=findViewById(R.id.edit82)
-        editText83=findViewById(R.id.edit83)
-        editText84=findViewById(R.id.edit84)
+        username=findViewById(R.id.username)
+        email=findViewById(R.id.email)
+        password=findViewById(R.id.password)
+        emailoptional=findViewById(R.id.emailoptional)
         textView81=findViewById(R.id.text8)
         button81=findViewById(R.id.bnt81)
         button82=findViewById(R.id.bnt82)
@@ -41,5 +46,39 @@ class MainActivity8 : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
+        val auth=FirebaseAuth.getInstance()
+        button81.setOnClickListener {
+            auth.createUserWithEmailAndPassword(email.text.toString(),password.text.toString())
+                .addOnCompleteListener { task->
+                    if (task.isSuccessful){
+                        storedata()
+                        Log.e(TAG,"Successfully signed in with email link")
+                        Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
+                        val result=task.result
+                    }else{
+
+                        Log.e(TAG,"Error signing in with email link",task.exception)
+                        Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
+                    }
+                }
+        }
+    }
+
+    private fun storedata() {
+        val model= DataModel1()
+        model.username=username.text.toString()
+        model.email=email.text.toString()
+        model.password=password.text.toString()
+        model.emailoptional=emailoptional.text.toString()
+
+        val dp=FirebaseFirestore.getInstance()
+        dp.collection("user").add(model).addOnSuccessListener {
+            Log.e(TAG,"Snapshot:${it.id}")
+            Toast.makeText(this,"snapshot",Toast.LENGTH_LONG).show()
+        }
+            .addOnFailureListener {
+                Log.e(TAG,"Error",it)
+                Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
+            }
     }
 }

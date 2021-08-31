@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -56,18 +57,18 @@ class BlankFragment2 : Fragment() {
         var recyclerAdapter:readapter
         var i:Int=0
         var list:ArrayList<DataModel> = ArrayList<DataModel>()
-//        var spinner: Spinner =view.findViewById(R.id.spinner)
+        var spinner: Spinner =view.findViewById(R.id.spinner)
         var searchView:SearchView =view.findViewById(R.id.search2)
         recyclerAdapter= readapter(activity,list)
-        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 
+        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
+        spinner.adapter = arrayAdapter
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 if (list.contains(query)) {
                     recyclerAdapter.filter.filter(query)
-                } else {
-//                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
                 }
                 return false
             }

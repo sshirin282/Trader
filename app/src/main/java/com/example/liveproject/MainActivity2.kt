@@ -1,6 +1,8 @@
 package com.example.liveproject
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -45,14 +47,30 @@ MainActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toggle.isDrawerIndicatorEnabled = true
+
+
         val header: View = navigationView.getHeaderView(0)
-        val tv: TextView = header.findViewById(R.id.login)
-        tv.setOnClickListener {
+        val login: TextView = header.findViewById(R.id.login)
+        val sign: TextView = header.findViewById(R.id.sign)
+        val guest:TextView=header.findViewById(R.id.guest)
+        val lash:TextView=header.findViewById(R.id.lash)
+        val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+        val sharevalue=sharedPreferences.getString("email","")
+        if(sharevalue.equals("")){
+            guest.setText("Login")
+        }else{
+            guest.setText(sharevalue)
+            login.visibility=View.GONE
+            sign.visibility=View.GONE
+            lash.visibility=View.GONE
+            Log.e("email>>",sharevalue+"")
+        }
+        login.setOnClickListener {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
         }
-        val tv1: TextView = header.findViewById(R.id.sign)
-        tv1.setOnClickListener {
+
+        sign.setOnClickListener {
             val intent=Intent(this,MainActivity8::class.java)
             startActivity(intent)
         }
