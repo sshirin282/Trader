@@ -18,8 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_300sdp"
         android:layout_below="@id/tool9"
-        android:weightSum="50"
-        android:background="@drawable/shape1">
+        android:weightSum="50">
 
         <RelativeLayout
             android:layout_width="match_parent"
