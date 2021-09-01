@@ -62,18 +62,6 @@ class MainActivity6 : AppCompatActivity() {
 
         }
 
-
-//        button1.setOnClickListener {
-//            val user_msg_error: String = username.text.toString()
-//
-//            //check if the EditText have values or not
-//            if (user_msg_error.trim().isEmpty()) {
-//                username.error = "Required"
-//                Toast.makeText(applicationContext, "User Name Required ", Toast.LENGTH_SHORT).show()
-//            } else if (password.text.toString().trim().isEmpty()) {
-//                password.error = "Required"
-//                Toast.makeText(applicationContext, "Email Required ", Toast.LENGTH_SHORT).show()
-//            }
             toolbar.setTitle("Login")
             toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
             setSupportActionBar(toolbar)

@@ -48,5 +48,11 @@
         android:id="@+id/disclaimer2"
         android:icon="@drawable/ic_baseline_info_24"/>
 
+        <item
+            android:title="Logout"
+            android:id="@+id/logout2"
+            android:icon="@drawable/ic_baseline_power_settings_new_24"/>
+
+
     </group>
 </menu>

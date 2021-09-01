@@ -7,7 +7,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity7 : AppCompatActivity() {
     lateinit var editText: EditText
@@ -29,6 +31,15 @@ class MainActivity7 : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
+        val auth=FirebaseAuth.getInstance()
+        auth.sendPasswordResetEmail(editText.text.toString())
+            .addOnCompleteListener { task->
+                if (task.isSuccessful){
+                    Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(this,"Failed",Toast.LENGTH_LONG).show()
+                }
+            }
 
 
     }

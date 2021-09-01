@@ -26,6 +26,7 @@ class MainActivity8 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main8)
+
         toolbar=findViewById(R.id.ttt)
         toolbar.setTitle("Register")
         toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
@@ -72,10 +73,7 @@ class MainActivity8 : AppCompatActivity() {
         model.emailoptional=emailoptional.text.toString()
 
         val dp=FirebaseFirestore.getInstance()
-        dp.collection("user").add(model).addOnSuccessListener {
-            val document=FirebaseFirestore.getInstance()
-            document.document("USER")
-            Log.e(TAG,"Snapshot:${it.id}")
+        dp.collection("user").document(email.text.toString()).set(model).addOnSuccessListener {
             Toast.makeText(this,"Suceessful",Toast.LENGTH_LONG).show()
         }
             .addOnFailureListener {

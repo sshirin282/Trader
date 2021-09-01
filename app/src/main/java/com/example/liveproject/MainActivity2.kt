@@ -17,7 +17,8 @@ import androidx.cardview.widget.CardView
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
-
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 
 
 class
@@ -76,17 +77,17 @@ MainActivity2 : AppCompatActivity() {
         }
 
         cardView1 = findViewById(R.id.card1)
-        //cardView1.setBackgroundResource(R.drawable.shape1)
+        cardView1.setBackgroundResource(R.drawable.shape1)
         cardView2 = findViewById(R.id.card2)
-        //cardView2.setBackgroundResource(R.drawable.shape1)
+        cardView2.setBackgroundResource(R.drawable.shape1)
         cardView3 = findViewById(R.id.card3)
-       // cardView3.setBackgroundResource(R.drawable.shape1)
+        cardView3.setBackgroundResource(R.drawable.shape1)
         cardView4 = findViewById(R.id.card4)
-      //  cardView4.setBackgroundResource(R.drawable.shape1)
+        cardView4.setBackgroundResource(R.drawable.shape1)
         cardView5 = findViewById(R.id.card5)
-       // cardView5.setBackgroundResource(R.drawable.shape1)
+        cardView5.setBackgroundResource(R.drawable.shape1)
         cardView6 = findViewById(R.id.card6)
-       // cardView6.setBackgroundResource(R.drawable.shape1)
+        cardView6.setBackgroundResource(R.drawable.shape1)
 
         cardView1.setOnClickListener {
             val intent=Intent(this,MainActivity3::class.java)
@@ -161,6 +162,15 @@ MainActivity2 : AppCompatActivity() {
                 R.id.disclaimer2 ->{
                     val intent=Intent(this,MainActivity5::class.java)
                     startActivity(intent)
+                }
+                R.id.logout2->{
+                 FirebaseAuth.getInstance().signOut()
+                    val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+                    val editor:SharedPreferences.Editor=sharedPreferences.edit()
+                    editor.clear()
+                    editor.apply()
+                    Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
+
                 }
             }
             menuItem.isChecked = true
