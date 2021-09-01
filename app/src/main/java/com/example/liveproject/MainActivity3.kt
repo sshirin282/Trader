@@ -1,6 +1,8 @@
 package com.example.liveproject
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -17,6 +19,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import java.util.Locale.filter
 
 class MainActivity3 : AppCompatActivity() {
@@ -35,63 +38,7 @@ class MainActivity3 : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.navigation)
         navigationView = findViewById(R.id.navigationview)
         drawerLayout = findViewById(R.id.dra)
-        toolbar = findViewById(R.id.tool)
-
-
-
-//        spinner.onItemSelectedListener= object : AdapterView.OnItemSelectedListener{
-//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>?) {
-//                TODO("Not yet implemented")
-//            }
-////        }
-        adapter= readapter(this,list)
-//        edittext.addTextChangedListener(object : TextWatcher {
-//
-//            override fun afterTextChanged(s: Editable) {
-//                adapter.filter.filter(s)
-//            }
-//            override fun beforeTextChanged(s: CharSequence, start: Int,
-//                                           count: Int, after: Int) {
-//            }
-//            override fun onTextChanged(s: CharSequence, start: Int,
-//                                       before: Int, count: Int) {
-//            }
-//        })
-
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String): Boolean {
-////                if (list.contains(query)) {
-////                    adapter.filter.filter(query)
-////                } else {
-//////                    Toast.makeText(this,@MainActivity3, "No Match found", Toast.LENGTH_LONG).show()
-////                }
-//                return false
-//            }
-//            override fun onQueryTextChange(newText: String): Boolean {
-//              adapter.filter.filter(newText)
-//                return false
-//            }
-//        })
-
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                TODO("Not yet implemented")
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//
-////                BlankFragment.co.adapter.getFilter().filter(newText)
-////                adapter.filter.filter(newText)
-//                return true
-//            }
-//
-//        })
-
-
+        toolbar = findViewById(R.id.tool1)
 
 
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
@@ -105,15 +52,28 @@ class MainActivity3 : AppCompatActivity() {
 
 
         val header: View = navigationView.getHeaderView(0)
-        val tv: TextView = header.findViewById(R.id.login)
-        tv.setOnClickListener {
+        val login: TextView = header.findViewById(R.id.login)
+        val sign: TextView = header.findViewById(R.id.sign)
+        val guest:TextView=header.findViewById(R.id.guest)
+        val lash:TextView=header.findViewById(R.id.lash)
+        login.setOnClickListener {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
         }
-        val tv1: TextView = header.findViewById(R.id.sign)
-        tv1.setOnClickListener {
+        sign.setOnClickListener {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
+        }
+        val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+        val sharevalue=sharedPreferences.getString("email","")
+        if(sharevalue.equals("")){
+            guest.setText("Guest User")
+        }else{
+            guest.setText(sharevalue)
+            login.visibility=View.GONE
+            sign.visibility=View.GONE
+            lash.visibility=View.GONE
+            Log.e("email>>",sharevalue+"")
         }
 
         bottomNavigationView.setOnNavigationItemSelectedListener {
@@ -204,11 +164,6 @@ class MainActivity3 : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
             true
         }
-//      else {
-//      val fragment= BlankFragment()
-//      supportFragmentManager.beginTransaction().replace(R.id.frame, fragment).commit()
-//      true
-//      }
 
 
 
@@ -265,6 +220,18 @@ class MainActivity3 : AppCompatActivity() {
                     val intent = Intent(this, MainActivity5::class.java)
                     startActivity(intent)
                 }
+                R.id.logout2->{
+                    FirebaseAuth.getInstance().signOut()
+                    val intent=Intent(this,MainActivity2::class.java)
+                    startActivity(intent)
+                    val sharedPreferences:SharedPreferences =this.getSharedPreferences("USER",
+                        Context.MODE_PRIVATE)
+                    val editor:SharedPreferences.Editor=sharedPreferences.edit()
+                    editor.clear()
+                    editor.apply()
+                    Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
+                }
+
             }
             menuItem.isChecked = true
             drawerLayout.closeDrawers()

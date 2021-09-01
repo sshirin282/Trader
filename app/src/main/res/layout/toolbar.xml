@@ -5,9 +5,14 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool"
-        android:background="@android:color/darker_gray"
+        android:background="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center"
+            android:src="@drawable/nnnn"/>
     </androidx.appcompat.widget.Toolbar>
 
 </RelativeLayout>

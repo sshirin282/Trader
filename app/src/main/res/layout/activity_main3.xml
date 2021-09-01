@@ -14,19 +14,11 @@
         android:gravity="start"
         android:id="@+id/relative">
 
-<!--        <SearchView-->
-<!--            android:layout_marginTop="@dimen/_3sdp"-->
-<!--            android:layout_width="@dimen/_170sdp"-->
-<!--            android:layout_height="@dimen/_40sdp"-->
-<!--            android:id="@+id/search"-->
-<!--            android:queryHint="Search"-->
-<!--            android:layout_below="@id/toolbar"-->
-<!--            android:background="#595757"/>-->
-
-
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar">
+            layout="@layout/tool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </include>
 
         <FrameLayout

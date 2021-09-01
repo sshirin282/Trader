@@ -3,7 +3,6 @@ package com.example.liveproject
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,10 +13,10 @@ import androidx.appcompat.widget.Toolbar
 
 class MainShare : AppCompatActivity() {
     lateinit var toolbar: Toolbar
-    lateinit var imageView1: ImageView
-    lateinit var imageView2: ImageView
-    lateinit var imageView3: ImageView
-    lateinit var imageView4: ImageView
+    lateinit var share: ImageView
+    lateinit var youtube: ImageView
+    lateinit var rateus: ImageView
+    lateinit var gmail: ImageView
     lateinit var textView1:TextView
     lateinit var textView2:TextView
     lateinit var textView3:TextView
@@ -27,10 +26,10 @@ class MainShare : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_share)
         toolbar=findViewById(R.id.toolshare)
-        imageView1=findViewById(R.id.shareimage1)
-        imageView2=findViewById(R.id.shareimage2)
-        imageView3=findViewById(R.id.shareimage3)
-        imageView4=findViewById(R.id.shareimage4)
+        share=findViewById(R.id.share)
+        youtube=findViewById(R.id.youtube)
+        rateus=findViewById(R.id.rateus)
+        gmail=findViewById(R.id.gmail)
         textView1=findViewById(R.id.sharetext1)
         textView2=findViewById(R.id.sharetext2)
         textView3=findViewById(R.id.sharetext3)
@@ -45,24 +44,26 @@ class MainShare : AppCompatActivity() {
             finish()
         })
 
-        imageView1.setOnClickListener {
+        share.setOnClickListener {
             val shareIntent = Intent()
             shareIntent.action = Intent.ACTION_SEND
             shareIntent.putExtra(Intent.EXTRA_TEXT, "stock market")
             shareIntent.type = "text/plain"
             startActivity(Intent.createChooser(shareIntent,"send to"))
         }
-        imageView2.setOnClickListener {
+        youtube.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://www.youtube.com/watch?v=aTna7UBmsAs")
             startActivity(intent)
         }
-        imageView3.setOnClickListener {
+        rateus.setOnClickListener {
             val shareIntent= Intent()
-            shareIntent.action = Intent.ACTION_SEND
-//            shareIntent.action = Intent.ACTION_VIEW
-//            shareIntent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.stocktrends.mobileapp")
+           shareIntent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.stocktrends.mobileapp")
             startActivity(Intent.createChooser(shareIntent,"Open with"))
+        }
+        gmail.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "your_email"))
+            startActivity(intent)
         }
     }
 

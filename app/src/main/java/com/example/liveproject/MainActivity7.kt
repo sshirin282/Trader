@@ -36,14 +36,12 @@ class MainActivity7 : AppCompatActivity() {
                         Toast.makeText(this,"Failed",Toast.LENGTH_LONG).show()
                     }
                 }
-
         }
         toolbar.setNavigationOnClickListener(View.OnClickListener {
             val intent = Intent(this, MainActivity6::class.java)
             startActivity(intent)
             finish()
         })
-
 
 
     }

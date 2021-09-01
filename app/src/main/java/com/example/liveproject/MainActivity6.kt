@@ -21,6 +21,7 @@ class MainActivity6 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
+
         toolbar = findViewById(R.id.toolbar2)
         textView = findViewById(R.id.textforget)
         button = findViewById(R.id.bnt2)
@@ -53,7 +54,7 @@ class MainActivity6 : AppCompatActivity() {
                             editor.apply()
                             editor.commit()
                             Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
-                            val intent=Intent(this,MainActivity2::class.java)
+                            val intent=Intent(this, MainActivity2::class.java)
                             startActivity(intent)
                         }else{
                             Log.e(TAG,"Error signing in with email link", task.exception)

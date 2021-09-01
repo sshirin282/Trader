@@ -16,10 +16,10 @@
     <LinearLayout
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp"
+        android:layout_height="@dimen/_170sdp"
         android:layout_below="@id/tool9"
         android:weightSum="50"
-        android:background="@drawable/shape1">
+        android:background="@android:color/darker_gray">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -27,7 +27,7 @@
 
             <ImageView
                 android:layout_marginTop="@dimen/_15sdp"
-                android:id="@+id/shareimage1"
+                android:id="@+id/share"
                 android:layout_marginLeft="@dimen/_125sdp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
@@ -35,44 +35,48 @@
             <TextView
                 android:id="@+id/sharetext1"
                 android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_15sdp"
-                android:layout_toRightOf="@id/shareimage1"
+                android:layout_toRightOf="@id/share"
                 android:text="Share App"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
 
             <ImageView
-                android:layout_below="@id/shareimage1"
-                android:id="@+id/shareimage2"
+                android:layout_below="@id/share"
+                android:id="@+id/youtube"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_125sdp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:src="@drawable/youtube" />
             <TextView
                 android:id="@+id/sharetext2"
+                android:layout_marginTop="@dimen/_20sdp"
                 android:layout_below="@id/sharetext1"
-                android:layout_toRightOf="@id/shareimage2"
+                android:layout_toRightOf="@id/youtube"
                 android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:text="Youtube"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:textSize="@dimen/_15sdp"
                 android:textColor="@color/black" />
 
             <ImageView
-                android:layout_below="@id/shareimage2"
-                android:id="@+id/shareimage3"
+                android:layout_below="@id/youtube"
+                android:id="@+id/rateus"
                 android:layout_marginLeft="@dimen/_125sdp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:src="@drawable/ratees" />
             <TextView
                 android:id="@+id/sharetext3"
-                android:layout_toRightOf="@id/shareimage3"
+                android:layout_toRightOf="@id/rateus"
                 android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:text="Rate Us"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_below="@id/sharetext2"
@@ -80,17 +84,19 @@
                 android:textColor="@color/black" />
 
             <ImageView
-                android:layout_below="@id/shareimage3"
-                android:id="@+id/shareimage4"
+                android:layout_below="@id/rateus"
+                android:id="@+id/gmail"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginLeft="@dimen/_125sdp"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:src="@drawable/index" />
             <TextView
                 android:id="@+id/sharetext4"
-                android:layout_toRightOf="@id/shareimage4"
+                android:layout_toRightOf="@id/gmail"
                 android:layout_width="@dimen/_70sdp"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:text="Contact Us"
                 android:layout_marginLeft="@dimen/_10sdp"
                 android:layout_below="@id/sharetext3"
