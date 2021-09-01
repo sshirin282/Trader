@@ -57,7 +57,7 @@ MainActivity2 : AppCompatActivity() {
         val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
         val sharevalue=sharedPreferences.getString("email","")
         if(sharevalue.equals("")){
-            guest.setText("Login")
+            guest.setText("Guest User")
         }else{
             guest.setText(sharevalue)
             login.visibility=View.GONE
