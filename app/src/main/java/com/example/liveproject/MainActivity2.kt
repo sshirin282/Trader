@@ -30,7 +30,6 @@ MainActivity2 : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var toolbar: Toolbar
-//    lateinit var textView: TextView
     lateinit var cardView1: CardView
     lateinit var cardView2: CardView
     lateinit var cardView3: CardView
