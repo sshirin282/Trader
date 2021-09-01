@@ -53,6 +53,8 @@ class MainActivity6 : AppCompatActivity() {
                             editor.apply()
                             editor.commit()
                             Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
+                            val intent=Intent(this,MainActivity2::class.java)
+                            startActivity(intent)
                         }else{
                             Log.e(TAG,"Error signing in with email link", task.exception)
                             Toast.makeText(this,"Please Enter Valid Username And Password",Toast.LENGTH_LONG).show()

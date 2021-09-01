@@ -1,6 +1,8 @@
 package com.example.liveproject
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -72,8 +74,16 @@ class MainActivity8 : AppCompatActivity() {
         model.password=password.text.toString()
         model.emailoptional=emailoptional.text.toString()
 
+        val sharedPreferences: SharedPreferences =this.getSharedPreferences("USER", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor=sharedPreferences.edit()
+
         val dp=FirebaseFirestore.getInstance()
         dp.collection("user").document(email.text.toString()).set(model).addOnSuccessListener {
+
+            editor.putString("email",username.text.toString())
+            editor.putString("password",password.text.toString())
+            editor.apply()
+            editor.commit()
             Toast.makeText(this,"Suceessful",Toast.LENGTH_LONG).show()
         }
             .addOnFailureListener {
