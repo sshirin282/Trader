@@ -19,7 +19,7 @@
         android:layout_height="@dimen/_170sdp"
         android:layout_below="@id/tool9"
         android:weightSum="50"
-        android:background="@android:color/darker_gray">
+        android:background="@color/cardview_dark_background">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 android:src="@drawable/youtube" />
             <TextView
                 android:id="@+id/sharetext2"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_18sdp"
                 android:layout_below="@id/sharetext1"
                 android:layout_toRightOf="@id/youtube"
                 android:layout_width="@dimen/_70sdp"

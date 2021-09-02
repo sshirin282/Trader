@@ -210,7 +210,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@color/black"
+        android:background="@color/cardview_dark_background"
         app:itemIconTint="@drawable/tab_color"
         app:itemTextColor="@drawable/tab_color"
         app:headerLayout="@layout/header"

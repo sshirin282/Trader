@@ -21,6 +21,7 @@
         android:layout_marginTop="112dp"
         android:background="@drawable/shape"
         android:gravity="center"
+        android:textStyle="bold"
         android:hint="Username" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -44,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/eye"
-        android:text="Forgot Password"
+        android:text="Forgot Password?"
         android:textSize="@dimen/_15sdp"
         android:textColor="@android:color/darker_gray"
         android:layout_marginLeft="@dimen/_175sdp"/>
