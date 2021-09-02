@@ -56,10 +56,9 @@
         android:layout_below="@id/textforget"
         android:layout_marginTop="10dp"
         app:strokeWidth="3dp"
-        app:strokeColor="@android:color/darker_gray"
+        app:strokeColor="#3F51B5"
         android:text="Login"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/black"
         android:gravity="center"/>
 
     <Button
@@ -69,10 +68,10 @@
         android:layout_below="@id/bnt1"
         android:layout_marginTop="10dp"
         app:strokeWidth="3dp"
-        app:strokeColor="@android:color/darker_gray"
+        app:strokeColor="#3F51B5"
         android:text="Signup"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#3F51B5"
         android:gravity="center"/>
 
 

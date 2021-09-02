@@ -3,6 +3,7 @@ package com.example.liveproject
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -163,16 +164,18 @@ MainActivity2 : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.logout2->{
-                    FirebaseAuth.getInstance().signOut()
-                    val intent=Intent(this,MainActivity2::class.java)
-                    startActivity(intent)
-                    val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
-                    val editor:SharedPreferences.Editor=sharedPreferences.edit()
-                    editor.clear()
-                    editor.apply()
-                    Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
+                        FirebaseAuth.getInstance().signOut()
+                        val intent=Intent(this,MainActivity2::class.java)
+                        startActivity(intent)
+                        val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+                        val editor:SharedPreferences.Editor=sharedPreferences.edit()
+                        editor.clear()
+                        editor.apply()
+                        Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
+                    }
+
                 }
-            }
+
             menuItem.isChecked = true
             drawerLayout.closeDrawers()
             true

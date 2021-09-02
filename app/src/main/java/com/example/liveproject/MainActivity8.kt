@@ -49,21 +49,29 @@ class MainActivity8 : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
+
         val auth=FirebaseAuth.getInstance()
         button81.setOnClickListener {
-            auth.createUserWithEmailAndPassword(email.text.toString(),password.text.toString())
-                .addOnCompleteListener { task->
-                    if (task.isSuccessful){
-                        storedata()
-                        Log.e(TAG,"Successfully signed in with email link")
-                        Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
-                        val result=task.result
-                    }else{
+            if(username.text.toString().isEmpty() && password.text.toString().isEmpty() && email.text.toString().isEmpty()) {
+                username.setError("Please enter username")
+                password.setError("Please enter password")
+                email.setError("Please enter email")
+            }else{
+                auth.createUserWithEmailAndPassword(email.text.toString(),password.text.toString())
+                    .addOnCompleteListener { task->
+                        if (task.isSuccessful){
+                            storedata()
+                            Log.e(TAG,"Successfully signed in with email link")
+                            Toast.makeText(this,"Successful",Toast.LENGTH_LONG).show()
+                            val result=task.result
+                        }else{
 
-                        Log.e(TAG,"Error signing in with email link",task.exception)
-                        Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
+                            Log.e(TAG,"Error signing in with email link",task.exception)
+                            Toast.makeText(this,"Error",Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
+            }
+
         }
     }
 

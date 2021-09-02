@@ -59,6 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text8"
+        android:textColor="@color/white"
         android:layout_below="@id/emailoptional"
         android:layout_marginTop="@dimen/_10sdp"
         android:text="*email required if you forgot password or want to change password in future."/>
@@ -72,9 +73,8 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:text="SIGNUP"
         android:layout_below="@id/text8"
-        app:strokeColor="@android:color/darker_gray"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="@android:color/darker_gray"
+        app:strokeColor="#3F51B5"
+        android:textColor="@color/black"
         android:gravity="center"/>
     <Button
         android:id="@+id/bnt82"
@@ -84,9 +84,9 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:text="LOGIN"
         android:layout_below="@id/bnt81"
-        app:strokeColor="@android:color/darker_gray"
+        app:strokeColor="#3F51B5"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#3F51B5"
         android:gravity="center"/>
 
 </RelativeLayout>
