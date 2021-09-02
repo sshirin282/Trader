@@ -173,8 +173,7 @@ MainActivity2 : AppCompatActivity() {
                         editor.apply()
                         Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
                     }
-
-                }
+            }
 
             menuItem.isChecked = true
             drawerLayout.closeDrawers()

@@ -57,9 +57,9 @@ class MainShare : AppCompatActivity() {
             startActivity(intent)
         }
         rateus.setOnClickListener {
-            val shareIntent= Intent()
-           shareIntent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.stocktrends.mobileapp")
-            startActivity(Intent.createChooser(shareIntent,"Open with"))
+            val intent= Intent(Intent.ACTION_VIEW)
+           intent.data = Uri.parse("https://play.google.com/store/apps/details?id=com.stocktrends.mobileapp")
+            startActivity(intent)
         }
         gmail.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + "your_email"))
