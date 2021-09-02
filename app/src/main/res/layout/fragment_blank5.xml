@@ -5,18 +5,31 @@
     android:layout_height="match_parent"
     tools:context=".BlankFragment5"
     android:background="@color/black">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/contesttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
         android:text="Login is requires to participate in Contest"
-        android:gravity="center"
-        android:textStyle="bold"
+        android:textColor="@android:color/darker_gray"
         android:textSize="@dimen/_15sdp"
-        android:textColor="@android:color/darker_gray"/>
+        android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/loginbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+       android:layout_centerInParent="true"
+        android:layout_below="@+id/contesttext"
+        android:textColor="@color/black" />
 
-
+    </RelativeLayout>
 </FrameLayout>
