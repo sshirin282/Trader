@@ -87,7 +87,6 @@ class MainActivity8 : AppCompatActivity() {
 
         val dp=FirebaseFirestore.getInstance()
         dp.collection("user").document(email.text.toString()).set(model).addOnSuccessListener {
-
             editor.putString("email",username.text.toString())
             editor.putString("password",password.text.toString())
             editor.apply()
