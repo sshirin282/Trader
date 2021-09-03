@@ -7,10 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
-import android.widget.SearchView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -83,8 +80,17 @@ class BlankFragment : Fragment() {
                 return false
             }
         })
+        spinner.onItemSelectedListener= object :
+            AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Toast.makeText(context,"Logout",Toast.LENGTH_LONG).show()
+            }
 
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
 
+        }
 
         val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
             response->

@@ -24,7 +24,6 @@
         android:id="@+id/spinner"
         android:layout_marginTop="@dimen/_3sdp"
         android:background="#595757"
-        co
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
