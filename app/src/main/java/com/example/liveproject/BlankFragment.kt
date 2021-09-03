@@ -84,6 +84,8 @@ class BlankFragment : Fragment() {
             }
         })
 
+
+
         val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
             response->
           Log.e("response>>>>",response+"")

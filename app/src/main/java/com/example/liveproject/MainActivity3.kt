@@ -56,6 +56,7 @@ class MainActivity3 : AppCompatActivity() {
         val sign: TextView = header.findViewById(R.id.sign)
         val guest:TextView=header.findViewById(R.id.guest)
         val lash:TextView=header.findViewById(R.id.lash)
+        val logout:TextView=header.findViewById(R.id.logout)
         login.setOnClickListener {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
@@ -64,10 +65,21 @@ class MainActivity3 : AppCompatActivity() {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
         }
+        logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent=Intent(this,MainActivity3::class.java)
+            startActivity(intent)
+            val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+            val editor:SharedPreferences.Editor=sharedPreferences.edit()
+            editor.clear()
+            editor.apply()
+            Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
+        }
         val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
         val sharevalue=sharedPreferences.getString("email","")
         if(sharevalue.equals("")){
             guest.setText("Guest User")
+            logout.visibility=View.GONE
         }else{
             guest.setText(sharevalue)
             login.visibility=View.GONE
@@ -220,18 +232,6 @@ class MainActivity3 : AppCompatActivity() {
                     val intent = Intent(this, MainActivity5::class.java)
                     startActivity(intent)
                 }
-                R.id.logout2->{
-                    FirebaseAuth.getInstance().signOut()
-                    val intent=Intent(this,MainActivity2::class.java)
-                    startActivity(intent)
-                    val sharedPreferences:SharedPreferences =this.getSharedPreferences("USER",
-                        Context.MODE_PRIVATE)
-                    val editor:SharedPreferences.Editor=sharedPreferences.edit()
-                    editor.clear()
-                    editor.apply()
-                    Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
-                }
-
             }
             menuItem.isChecked = true
             drawerLayout.closeDrawers()

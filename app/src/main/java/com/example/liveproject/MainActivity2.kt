@@ -23,9 +23,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
 
-class
-
-MainActivity2 : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity() {
     lateinit var navigationView: NavigationView
     lateinit var drawerLayout: DrawerLayout
     lateinit var toggle: ActionBarDrawerToggle
@@ -56,10 +54,12 @@ MainActivity2 : AppCompatActivity() {
         val sign: TextView = header.findViewById(R.id.sign)
         val guest:TextView=header.findViewById(R.id.guest)
         val lash:TextView=header.findViewById(R.id.lash)
+        val logout:TextView=header.findViewById(R.id.logout)
         val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
         val sharevalue=sharedPreferences.getString("email","")
         if(sharevalue.equals("")){
             guest.setText("Guest User")
+            logout.visibility=View.GONE
         }else{
             guest.setText(sharevalue)
             login.visibility=View.GONE
@@ -71,10 +71,19 @@ MainActivity2 : AppCompatActivity() {
             val intent=Intent(this,MainActivity6::class.java)
             startActivity(intent)
         }
-
         sign.setOnClickListener {
             val intent=Intent(this,MainActivity8::class.java)
             startActivity(intent)
+        }
+        logout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+                        val intent=Intent(this,MainActivity2::class.java)
+                        startActivity(intent)
+                        val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
+                        val editor:SharedPreferences.Editor=sharedPreferences.edit()
+                        editor.clear()
+                        editor.apply()
+                        Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
         }
 
         cardView1 = findViewById(R.id.card1)
@@ -164,8 +173,7 @@ MainActivity2 : AppCompatActivity() {
                     val intent=Intent(this,MainActivity5::class.java)
                     startActivity(intent)
                 }
-                R.id.logout2->{
-//                    if(R.id.logout2.equals(1)){
+//                R.id.logout2->{
 //                        FirebaseAuth.getInstance().signOut()
 //                        val intent=Intent(this,MainActivity2::class.java)
 //                        startActivity(intent)
@@ -174,28 +182,7 @@ MainActivity2 : AppCompatActivity() {
 //                        editor.clear()
 //                        editor.apply()
 //                        Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
-//                    }else{
-//                        val navigationView:NavigationView=findViewById(R.id.navigationview)
-//                        val menu: Menu = navigationView.menu
-//                        menu.findItem(R.id.logout2).setVisible(true)
 //                    }
-                    if ( R.id.logout2.equals("")){
-                        val navigationView:NavigationView=findViewById(R.id.navigationview)
-                       val menu: Menu = navigationView.menu
-                       menu.findItem(R.id.logout2).setVisible(true)
-                    }else{
-                        FirebaseAuth.getInstance().signOut()
-                        val intent=Intent(this,MainActivity2::class.java)
-                        startActivity(intent)
-                        val sharedPreferences:SharedPreferences=this.getSharedPreferences("USER",Context.MODE_PRIVATE)
-                        val editor:SharedPreferences.Editor=sharedPreferences.edit()
-                        editor.clear()
-                        editor.apply()
-                        Toast.makeText(this,"Logout",Toast.LENGTH_LONG).show()
-                    }
-
-
-                    }
 
             }
 

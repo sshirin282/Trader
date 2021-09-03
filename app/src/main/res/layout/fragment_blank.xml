@@ -13,7 +13,6 @@
         android:id="@+id/relative">
 
     <SearchView
-
         android:layout_marginTop="@dimen/_3sdp"
         android:layout_width="@dimen/_170sdp"
         android:layout_height="@dimen/_40sdp"
@@ -25,6 +24,7 @@
         android:id="@+id/spinner"
         android:layout_marginTop="@dimen/_3sdp"
         android:background="#595757"
+        co
         android:layout_marginLeft="@dimen/_2sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
