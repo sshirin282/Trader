@@ -16,9 +16,10 @@ import kotlin.collections.ArrayList
 class readapter(val context: Context?, var list: ArrayList<DataModel>)
     : RecyclerView.Adapter<readapter.ViewHolder>(), Filterable{
 
-    var countryList=ArrayList<DataModel>()
+    var countryList = ArrayList<DataModel>()
+
     init {
-        countryList=list
+        countryList = list
     }
 
 
@@ -48,7 +49,6 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
     }
 
 
-
     override fun onBindViewHolder(holder: readapter.ViewHolder, position: Int) {
         holder.textView1.text = countryList.get(position).ststock
         holder.textView2.text = countryList.get(position).stcmp
@@ -67,18 +67,32 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
         }
     }
 
-    // Filter Method
+
     @ExperimentalStdlibApi
     override fun getFilter(): Filter {
-        return object : Filter(){
+        return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
                 if (charSearch.isEmpty()) {
-                    countryList=list
+                    countryList = list
                 } else {
                     val resultList = ArrayList<DataModel>()
                     for (row in list) {
-                        if (row.ststock.lowercase(Locale.ROOT).contains(charSearch.lowercase(Locale.ROOT))) {
+                        if (row.ststock.lowercase(Locale.ROOT)
+                                .contains(charSearch.lowercase(Locale.ROOT))
+                        ) {
+                            resultList.add(row)
+                        }
+
+                       else if (row.ststatus.lowercase(Locale.ROOT)
+                                .contains(charSearch.lowercase(Locale.ROOT))
+                        ) {
+                            resultList.add(row)
+                        }
+
+                        else if (row.ststatus.lowercase(Locale.ROOT)
+                                .contains(charSearch.lowercase(Locale.ROOT))
+                        ) {
                             resultList.add(row)
                         }
                     }
@@ -88,6 +102,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
                 filterResults.values = countryList
                 return filterResults
             }
+
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 countryList = results?.values as ArrayList<DataModel>
                 notifyDataSetChanged()
@@ -95,8 +110,10 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
         }
 
+
+        }
     }
-}
+
 
 
 

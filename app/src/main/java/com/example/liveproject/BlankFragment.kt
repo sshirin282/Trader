@@ -84,6 +84,7 @@ class BlankFragment : Fragment() {
             AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 Toast.makeText(context,"Logout",Toast.LENGTH_LONG).show()
+                adapter.filter.filter(spinner.selectedItem.toString())
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
