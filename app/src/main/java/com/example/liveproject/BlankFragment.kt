@@ -83,8 +83,16 @@ class BlankFragment : Fragment() {
         spinner.onItemSelectedListener= object :
             AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//                if(position >0 && position < list.size){
+//                    adapter.filter.filter(spinner.selectedItem.toString())
+
+              //  }
                 Toast.makeText(context,"Logout",Toast.LENGTH_LONG).show()
                 adapter.filter.filter(spinner.selectedItem.toString())
+
+//                ArrayAdapter<String> CityAdapter = new ArrayAdapter<String>(BlankFragment.this, R.layout.support_simple_spinner_dropdown_item, getCity(JsonData, spRegion.getSelectedItem().toString()))
+//                spCity.setAdapter(CityAdapter)
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

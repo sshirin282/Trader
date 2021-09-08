@@ -109,6 +109,8 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
             }
 
         }
+        
+        
 
 
         }
