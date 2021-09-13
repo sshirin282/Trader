@@ -90,9 +90,6 @@ class BlankFragment : Fragment() {
                 Toast.makeText(context,"Logout",Toast.LENGTH_LONG).show()
                 adapter.filter.filter(spinner.selectedItem.toString())
 
-//                ArrayAdapter<String> CityAdapter = new ArrayAdapter<String>(BlankFragment.this, R.layout.support_simple_spinner_dropdown_item, getCity(JsonData, spRegion.getSelectedItem().toString()))
-//                spCity.setAdapter(CityAdapter)
-
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -133,6 +130,7 @@ class BlankFragment : Fragment() {
             recyclerView.adapter=adapter
 
         },Response.ErrorListener {
+            Log.e("error",it.toString())
         })
         val queque:RequestQueue=Volley.newRequestQueue(activity)
         queque.add(request)

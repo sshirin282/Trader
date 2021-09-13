@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">liveProject</string>
+    <string name="app_name">Trader</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="title_activity_main3">MainActivity</string>
