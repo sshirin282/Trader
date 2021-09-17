@@ -56,12 +56,12 @@ class BlankFragment3 : Fragment() {
         val i:Int=0
         var recyclerAdapter:readapter
         val list:ArrayList<DataModel> = ArrayList<DataModel>()
-        var spinner: Spinner =view.findViewById(R.id.spinner)
+//        var spinner: Spinner =view.findViewById(R.id.spinner)
         var searchView: SearchView =view.findViewById(R.id.search3)
         recyclerAdapter= readapter(activity,list)
-        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
-        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
-        spinner.adapter = arrayAdapter
+        //var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+//        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
+//        spinner.adapter = arrayAdapter
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 if (list.contains(query)) {

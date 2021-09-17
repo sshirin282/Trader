@@ -60,13 +60,12 @@ class BlankFragment : Fragment() {
         var i: Int = 0
         val BASE_URL: String = "https://maxgenitsolutions.in/stock/apistockview?category=intraday"
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
-        var spinner: Spinner=view.findViewById(R.id.spinner)
         var searchView: SearchView =view.findViewById(R.id.search)
         adapter= readapter(activity,list)
-        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
-
-        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
-        spinner.adapter = arrayAdapter
+//        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
+//
+//        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
+//        spinner.adapter = arrayAdapter
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -80,23 +79,23 @@ class BlankFragment : Fragment() {
                 return false
             }
         })
-        spinner.onItemSelectedListener= object :
-            AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-//                if(position >0 && position < list.size){
-//                    adapter.filter.filter(spinner.selectedItem.toString())
+//        spinner.onItemSelectedListener= object :
+//            AdapterView.OnItemSelectedListener{
+//            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+////                if(position >0 && position < list.size){
+////                    adapter.filter.filter(spinner.selectedItem.toString())
+//
+//              //  }
+//                Toast.makeText(context,"Logout",Toast.LENGTH_LONG).show()
+//                adapter.filter.filter(spinner.selectedItem.toString())
+//
+//            }
 
-              //  }
-                Toast.makeText(context,"Logout",Toast.LENGTH_LONG).show()
-                adapter.filter.filter(spinner.selectedItem.toString())
+//            override fun onNothingSelected(parent: AdapterView<*>?) {
+//                TODO("Not yet implemented")
+//            }
 
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
-        }
+//        }
 
         val request:StringRequest= StringRequest(Request.Method.GET,BASE_URL,Response.Listener {
             response->
