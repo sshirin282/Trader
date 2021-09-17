@@ -13,21 +13,21 @@
 
     <SearchView
         android:layout_marginTop="@dimen/_3sdp"
-        android:layout_width="@dimen/_170sdp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:id="@+id/search3"
         android:queryHint="Search"
         android:background="#595757"/>
 
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_marginTop="@dimen/_3sdp"
-        android:background="#595757"
-        android:layout_marginLeft="@dimen/_2sdp"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_toRightOf="@id/search3" />
+<!--    <Spinner-->
+<!--        android:id="@+id/spinner"-->
+<!--        android:layout_marginTop="@dimen/_3sdp"-->
+<!--        android:background="#595757"-->
+<!--        android:layout_marginLeft="@dimen/_2sdp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_40sdp"-->
+<!--        android:layout_toRightOf="@id/search3" />-->
 
 
 
@@ -35,7 +35,7 @@
         android:id="@+id/tablelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinner"
+        android:layout_below="@id/search3"
         android:background="#3F51B5"
         android:layout_marginTop="@dimen/_3sdp">
         <TableRow
