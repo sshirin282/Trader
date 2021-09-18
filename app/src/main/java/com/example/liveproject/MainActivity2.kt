@@ -41,6 +41,7 @@ class MainActivity2 : AppCompatActivity() {
         navigationView = findViewById(R.id.navigationview)
         drawerLayout = findViewById(R.id.drawerlayout)
         toolbar = findViewById(R.id.tool)
+        toolbar.setTitle("")
         toolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24)
         setSupportActionBar(toolbar)
         toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
