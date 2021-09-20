@@ -1,6 +1,6 @@
 package com.example.liveproject
 
-class DataModel {
+class DataModel() {
    var ststock:String=""
    var stcmp:String=""
    var stdate:String=""

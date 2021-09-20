@@ -1,6 +1,8 @@
 package com.example.liveproject
 
-class DataModel1 {
+import android.widget.EditText
+
+class DataModel1() {
     var username:String=""
     var email:String=""
     var password:String=""

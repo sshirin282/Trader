@@ -8,10 +8,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -61,9 +57,10 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
         holder.textView6.text = countryList.get(position).ststatus
         holder.textView7.text = countryList.get(position).stremark
 
-//        var  database = FirebaseDatabase.getInstance()
-//        var  myRef= database.getReference("users")
-//        holder.imageView.setOnClickListener {
+        var  database = FirebaseDatabase.getInstance()
+        var  myRef= database.getReference("users")
+        holder.imageView.setOnClickListener {
+            store()
 //            myRef.setValue("shirin")
 
           //  database= FirebaseDatabase.getInstance().getReference("users").database
@@ -88,7 +85,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 //                        Toast.makeText(this, "Successful", Toast.LENGTH_LONG).show()
 //                        val result = task.result
 
-//                    }
+                 }
 
                     if (countryList.get(position).ststatus.equals("SL Hit")) {
                         holder.textView6.setTextColor(Color.RED)
@@ -99,9 +96,25 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
                     }
                 }
 
+    private fun store() {
+        val model= DataModel(countryList)
+        model.ststock=countryList.toString()
+
+        val ref=FirebaseDatabase.getInstance().getReference("shiakh")
+        val refe= ref.push().key
+
+        val shaikh= DataModel(countryList)
+        refe?.let {
+            ref.child(it).setValue(shaikh).addOnCompleteListener {
+                Toast.makeText(context,"saved shirin", Toast.LENGTH_LONG).show()
 
 
-            @ExperimentalStdlibApi
+            }
+        }
+    }
+
+
+    @ExperimentalStdlibApi
             override fun getFilter(): Filter {
                 return object : Filter() {
                     override fun performFiltering(constraint: CharSequence?): FilterResults {
