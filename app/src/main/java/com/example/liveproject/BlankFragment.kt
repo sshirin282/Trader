@@ -14,8 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
@@ -62,6 +64,7 @@ class BlankFragment : Fragment() {
         var recyclerView: RecyclerView = view.findViewById(R.id.recyclerintraday)
         var searchView: SearchView =view.findViewById(R.id.search)
         adapter= readapter(activity,list)
+
 //        var name: Array<String> = arrayOf("ALL", "Search Stock", "Active", "Achieved", "SL Hit")
 //
 //        val arrayAdapter = ArrayAdapter(activity!!, android.R.layout.simple_list_item_1, name)
@@ -79,6 +82,8 @@ class BlankFragment : Fragment() {
                 return false
             }
         })
+
+
 //        spinner.onItemSelectedListener= object :
 //            AdapterView.OnItemSelectedListener{
 //            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {

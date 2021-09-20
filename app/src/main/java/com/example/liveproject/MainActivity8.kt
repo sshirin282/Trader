@@ -1,9 +1,9 @@
 package com.example.liveproject
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,10 +11,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.android.volley.VolleyLog.TAG
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
+
 
 class MainActivity8 : AppCompatActivity() {
     lateinit var username: EditText
@@ -24,7 +30,9 @@ class MainActivity8 : AppCompatActivity() {
     lateinit var textView81: TextView
     lateinit var button81: Button
     lateinit var button82: Button
+    lateinit var button83:Button
     lateinit var toolbar: Toolbar
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main8)
@@ -39,6 +47,7 @@ class MainActivity8 : AppCompatActivity() {
         emailoptional=findViewById(R.id.emailoptional)
         textView81=findViewById(R.id.text8)
         button81=findViewById(R.id.bnt81)
+        button83=findViewById(R.id.bnt83)
         button82=findViewById(R.id.bnt82)
         button82.setOnClickListener {
             val intent= Intent(this,MainActivity6::class.java)
@@ -49,6 +58,25 @@ class MainActivity8 : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
+        var  database = FirebaseDatabase.getInstance()
+        var  myRef= database.getReference("users")
+        button83.setOnClickListener {
+            database= FirebaseDatabase.getInstance().getReference("users").database
+//            val user= User(username,password,emailoptional,email)
+            database.child("Users").child(user_id)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            val userName = dataSnapshot.child("name").value.toString()
+//                            holder.setUserName(userName)
+
+                        }
+                    }
+
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
+        }
+
 
         val auth=FirebaseAuth.getInstance()
         button81.setOnClickListener {
