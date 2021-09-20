@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 import kotlin.collections.ArrayList
@@ -57,10 +58,11 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
         holder.textView6.text = countryList.get(position).ststatus
         holder.textView7.text = countryList.get(position).stremark
 
+
         var  database = FirebaseDatabase.getInstance()
-        var  myRef= database.getReference("users")
+
         holder.imageView.setOnClickListener {
-            store()
+            DataStore(countryList.get(position).ststock)
 //            myRef.setValue("shirin")
 
           //  database= FirebaseDatabase.getInstance().getReference("users").database
@@ -96,21 +98,29 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
                     }
                 }
 
-    private fun store() {
-        val model= DataModel(countryList)
-        model.ststock=countryList.toString()
+    private fun DataStore(ststock: String) {
+        val model= DataModelWish(ststock)
+        model.ststock= ststock
+        //var userId:String?=null
 
-        val ref=FirebaseDatabase.getInstance().getReference("shiakh")
-        val refe= ref.push().key
+        val ref = FirebaseDatabase.getInstance().getReference("shaikh")
+        val refe = ref.push().key
 
-        val shaikh= DataModel(countryList)
-        refe?.let {
-            ref.child(it).setValue(shaikh).addOnCompleteListener {
-                Toast.makeText(context,"saved shirin", Toast.LENGTH_LONG).show()
+//        val user= FirebaseAuth.getInstance().currentUser
+//        if (user != null) {
+//            userId=user.uid
+//        }
 
 
+    val shaikh= DataModelWish(ststock)
+        refe?.let { it ->
+            ref.child(it).child(ststock).setValue(shaikh).addOnCompleteListener {
             }
         }
+
+
+
+
     }
 
 
@@ -159,12 +169,12 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
             }
         }
 
-//        fun storedata() {
-//            val model = DataModel()
-//            model.ststock=
-//        }
-//    }
-//}
+
+
+
+
+
+
 
 
 
