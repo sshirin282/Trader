@@ -27,6 +27,7 @@ class MainActivity8 : AppCompatActivity() {
     lateinit var textView81: TextView
     lateinit var button81: Button
     lateinit var button82: Button
+    lateinit var button83:Button
     lateinit var toolbar: Toolbar
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +44,7 @@ class MainActivity8 : AppCompatActivity() {
         emailoptional=findViewById(R.id.emailoptional)
         textView81=findViewById(R.id.text8)
         button81=findViewById(R.id.bnt81)
+        button83=findViewById(R.id.bnt83)
         button82=findViewById(R.id.bnt82)
         button82.setOnClickListener {
             val intent= Intent(this,MainActivity6::class.java)
@@ -53,7 +55,11 @@ class MainActivity8 : AppCompatActivity() {
             startActivity(intent)
             finish()
         })
-
+        var  database = FirebaseDatabase.getInstance()
+        var  myRef= database.getReference("users")
+        button83.setOnClickListener {
+           store()
+        }
 
 
         val auth=FirebaseAuth.getInstance()
@@ -81,10 +87,27 @@ class MainActivity8 : AppCompatActivity() {
         }
     }
 
+    private fun store() {
+        val model=DataModel1(username,password)
+        val name= username.text.toString()
+        val password=password.text.toString()
 
+        val ref=FirebaseDatabase.getInstance().getReference("shiakh")
+        val refe= ref.push().key
+
+        val shaikh= DataModel1(username,password)
+        refe?.let {
+            ref.child(it).setValue(shaikh).addOnCompleteListener {
+                Toast.makeText(applicationContext,"saved shirin", Toast.LENGTH_LONG).show()
+
+
+            }
+        }
+
+    }
 
     private fun storedata() {
-        val model= DataModel1()
+        val model= DataModel1(username,password)
         model.username=username.text.toString()
         model.email=email.text.toString()
         model.password=password.text.toString()
