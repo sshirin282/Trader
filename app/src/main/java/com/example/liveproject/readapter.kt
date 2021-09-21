@@ -34,7 +34,8 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
         val textView5: TextView = view.findViewById(R.id.third)
         val textView6: TextView = view.findViewById(R.id.fourth)
         val textView7: TextView = view.findViewById(R.id.five)
-        val imageView: ImageView = view.findViewById(R.id.adddd)
+        val imageView: ImageView = view.findViewById(R.id.add)
+        val imageView1 :ImageView =view.findViewById(R.id.minus)
 
     }
 
@@ -60,9 +61,12 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
 
         var  database = FirebaseDatabase.getInstance()
+         if (R.id.add.equals("")){
+             holder.imageView.setOnClickListener {
+                 DataStore(countryList.get(position).ststock)
+                 
+         }
 
-        holder.imageView.setOnClickListener {
-            DataStore(countryList.get(position).ststock)
 //            myRef.setValue("shirin")
 
           //  database= FirebaseDatabase.getInstance().getReference("users").database
@@ -103,7 +107,8 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
         model.ststock= ststock
         //var userId:String?=null
 
-        val ref = FirebaseDatabase.getInstance().getReference("shaikh")
+
+        val ref = FirebaseDatabase.getInstance().getReference("SHAIKH")
         val refe = ref.push().key
 
 //        val user= FirebaseAuth.getInstance().currentUser
@@ -114,7 +119,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
     val shaikh= DataModelWish(ststock)
         refe?.let { it ->
-            ref.child(it).child(ststock).setValue(shaikh).addOnCompleteListener {
+            ref.child(it).child(ststock).setValue(ststock).addOnCompleteListener {
             }
         }
 
