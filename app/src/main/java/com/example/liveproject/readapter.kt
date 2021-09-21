@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -61,11 +62,16 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
 
         var  database = FirebaseDatabase.getInstance()
+        holder.imageView.setOnClickListener {
+            DataStore(countryList.get(position).ststock)
          if (R.id.add.equals("")){
-             holder.imageView.setOnClickListener {
-                 DataStore(countryList.get(position).ststock)
-                 
+             holder.imageView.isVisible=false
+             holder.imageView1.isVisible=true
+         }else{
+             holder.imageView1.isVisible=true
+             holder.imageView.isVisible=false
          }
+             }
 
 //            myRef.setValue("shirin")
 
@@ -91,7 +97,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 //                        Toast.makeText(this, "Successful", Toast.LENGTH_LONG).show()
 //                        val result = task.result
 
-                 }
+
 
                     if (countryList.get(position).ststatus.equals("SL Hit")) {
                         holder.textView6.setTextColor(Color.RED)
