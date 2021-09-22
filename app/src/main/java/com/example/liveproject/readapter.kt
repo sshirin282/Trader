@@ -9,7 +9,10 @@ import android.widget.*
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -72,32 +75,24 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
              holder.imageView.isVisible=false
          }
              }
-
+//
 //            myRef.setValue("shirin")
 
-          //  database= FirebaseDatabase.getInstance().getReference("users").database
+            database= FirebaseDatabase.getInstance().getReference("SHAIKH").database
 
-//            database.child("Users").child(user_id)
-//                .addValueEventListener(object : ValueEventListener() {
-//                    fun onDataChange(dataSnapshot: DataSnapshot) {
-//                        if (dataSnapshot.exists()) {
-//                            val userName: String = dataSnapshot.child("name").getValue().toString()
-//                            holder.setUserName(userName)
-//                        }
-//                    }
+            database.child("SHAIKH").child(user_id)
+                .addValueEventListener(object : ValueEventListener() {
+                    fun onDataChange(dataSnapshot: DataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            val userName: String = dataSnapshot.child("name").getValue().toString()
+                            holder.setUserName(userName)
+                        }
+                    }
+
+                    fun onCancelled(databaseError: DatabaseError?) {}
+                })
+
 //
-//                    fun onCancelled(databaseError: DatabaseError?) {}
-//                })
-
-//            auth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
-//                .addOnCompleteListener { task ->
-//                    if (task.isSuccessful) {
-//                        storedata()
-//                        Log.e(VolleyLog.TAG, "Successfully signed in with email link")
-//                        Toast.makeText(this, "Successful", Toast.LENGTH_LONG).show()
-//                        val result = task.result
-
-
 
                     if (countryList.get(position).ststatus.equals("SL Hit")) {
                         holder.textView6.setTextColor(Color.RED)
