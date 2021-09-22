@@ -2,6 +2,7 @@ package com.example.liveproject
 
 import android.content.Context
 import android.graphics.Color
+import android.text.method.TextKeyListener.clear
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.core.RepoManager.clear
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -70,29 +72,41 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
          if (R.id.add.equals("")){
              holder.imageView.isVisible=false
              holder.imageView1.isVisible=true
-         }else{
-             holder.imageView1.isVisible=true
-             holder.imageView.isVisible=false
          }
              }
+//        holder.imageView1.setOnClickListener {
+//            val ref = FirebaseDatabase.getInstance().getReference("SHAIKH")
+//            ref.addValueEventListener(object: ValueEventListener {
+//                override fun onDataChange(snapshot: DataSnapshot) {
+//                    if (snapshot.exists()) {
+//                            val userName: String = snapshot.child("name").getValue().toString()
+////                            holder.imageView(userName)
+//                        }
+//                }
+//
+//                override fun onCancelled(error: DatabaseError) {
+//                    TODO("Not yet implemented")
+//                }
+//
+//            })
+//        }
+
 //
 //            myRef.setValue("shirin")
 
             database= FirebaseDatabase.getInstance().getReference("SHAIKH").database
 
-            database.child("SHAIKH").child(user_id)
-                .addValueEventListener(object : ValueEventListener() {
-                    fun onDataChange(dataSnapshot: DataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            val userName: String = dataSnapshot.child("name").getValue().toString()
-                            holder.setUserName(userName)
-                        }
-                    }
-
-                    fun onCancelled(databaseError: DatabaseError?) {}
-                })
-
+//            database.child("SHAIKH").child(user_id)
+//                .addValueEventListener(object : ValueEventListener() {
+//                    fun onDataChange(dataSnapshot: DataSnapshot) {
+//                        if (dataSnapshot.exists()) {
+//                            val userName: String = dataSnapshot.child("name").getValue().toString()
+//                            holder.setUserName(userName)
+//                        }
+//                    }
 //
+//                    fun onCancelled(databaseError: DatabaseError?) {}
+//                })
 
                     if (countryList.get(position).ststatus.equals("SL Hit")) {
                         holder.textView6.setTextColor(Color.RED)
@@ -102,6 +116,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
                         holder.textView6.setTextColor(Color.GREEN)
                     }
                 }
+
 
     private fun DataStore(ststock: String) {
         val model= DataModelWish(ststock)
@@ -123,10 +138,6 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
             ref.child(it).child(ststock).setValue(ststock).addOnCompleteListener {
             }
         }
-
-
-
-
     }
 
 
@@ -174,6 +185,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
             }
         }
+
 
 
 
