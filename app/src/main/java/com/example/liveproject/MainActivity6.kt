@@ -10,6 +10,8 @@ import android.view.View
 import android.widget.*
 import com.android.volley.VolleyLog.TAG
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity6 : AppCompatActivity() {
     lateinit var username: EditText
@@ -18,6 +20,8 @@ class MainActivity6 : AppCompatActivity() {
     lateinit var button: Button
     lateinit var button1: Button
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
+    lateinit var refUser:DatabaseReference
+     var firebaseUserID: String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main6)
@@ -47,6 +51,8 @@ class MainActivity6 : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(username.text.toString(),password.text.toString())
                     .addOnCompleteListener { task->
                         if (task.isSuccessful){
+                            firebaseUserID = auth.currentUser!!.uid
+                            refUser=FirebaseDatabase.getInstance().reference.child("shirin").child(firebaseUserID)
                             Log.e(TAG,"Successfully signed in with email link")
                             val result=task.result
                             editor.putString("email",username.text.toString())

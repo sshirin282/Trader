@@ -3,6 +3,7 @@ package com.example.liveproject
 import android.content.Context
 import android.graphics.Color
 import android.text.method.TextKeyListener.clear
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.core.RepoManager.clear
+import com.google.firebase.database.ktx.getValue
+import retrofit2.http.Query
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -66,16 +69,18 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
         holder.textView7.text = countryList.get(position).stremark
 
 
-        var  database = FirebaseDatabase.getInstance()
+        var  database = FirebaseDatabase.getInstance().getReference("shirin")
+
         holder.imageView.setOnClickListener {
             DataStore(countryList.get(position).ststock)
-         if (R.id.add.equals("")){
-             holder.imageView.isVisible=false
-             holder.imageView1.isVisible=true
-         }
-             }
+            if (R.id.add.equals("")) {
+                holder.imageView.visibility=View.GONE
+                holder.imageView1.visibility=View.VISIBLE
+            }
+        }
+
 //        holder.imageView1.setOnClickListener {
-//            val ref = FirebaseDatabase.getInstance().getReference("SHAIKH")
+//            val ref = FirebaseDatabase.getInstance().reference
 //            ref.addValueEventListener(object: ValueEventListener {
 //                override fun onDataChange(snapshot: DataSnapshot) {
 //                    if (snapshot.exists()) {
@@ -85,7 +90,7 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 //                }
 //
 //                override fun onCancelled(error: DatabaseError) {
-//                    TODO("Not yet implemented")
+//                   Toast.makeText(context,"error",Toast.LENGTH_LONG).show()
 //                }
 //
 //            })
@@ -94,19 +99,30 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 //
 //            myRef.setValue("shirin")
 
-            database= FirebaseDatabase.getInstance().getReference("SHAIKH").database
+        database= FirebaseDatabase.getInstance().getReference("SHAIKH")
 
-//            database.child("SHAIKH").child(user_id)
-//                .addValueEventListener(object : ValueEventListener() {
-//                    fun onDataChange(dataSnapshot: DataSnapshot) {
-//                        if (dataSnapshot.exists()) {
-//                            val userName: String = dataSnapshot.child("name").getValue().toString()
-//                            holder.setUserName(userName)
-//                        }
-//                    }
-//
-//                    fun onCancelled(databaseError: DatabaseError?) {}
-//                })
+        database.child("MkBwN7EhBOPodB1GoAy").addListenerForSingleValueEvent( object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    System.out.println(snapshot.getValue().toString())
+                    Log.e("suuu",snapshot.toString())
+                    Toast.makeText(context,"click",Toast.LENGTH_LONG).show()
+                    val userName: String = snapshot.child("name").getValue().toString()
+                    //holder.imageView1(userName)
+                } else if (R.id.add.equals("")){
+                    holder.imageView.isVisible=false
+                    holder.imageView1.isVisible=true
+               }
+            }
+
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("error",error.toString())
+                Toast.makeText(context,"unclick",Toast.LENGTH_LONG).show()
+            }
+        })
+
+
 
                     if (countryList.get(position).ststatus.equals("SL Hit")) {
                         holder.textView6.setTextColor(Color.RED)
@@ -119,23 +135,18 @@ class readapter(val context: Context?, var list: ArrayList<DataModel>)
 
 
     private fun DataStore(ststock: String) {
-        val model= DataModelWish(ststock)
-        model.ststock= ststock
-        //var userId:String?=null
+        val model = DataModelWish(ststock)
+        model.ststock = ststock
 
 
-        val ref = FirebaseDatabase.getInstance().getReference("SHAIKH")
+        val ref = FirebaseDatabase.getInstance().getReference("shirin")
         val refe = ref.push().key
 
-//        val user= FirebaseAuth.getInstance().currentUser
-//        if (user != null) {
-//            userId=user.uid
-//        }
 
-
-    val shaikh= DataModelWish(ststock)
+        val shaikh =DataModelWish(ststock)
         refe?.let { it ->
             ref.child(it).child(ststock).setValue(ststock).addOnCompleteListener {
+                Log.e("refe>>>",it.toString())
             }
         }
     }
